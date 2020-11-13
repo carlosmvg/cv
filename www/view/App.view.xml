@@ -1,0 +1,15 @@
+<mvc:View
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	controllerName="myCV.controller.App"
+	displayBlock="true">
+		<App id="app">
+			<pages>
+				<Page showHeader="false" >
+					<content>
+						<Label text="hola mundo"/>
+					</content>
+				</Page>
+			</pages>
+		</App>
+</mvc:View>
