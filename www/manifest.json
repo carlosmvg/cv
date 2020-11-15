@@ -2,7 +2,8 @@
 	"_version": "1.12.0",
 	"sap.app": {
 		"id": "myCV",
-		"type": "application"
+		"type": "application",
+		"i18n": "i18n/i18n.properties"
 	},
 	"sap.ui5": {
 		"dependencies": {
@@ -15,9 +16,7 @@
 		},
 		"rootView": {
 			"viewName": "myCV.view.App",
-			"type": "XML",
-			"async": true,
-			"id": "app"
+			"type": "XML"
 		},
 		"models": {
 			"i18n": {
@@ -35,6 +34,31 @@
 					"uri": "css/styles.css"
 				}
 			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "myCV.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"transition": "slide",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"name": "Home",
+					"pattern": "",
+					"greedy": true,
+					"target": "Home"
+				}
+			],
+			"targets": {
+				"Home": {
+					"viewName": "Home",
+					"viewLevel": 1
+				}
+			}
 		}
 	}
 }

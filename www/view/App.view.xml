@@ -5,7 +5,7 @@
 	displayBlock="true">
 		<App id="app">
 			<pages>
-				<Page showHeader="false" >
+				<Page showHeader="false">
 					<content>
 						<Label text="hola mundo"/>
 					</content>

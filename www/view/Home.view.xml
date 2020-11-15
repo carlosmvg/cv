@@ -1,0 +1,11 @@
+<mvc:View
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	controllerName="myCV.controller.Home"
+	displayBlock="true">
+		<Page showHeader="false">
+			<content>
+				<Label text="Página principal"/>
+			</content>
+		</Page>
+</mvc:View>
