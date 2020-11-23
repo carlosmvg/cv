@@ -1,0 +1,36 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <ViewSettingsDialog
+        id="tileSelectorViewSettings"
+        reset=".reset"
+        confirm=".onConfirm">
+        <customTabs>
+            <ViewSettingsCustomTab id="catalogSort" title="{i18n>TileSelector.Sort}">
+                <content>
+                    <List id="catalogSortList"
+                        mode="SingleSelectLeft"
+                        includeItemInSelection="true"
+                        selectionChange=".onSelectionChange">
+                        <items>
+                            <GroupHeaderListItem title="{i18n>TileSelector.Sort.Catalogs}" />
+                            <StandardListItem id="sortCatalogsAscending" title="{i18n>TileSelector.Sort.Ascending}" selected="{= !${/catalogsDescending}}" />
+                            <StandardListItem id="sortCatalogsDescending" title="{i18n>TileSelector.Sort.Descending}" selected="{= !!${/catalogsDescending}}" />
+                        </items>
+                    </List>
+
+                    <List id="vizSortList"
+                          mode="SingleSelectLeft"
+                          includeItemInSelection="true"
+                          selectionChange=".onSelectionChange">
+                        <items>
+                            <GroupHeaderListItem title="{i18n>TileSelector.Sort.Viz}" />
+                            <StandardListItem id="sortVizAscending" title="{i18n>TileSelector.Sort.Ascending}" selected="{= !${/vizDescending}}" />
+                            <StandardListItem id="sortVizDescending" title="{i18n>TileSelector.Sort.Descending}" selected="{= !!${/vizDescending}}" />
+                        </items>
+                    </List>
+                </content>
+            </ViewSettingsCustomTab>
+        </customTabs>
+    </ViewSettingsDialog>
+</core:FragmentDefinition>

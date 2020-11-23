@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<interface xmlns="http://www.sap.com/sap.ui.library.xsd">
+    <name>IBadge</name>
+    <derived/>
+    <documentation>Interface for controls which implement the notification badge concept.</documentation>
+    <since>1.80</since>
+</interface>

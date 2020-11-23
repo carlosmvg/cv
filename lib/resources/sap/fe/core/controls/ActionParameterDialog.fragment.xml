@@ -1,0 +1,74 @@
+<!-- * 	 @param idPrefix default 'F' Prefix for the id
+* 	 @param vhIdPrefix default 'FieldValueHelp' Prefix for the value help id -->
+<core:FragmentDefinition
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:mdc="sap.ui.mdc"
+	xmlns:mdcField="sap.ui.mdc.field"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:unittest="http://schemas.sap.com/sapui5/preprocessorextension/sap.fe.unittesting/1"
+	template:require="{
+		MODEL: 'sap/ui/model/odata/v4/AnnotationHelper',
+		COMMON: 'sap/fe/macros/CommonHelper',
+		FIELD: 'sap/fe/macros/field/FieldHelper',
+		FEHelper: 'sap/fe/core/FEHelper',
+		ID: 'sap/fe/core/helpers/StableIdHelper'
+	}"
+>
+	<template:with path="entitySet>" helper="FEHelper.getTargetCollection" var="esName">
+		<form:SimpleForm binding="{$Parameter}">
+			<template:repeat list="{action>$Parameter}" var="parameter">
+				<template:with path="parameter>" helper="COMMON.gotoActionParameter" var="actionParameter">
+					<!-- In case of bound actions the first parameter shall be ignored -->
+					<template:if test="{= !${action>$IsBound} || ${parameter>$Name} !== ${action>$Parameter/0/$Name} }">
+						<Label unittest:id="ActionParameterDialogLabelExpressionTest" text="{actionParameter>@com.sap.vocabularies.Common.v1.Label}" />
+						<!-- TODOs:
+							edit mode, can there be also field control?
+                            value help
+                            additional value? (= text annotation)
+                            text arrangement?
+                            multipleLines?
+                -->
+						<!-- TODO: use new value helper -->
+						<mdc:Field
+							delegate="{name: 'sap/ui/mdc/odata/v4/FieldBaseDelegate'}"
+							unittest:id="ActionParameterDialogFieldExpressionTest"
+							id="{= ID.generate(['APD_', ${parameter>$Name}]) }"
+							value="{parameter>@@MODEL.format}"
+							display="{= FIELD.getActionParameterDialogDisplay(${actionParameter>@})}"
+							editMode="{actionParameter>@@COMMON.getParameterEditMode}"
+							width="100%"
+							multipleLines="{= ${actionParameter>@com.sap.vocabularies.UI.v1.MultiLineText} ? (${actionParameter>@com.sap.vocabularies.UI.v1.MultiLineText} !== false)  : undefined}"
+							required="{= FIELD.isRequired(${actionParameter>@@FIELD.fieldControl}, 'Editable')}"
+							change="{= '.handleChange($event, \'' + ${parameter>$Name} + '\')' }"
+							fieldHelp="{= FIELD.getActionParameterDialogFieldHelp(${actionParameter>@}, ${actionName>@sapui.name}, ${parameter>$Name}) }"
+							visible="{actionParameter>@@COMMON.isVisible}"
+						>
+							<template:if test="{= FIELD.checkFieldHelp(${actionParameter>@}) }">
+								<mdc:dependents>
+									<mdcField:FieldValueHelp
+										unittest:id="ActionParameterDialogValuehelpExpressionTest"
+										id="{= ID.generate([${actionName>@sapui.name},${parameter>$Name}]) }"
+										delegate="{= FIELD.getFieldValueHelpDelegate(${action>$IsBound}, ${esName>@sapui.name}, ${actionName>@sapui.name}, ${parameter>$Name}) }"
+										showConditionPanel="true"
+										noDialog="{= ${actionParameter>@com.sap.vocabularies.Common.v1.ValueListWithFixedValues} ? (${actionParameter>@com.sap.vocabularies.Common.v1.ValueListWithFixedValues} !== false) : false}"
+										validateInput="{= ${actionParameter>@com.sap.vocabularies.Common.v1.ValueListWithFixedValues} ? true : false}"
+									>
+										<mdcField:FieldValueHelpMTableWrapper />
+									</mdcField:FieldValueHelp>
+								</mdc:dependents>
+							</template:if>
+							<mdc:customData>
+								<!-- Workaround: as it is not possible so far to use late property via contexts, we need to set some property binding for the ParameterDefaultValeu path -->
+								<!-- should be removed again once the V4 Model requirement CPOUI5ODATAV4-339 is completed -->
+								<core:CustomData key="ParameterDefaultValue"
+									value="{= ${actionParameter>@com.sap.vocabularies.UI.v1.ParameterDefaultValue/$Path} ? '{' + ${actionParameter>@com.sap.vocabularies.UI.v1.ParameterDefaultValue/$Path} + '}' : '' }"/>
+							</mdc:customData>
+						</mdc:Field>
+					</template:if>
+				</template:with>
+			</template:repeat>
+		</form:SimpleForm>
+	</template:with>
+</core:FragmentDefinition>

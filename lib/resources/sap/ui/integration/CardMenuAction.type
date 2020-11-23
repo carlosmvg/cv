@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<simple-type xmlns="http://www.sap.com/sap.ui.library.xsd">
+    <name>CardMenuAction</name>
+    <derived/>
+    <documentation>An object type that represents card menu action properties.</documentation>
+    <developmentState state="experimental" since="1.79"></developmentState>
+    <baseType>any</baseType>
+</simple-type>

@@ -1,0 +1,27 @@
+{
+	"_version": "1.14.0",
+	"sap.app": {
+		"id": "sap.fe.templates.ListReport",
+		"type": "component",
+		"applicationVersion": {
+			"version": "1.82.1"
+		},
+		"title": "List Report",
+		"tags": {
+			"keywords": ["List Report"]
+		},
+		"ach": "CA-UI5-FE",
+		"offline": false,
+		"resources": "resources.json"
+	},
+	"sap.ui5": {
+		"services": {
+			"templatedViewService": {
+				"settings": {
+					"converterType": "ListReport"
+				}
+			}
+		},
+		"handleValidation": true
+	}
+}

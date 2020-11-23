@@ -1,0 +1,103 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    core:require="{
+        formatMessage: 'sap/base/strings/formatMessage'
+    }">
+    <Table
+        id="spaceAssignmentTable"
+        items="{
+            path: 'PageRepository>spaces',
+            sorter: { path: 'id' }
+        }"
+        itemPress=".onSpaceItemPress"
+        sticky="ColumnHeaders"
+        noDataText="{i18n>Message.NoSpaces}"
+        growing="true"
+        growingScrollToLoad="true">
+        <headerToolbar>
+            <OverflowToolbar id="spaceAssignmentOverflowToolbar">
+                <Title
+                    id="spaceAssignmentOverflowToolbarTitle"
+                    text="{
+                        parts:[
+                            'i18n>Label.SpacesNumber',
+                            {
+                                path: 'PageRepository>spaces',
+                                formatter: '._formatLength'
+                            }
+                        ],
+                        formatter: 'formatMessage'
+                    }"/>
+                <ToolbarSpacer id="spaceAssignmentToolbarSpacer" />
+                <SearchField
+                    id="spaceAssignmentSearchField"
+                    showRefreshButton="false"
+                    tooltip="{i18n>Tooltip.Search}"
+                    search=".onSearchSpaces"
+                    width="auto" />
+                <Button
+                    id="spaceAssignmentManageLaunchpadSpacesButton"
+                    text="{i18n>Button.ManageLaunchpadSpaces}"
+                    type="Transparent"
+                    visible="{/spaceAssignmentNavigationSupported}"
+                    press=".onManageLaunchpadSpaces" />
+                <OverflowToolbarButton
+                    id="spaceAssignmentSortButton"
+                    text="{i18n>Tooltip.SortSettingsButton}"
+                    tooltip="{i18n>Tooltip.SortSettingsButton}"
+                    icon="sap-icon://sort"
+                    type="Transparent"
+                    press=".showViewSettingsSpaceAssignmentDialog()" />
+            </OverflowToolbar>
+        </headerToolbar>
+        <columns>
+            <Column
+                id="spaceAssignmentColumnSpaceId"
+                minScreenWidth="phone"
+                demandPopin="true"
+                popinDisplay="Inline">
+                <Label
+                    id="spaceAssignmentColumnSpaceIdTitle"
+                    text="{i18n>Column.SpaceId}" />
+            </Column>
+            <Column
+                id="spaceAssignmentColumnSpaceDescription"
+                minScreenWidth="tablet"
+                demandPopin="true"
+                popinDisplay="Inline">
+                <Label
+                    id="spaceAssignmentColumnSpaceDescriptionTitle"
+                    text="{i18n>Column.SpaceDescription}" />
+            </Column>
+            <Column
+                id="spaceAssignmentColumnSpaceTitle"
+                minScreenWidth="tablet"
+                demandPopin="true"
+                popinDisplay="Inline">
+                <Label
+                    id="spaceAssignmentColumnSpaceTitleTitle"
+                    text="{i18n>Column.SpaceTitle}" />
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem
+                id="spaceAssignmentColumnListItem"
+                type="{= ${/spaceAssignmentNavigationSupported} ? 'Navigation' : 'Inactive'}">
+                <cells>
+                    <ObjectIdentifier
+                        id="spaceAssignmentCellSpaceId"
+                        title="{PageRepository>id}" />
+                    <Text
+                        id="spaceAssignmentCellSpaceDescription"
+                        text="{PageRepository>description}"
+                        maxLines="2" />
+                    <Text
+                        id="spaceAssignmentCellSpaceTitle"
+                        text="{PageRepository>title}"
+                        maxLines="2" />
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</core:FragmentDefinition>

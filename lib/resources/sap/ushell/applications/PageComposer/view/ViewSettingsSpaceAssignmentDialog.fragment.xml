@@ -1,0 +1,13 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <ViewSettingsDialog
+        id="viewSettingsSpaceAssignmentDialog"
+        confirm=".handleSpaceAssignmentDialogConfirm">
+        <sortItems>
+            <ViewSettingsItem id="SpaceAssignmentIDSort" text="{i18n>Column.SpaceId}" key="id" selected="true"/>
+            <ViewSettingsItem id="SpaceAssignmentDescriptionSort" text="{i18n>Column.SpaceDescription}" key="description" />
+            <ViewSettingsItem id="SpaceAssignmentTitleSort" text="{i18n>Column.SpaceTitle}" key="title" />
+        </sortItems>
+    </ViewSettingsDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,48 @@
+<mvc:View
+        xmlns="sap.m"
+        xmlns:form="sap.ui.layout.form"
+        xmlns:mvc="sap.ui.core.mvc"
+        controllerName="sap.ushell_abap.transport.controller.TransportTable">
+    <Table id="assignedTransportTable" noDataText="{i18n>Message.TransportTableNoData}">
+        <headerToolbar>
+            <OverflowToolbar id="assignedTransportOverflowToolbar">
+                <Title text="{i18n>Message.TransportTableOverflowToolbarHeader}"/>
+                <ToolbarSpacer/>
+                <Button
+                        id="assignedTransportOverflowToolbarAddButton"
+                        text="{i18n>AssignedSortAddButton}"
+                        visible="{ViewSettings>/showAssignButton}"
+                        press=".onAdd">
+                </Button>
+
+                <OverflowToolbarButton
+                        id="assignedTransportSortButton"
+                        icon="sap-icon://sort"
+                        type="Transparent"
+                        press=".onSort"
+                        text="{i18n>Tooltip.AssignedSortSettingsButton}"
+                        tooltip="{i18n>Tooltip.AssignedSortSettingsButton}"/>
+            </OverflowToolbar>
+        </headerToolbar>
+        <columns>
+            <Column id="columnAssignedTransportId">
+                <Text text="{i18n>AssignedTransportId}"/>
+            </Column>
+            <Column id="columnAssignedTransportDescription">
+                <Text text="{i18n>AssignedTransportDescription}"/>
+            </Column>
+            <Column id="columnAssignedTransportOwner">
+                <Text text="{i18n>AssignedTransportOwner}"/>
+            </Column>
+        </columns>
+        <dependents>
+            <ColumnListItem id="assignedTransportTemplate">
+                <cells>
+                    <Text text="{Transport>id}"/>
+                    <Text text="{Transport>description}"/>
+                    <Text text="{Transport>ownerFullname}"/>
+                </cells>
+            </ColumnListItem>
+        </dependents>
+    </Table>
+</mvc:View>

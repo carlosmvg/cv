@@ -1,0 +1,30 @@
+<View xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    controllerName="sap.ushell.components.shell.MenuBar.controller.MenuBar"
+    displayBlock="true">
+    <IconTabHeader
+        class="sapUshellShellTabBar"
+        ariaTexts="{viewConfiguration>/ariaTexts}"
+        mode="Inline"
+        showOverflowSelectList="true"
+        items="{menu>/}"
+        selectedKey="{viewConfiguration>/selectedKey}"
+        select=".onMenuItemSelection">
+        <items>
+            <IconTabFilter
+                text="{menu>title}"
+                key="{menu>uid}"
+                enabled="{viewConfiguration>/enableMenuBarNavigation}"
+                items="{
+                    path: 'menu>menuEntries',
+                    factory: '._menuFactory'
+                }"/>
+        </items>
+        <customData>
+            <core:CustomData xmlns:core="sap.ui.core"
+                key="sap-ui-fastnavgroup"
+                value="true"
+                writeToDom="true"/>
+        </customData>
+    </IconTabHeader>
+</View>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<control xmlns="http://www.sap.com/sap.ui.library.xsd">
+    <name>DateTypeRange</name>
+    <derived/>
+    <documentation>Date range with calendar day type information. Used to visualize special days in the Calendar.</documentation>
+    <since>1.24.0</since>
+    <baseType>sap.ui.unified/DateRange</baseType>
+    <properties>
+        <property name="type" type="sap.ui.unified/CalendarDayType" defaultValue="Type01" group="Appearance">
+            <documentation>Type of the date range.</documentation>
+        </property>
+        <property name="secondaryType" type="sap.ui.unified/CalendarDayType" defaultValue="None" group="Appearance" since="1.81.0">
+            <documentation>Applies secondary &lt;code&gt;CalendarDayType&lt;/code&gt; combined with the &lt;code&gt;CalendarDayType&lt;/code&gt; type chosen.
+Allows &lt;code&gt;specialDates&lt;/code&gt; to be also a &lt;code&gt;NonWorkingDay&lt;/code&gt;.
+The secondary day type can only be used for &lt;code&gt;NonWorkingDay&lt;/code&gt; or &lt;code&gt;None&lt;/code&gt; calendar day types.
+In other cases it will not be visible.</documentation>
+        </property>
+        <property name="color" type="sap.ui.core/CSSColor" group="Appearance" since="1.76.0">
+            <documentation>Background color of the &lt;code&gt;Calendar&lt;/code&gt; &lt;code&gt;specialDates&lt;/code&gt; aggregation.
+If set, this color will override the default background color defined in &lt;code&gt;Calendar&lt;/code&gt; &lt;code&gt;specialDates&lt;/code&gt; aggregation</documentation>
+        </property>
+    </properties>
+</control>

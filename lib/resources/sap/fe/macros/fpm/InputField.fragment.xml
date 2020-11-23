@@ -1,0 +1,17 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:core="sap.ui.core"
+	xmlns:macro="sap.fe.macros"
+	template:require="{
+		FIELD: 'sap/fe/macros/field/FieldHelper'
+	}"
+>
+	<macro:Field _flexId="{this>id}" editMode="Editable" dataField="{property>}" onChange="{this>onChange}" parentControl="Form">
+		<template:if test="{=FIELD.isValueHelp(${property>@})}">
+			<macro:dependents>
+				<macro:ValueHelp _flexId="{this>id}_FieldValueHelp" property="{property>}" />
+			</macro:dependents>
+		</template:if>
+	</macro:Field>
+</core:FragmentDefinition>

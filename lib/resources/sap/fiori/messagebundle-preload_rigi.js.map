@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"sap/fiori/messagebundle-preload__locale__.js",
+"sourceroot":".",
+"sources":["../m/messagebundle_rigi.properties","../ui/core/messagebundle_rigi.properties","../ui/layout/messagebundle_rigi.properties","../ui/unified/messagebundle_rigi.properties"],
+"names":[],
+"mappings":";;;;;;;;",
+"x_com_sap_openui5_sections":[118,58435,58482,81441,81490,82297,82347,86554]
+}

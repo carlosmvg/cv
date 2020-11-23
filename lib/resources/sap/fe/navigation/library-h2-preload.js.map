@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"sap/fe/navigation/library-h2-preload.js",
+"sourceroot":".",
+"sources":["library-dbg.js","manifest.json"],
+"names":[],
+"mappings":";;;;;;AAiBA,gBAAa,6BACZ,CACC,mBACA,qBACD,EACA,UAAW,CACV,aAaA,8BACC,KAAM,oBACN,QAAS,SACT,aAAc,gBACd,MAAO,6BAA8B,sCAAuC,yCAC5E,WAAY,GACZ,SAAU,GACV,SAAU,GACV,aAAc,IACf,GAWA,mCAAoC,CAAE,CAKrC,WAAY,aAQZ,aAAc,eAMd,eAAgB,gBACjB,EAUA,yBAA0B,CAAE,CAK3B,QAAS,UAMT,UAAW,YAMX,UAAW,YAMX,UAAW,WACZ,EAcA,qCAAsC,CAAE,CAMvC,SAAU,EAOV,kBAAmB,EAMnB,iBAAkB,EAMlB,sBAAuB,CACxB,EAWA,sBAAuB,CAAE,CAKxB,QAAS,UAMT,QAAS,SACV,EAEA,OAAO,kBACR,CACD;;;;;;;;;;;;",
+"x_com_sap_openui5_sections":[54,1000,1060,1682]
+}

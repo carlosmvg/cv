@@ -1,0 +1,32 @@
+<core:FragmentDefinition
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:unittest="http://schemas.sap.com/sapui5/preprocessorextension/sap.fe.unittesting/1"
+	xmlns:core="sap.ui.core"
+	xmlns:mdcTable="sap.ui.mdc.table"
+	xmlns:macrodata="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	template:require="{
+		ID: 'sap/fe/core/helpers/StableIdHelper',
+		TABLE: 'sap/fe/macros/table/TableHelper',
+		CORE: 'sap/fe/core/AnnotationHelper'
+	}"
+>
+<template:if test="{= TABLE.createButtonTemplating(${this>}, true) }">
+	<mdcTable:CreationRow
+			core:require="{
+			RUNTIME: 'sap/fe/macros/table/TableHelper'
+			}"
+			unittest:id="TableMacroCreationRow"
+			id="{= ID.generate([${this>id},'CreationRow'])}"
+			visible="{= TABLE.creationRowVisible(
+				${this>showCreate}, ${collection>@sapui.name}
+			) }"
+			apply="{= TABLE.pressEventForCreateButton(${this>})}"
+			applyEnabled="{= TABLE.creationRowApplyEnabled(
+				${this>}, ${collection>}, ${collection>@sapui.name},
+				${parentEntitySet>@Org.OData.Capabilities.V1.NavigationRestrictions/RestrictedProperties},
+				${targetCollection>@Org.OData.Capabilities.V1.InsertRestrictions/Insertable}
+			) }"
+			macrodata:disableAddRowButtonForEmptyData="{= ${this>disableAddRowButtonForEmptyData} === 'true'}"
+		/>
+</template:if>
+</core:FragmentDefinition>

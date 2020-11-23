@@ -1,0 +1,18 @@
+{
+	"_version": "1.1.0",
+	"resources": [
+		{
+			"name": "Component-dbg.js",
+			"size": 32846,
+			"isDebug": true
+		},
+		{
+			"name": "Component.js",
+			"size": 10236
+		},
+		{
+			"name": "VisualizationOrganizerPopover.fragment.xml",
+			"size": 2417
+		}
+	]
+}

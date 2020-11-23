@@ -1,0 +1,56 @@
+{
+	"_version": "1.1.0",
+	"resources": [
+		{
+			"name": "AnnotationHelper-dbg.js",
+			"size": 18310,
+			"isDebug": true
+		},
+		{
+			"name": "AnnotationHelper.js",
+			"size": 4907
+		},
+		{
+			"name": "Component-dbg.js",
+			"size": 2038,
+			"isDebug": true
+		},
+		{
+			"name": "Component.js",
+			"size": 819
+		},
+		{
+			"name": "LinkList-dbg.controller.js",
+			"size": 50577,
+			"isDebug": true
+		},
+		{
+			"name": "LinkList.controller.js",
+			"size": 16796
+		},
+		{
+			"name": "LinkList.fragment.xml",
+			"size": 1442
+		},
+		{
+			"name": "fragments/LinkListCarousel.fragment.xml",
+			"size": 13574
+		},
+		{
+			"name": "fragments/LinkListNavigationTargets.fragment.xml",
+			"size": 506
+		},
+		{
+			"name": "fragments/LinkListStandard.fragment.xml",
+			"size": 16869
+		},
+		{
+			"name": "fragments/LinkListStaticDataCarousel.fragment.xml",
+			"size": 5691
+		},
+		{
+			"name": "fragments/LinkListStaticDataStandard.fragment.xml",
+			"size": 13175
+		}
+	]
+}

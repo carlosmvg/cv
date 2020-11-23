@@ -1,0 +1,29 @@
+<core:FragmentDefinition
+	xmlns="sap.fe.templates.controls"
+	xmlns:core="sap.ui.core"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+>
+	<ViewSwitchContainer height="100%">
+
+		<template:if test="{= ${converterContext>isAlp} }">
+			<template:then>
+				<template:repeat list="{converterContext>views}" var="view">
+					<template:with path="view>presentation" var="presentationContext">
+						<template:repeat list="{presentationContext>visualizations}" var="visualizationDefinition">
+							<ViewSwitchContainerItem height="{= ${visualizationDefinition>type} === 'Table' ? '100%' : undefined}">
+								<core:Fragment fragmentName="sap.fe.templates.controls.ViewSwitchContainer.{visualizationDefinition>type}" type="XML" />
+							</ViewSwitchContainerItem>
+						</template:repeat>
+					</template:with>
+				</template:repeat>
+			</template:then>
+			<template:else>
+				<template:repeat list="{presentationContext>visualizations}" var="visualizationDefinition">
+					<ViewSwitchContainerItem height="{= ${visualizationDefinition>type} === 'Table' ? '100%' : undefined}">
+						<core:Fragment fragmentName="sap.fe.templates.controls.ViewSwitchContainer.{visualizationDefinition>type}" type="XML" />
+					</ViewSwitchContainerItem>
+				</template:repeat>
+			</template:else>
+		</template:if>
+	</ViewSwitchContainer>
+</core:FragmentDefinition>

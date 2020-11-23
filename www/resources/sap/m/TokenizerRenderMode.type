@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<simple-type xmlns="http://www.sap.com/sap.ui.library.xsd">
+    <name>TokenizerRenderMode</name>
+    <derived/>
+    <documentation>Types of the &lt;code&gt;sap.m.Tokenizer&lt;/code&gt; responsive modes.</documentation>
+    <since>1.80</since>
+    <enumeration>
+        <value name="Loose">
+            <documentation>In &lt;code&gt;Loose&lt;/code&gt; mode, the &lt;code&gt;sap.m.Tokenizer&lt;/code&gt; will show all its tokens, even if this means that scrolling needs to be used.</documentation>
+        </value>
+        <value name="Narrow">
+            <documentation>In  &lt;code&gt;Narrow&lt;/code&gt; mode, the &lt;code&gt;sap.m.Tokenizer&lt;/code&gt; will show as many tokens as its width allows, as well as an n-More indicator with the count of the hidden tokens. The rest tokens will be hidden.</documentation>
+        </value>
+    </enumeration>
+</simple-type>

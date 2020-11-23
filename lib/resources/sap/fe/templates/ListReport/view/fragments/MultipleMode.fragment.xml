@@ -1,0 +1,33 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+>
+
+	<IconTabBar
+		expandable="false"
+		headerMode="Inline"
+		id="fe::TabMultipleMode"
+		select=".handlers.onTabMultiModeChange"
+		customData:showCounts="{converterContext>showTabCounts}"
+	>      
+            <items>
+                <template:repeat list="{converterContext>views}" var="view">
+                 <template:with path="view>presentation" var="presentationContext">
+                    <IconTabFilter
+						text="{view>title}"
+						key="{view>tableControlId}"
+						customData:selectionVariant="{view>selectionVariantPath}"
+					> 
+                        <content>
+                            <core:Fragment fragmentName="sap.fe.templates.controls.ViewSwitchContainer.ViewSwitchContainer" type="XML" />
+                        </content>                           
+                    </IconTabFilter>
+                        
+                </template:with> 
+                            
+                </template:repeat>
+            </items>
+	</IconTabBar>
+</core:FragmentDefinition>

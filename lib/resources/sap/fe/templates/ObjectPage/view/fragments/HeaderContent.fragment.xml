@@ -1,0 +1,57 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:dt="sap.ui.dt"
+	xmlns:fl="sap.ui.fl"
+	xmlns:fe="sap.fe.templates.ObjectPage.controls"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	template:require="{
+			COMMON: 'sap/fe/macros/CommonHelper',
+			ID: 'sap/fe/core/helpers/StableIdHelper'
+	}"
+>
+	<template:if test="{entityType>@com.sap.vocabularies.UI.v1.HeaderFacets}">
+		<template:then>
+			<template:with path="converterContext>headerFacets" var="converterHeaderFacets">
+				<template:repeat list="{converterHeaderFacets>}" var="converterHeaderFacet">
+
+					<template:if test="{= ${converterHeaderFacet>type} === 'Annotation'}">
+						<template:then>
+							<!--START: Legacy part not using Converter Context-->
+							<template:with path="converterHeaderFacet>annotationPath" var="headerFacet">
+								<template:with path="headerFacet>" var="collectionHeaderFacet">
+									<template:if test="{= ${headerFacet>$Type}.indexOf('com.sap.vocabularies.UI.v1.ReferenceFacet') >= 0 }">
+										<template:then>
+											<template:if test="{= !(${headerFacet>./@com.sap.vocabularies.UI.v1.Hidden} === true)}">
+												<core:Fragment fragmentName="sap.fe.templates.ObjectPage.view.fragments.HeaderFacet" type="XML" />
+											</template:if>
+										</template:then>
+										<template:elseif test="{= ${headerFacet>$Type}.indexOf('com.sap.vocabularies.UI.v1.CollectionFacet') >= 0 }">
+											<fe:StashableVBox
+												id="{= ID.generate(['fe', 'HeaderCollectionFacetContainer', { Facet: ${collectionHeaderFacet>} } ])}"
+												dt:designtime="{= COMMON.getDesigntimeMetadata(${viewData>controlConfiguration}, { Facet: ${collectionHeaderFacet>} }, 'sap/fe/templates/ObjectPage/designtime/StashableVBox.designtime')}"
+												fl:flexibility="sap/fe/templates/ObjectPage/flexibility/StashableVBox.flexibility"
+												stashed="{= COMMON.getStashed(${viewData>}, { Facet: ${collectionHeaderFacet>} })}"
+												displayInline="true"
+											>
+												<template:repeat list="{collectionHeaderFacet>Facets}" var="headerFacet">
+													<template:if test="{= !(${headerFacet>./@com.sap.vocabularies.UI.v1.Hidden} === true)}">
+														<core:Fragment fragmentName="sap.fe.templates.ObjectPage.view.fragments.HeaderFacet" type="XML" />
+													</template:if>
+												</template:repeat>
+											</fe:StashableVBox>
+										</template:elseif>
+									</template:if>
+								</template:with>
+							</template:with>
+							<!--END: Legacy part not using Converter Context-->
+						</template:then>
+						<template:else>
+							<core:Fragment fragmentName="sap.fe.templates.ObjectPage.view.fragments.HeaderFacetCustomContainer" type="XML" />
+						</template:else>
+					</template:if>
+				</template:repeat>
+			</template:with>
+		</template:then>
+	</template:if>
+</core:FragmentDefinition>

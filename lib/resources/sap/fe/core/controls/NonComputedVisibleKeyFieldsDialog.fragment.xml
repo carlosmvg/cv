@@ -1,0 +1,56 @@
+<core:FragmentDefinition
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:mdc="sap.ui.mdc"
+	xmlns:mdcField="sap.ui.mdc.field"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:unittest="http://schemas.sap.com/sapui5/preprocessorextension/sap.fe.unittesting/1"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	template:require="{
+		MODEL: 'sap/ui/model/odata/v4/AnnotationHelper',
+		COMMON: 'sap/fe/macros/CommonHelper',
+		FIELD: 'sap/fe/macros/field/FieldHelper',
+		ID: 'sap/fe/core/helpers/StableIdHelper',
+		VLH: 'sap/fe/core/helpers/ValueListHelper'
+	}"
+>
+	<template:with path="fields>" var="allFields">
+		<form:SimpleForm>
+			<template:repeat list="{allFields>}" var="key">
+				<template:with path="key>" helper="COMMON.getPathToKey" var="immutableKey">
+					<Label text="{= ${immutableKey>@com.sap.vocabularies.Common.v1.Label}}" />
+					<mdc:Field
+						delegate="{name: 'sap/ui/mdc/odata/v4/FieldBaseDelegate'}"
+						id="{= ID.generate(['CreateDialog', ${entitySet>@sapui.name}, ${immutableKey>@sapui.name}]) }"
+						value="{immutableKey>@@MODEL.format}"
+						width="100%"
+						required="{= ${immutableKey>@com.sap.vocabularies.Common.v1.FieldControl} &amp;&amp; ${immutableKey>@com.sap.vocabularies.Common.v1.FieldControl/$EnumMember} &amp;&amp; ${immutableKey>@com.sap.vocabularies.Common.v1.FieldControl/$EnumMember} === 'com.sap.vocabularies.Common.v1.FieldControlType/Mandatory'}"
+						display="{= (${immutableKey>@com.sap.vocabularies.Common.v1.ValueListReferences} || ${immutableKey>@com.sap.vocabularies.Common.v1.ValueListMapping} || ${immutableKey>@com.sap.vocabularies.Common.v1.ValueList}) ? 'DescriptionValue' : 'Value'}"
+						change="{= '.handleChange($event, \'' + ${immutableKey>@sapui.name} + '\')' }"
+						liveChange=".handleLiveChange"
+						fieldHelp="{= (${immutableKey>@com.sap.vocabularies.Common.v1.ValueListReferences} || ${immutableKey>@com.sap.vocabularies.Common.v1.ValueListMapping} || ${immutableKey>@com.sap.vocabularies.Common.v1.ValueList}) ? ID.generate([${immutableKey>@sapui.name},'VH']) : undefined }"
+						customData:fieldName="{immutableKey>@sapui.name}"
+					>
+						<template:if
+							test="{= ${immutableKey>@com.sap.vocabularies.Common.v1.ValueListReferences} || ${immutableKey>@com.sap.vocabularies.Common.v1.ValueListMapping} || ${immutableKey>@com.sap.vocabularies.Common.v1.ValueList} }"
+						>
+							<template:then>
+								<mdc:dependents>
+									<mdcField:FieldValueHelp
+										id="{= ID.generate([${immutableKey>@sapui.name},'VH']) }"
+										delegate="{= '{name:\'sap/fe/macros/FieldValueHelpDelegate\', payload: {propertyPath: \'/' + ${entitySet>@sapui.name} + '/' + ${immutableKey>@@FIELD.propertyName} + '\'} }' }"
+										showConditionPanel="true"
+										noDialog="{= ${immutableKey>@com.sap.vocabularies.Common.v1.ValueListWithFixedValues} ? (${immutableKey>@com.sap.vocabularies.Common.v1.ValueListWithFixedValues} !== false) : false}"
+									>
+										<mdcField:FieldValueHelpMTableWrapper />
+									</mdcField:FieldValueHelp>
+								</mdc:dependents>
+							</template:then>
+						</template:if>
+					</mdc:Field>
+				</template:with>
+			</template:repeat>
+		</form:SimpleForm>
+	</template:with>
+</core:FragmentDefinition>

@@ -1,0 +1,73 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:formLayout="sap.ui.layout.form"
+    core:require="{
+        GenericTileScope: 'sap/m/GenericTileScope',
+        ushellLibrary: 'sap/ushell/library'
+    }">
+    <ResponsivePopover id="tileInfoPopover" showHeader="false" placement="HorizontalPreferredLeft">
+        <formLayout:SimpleForm id="info" title="{title}" layout="ResponsiveGridLayout" editable="false" width="350px">
+            <formLayout:content>
+                <MessageStrip id="roleContextMessageStrip"
+                    visible="{= ${vizInstance>/state} === ushellLibrary.VisualizationLoadState.OutOfRoleContext}"
+                    text="{i18n>TileInfoPopover.MessageStrip.VisualizationNotInContext}"
+                    showIcon="true"
+                    showCloseButton="false" />
+                <MessageStrip id="insufficientRolesMessageStrip"
+                    visible="{= ${vizInstance>/state} === ushellLibrary.VisualizationLoadState.InsufficientRoles}"
+                    text="{i18n>Title.InsufficientRoles}"
+                    showIcon="true"
+                    showCloseButton="false" />
+
+                <Label id="displayFormatHintLabel" text="{i18n>TileInfoPopover.Label.DisplayFormatHint}"
+                    visible="{= !!${displayFormatHint} &amp;&amp; (${vizInstance>/innerControlScope} === GenericTileScope.Actions)}" />
+                <SegmentedButton id="displayFormatHint" selectedKey="{displayFormatHint}"
+                    visible="{= !!${displayFormatHint} &amp;&amp; (${vizInstance>/innerControlScope} === GenericTileScope.Actions)}" >
+                    <items>
+                        <SegmentedButtonItem width="auto" text="{i18n>TileInfoPopover.Button.DisplayFormatHint.Tile}" key="default" />
+                        <!--
+                        <SegmentedButtonItem width="auto" text="{i18n>TileInfoPopover.Button.DisplayFormatHint.ExtraWide}" key="????" />
+                        <SegmentedButtonItem width="auto" text="{i18n>TileInfoPopover.Button.DisplayFormatHint.Wide}" key="????" />
+                        -->
+                        <SegmentedButtonItem width="auto" text="{i18n>TileInfoPopover.Button.DisplayFormatHint.Link}" key="compact" />
+                    </items>
+                </SegmentedButton>
+
+                <Label id="subtitleLabel" visible="{= !!${subTitle}}" text="{i18n>TileInfoPopover.Label.Subtitle}" />
+                <Text id="subtitle" visible="{= !!${subTitle}}" text="{subTitle}" />
+
+                <Label id="iconLabel" visible="{= !!${iconUrl}}" text="{i18n>TileInfoPopover.Label.Icon}" />
+                <core:Icon id="icon" visible="{= !!${iconUrl}}" decorative="false" src="{= ${iconUrl} || 'sap-icon://border'}" size="1.5rem" width="1.5rem" />
+
+                <Label id="semanticObjectLabel" visible="{= !!${semanticObject}}" text="{i18n>TileInfoPopover.Label.SemanticObject}" />
+                <Text id="semanticObject" visible="{= !!${semanticObject}}" text="{semanticObject}" />
+
+                <Label id="semanticActionLabel" visible="{= !!${semanticAction}}" text="{i18n>TileInfoPopover.Label.SemanticAction}" />
+                <Text id="semanticAction" visible="{= !!${semanticAction}}" text="{semanticAction}" />
+
+                <Label id="fioriIDLabel" visible="{= !!${fioriId}}" text="{i18n>TileInfoPopover.Label.FioriID}" />
+                <Text id="fioriID" visible="{= !!${fioriId}}" text="{fioriId}" />
+
+                <Label id="appDetailLabel" visible="{= !!${appDetail}}" text="{i18n>TileInfoPopover.Label.AppDetail}" />
+                <Text id="appDetail" visible="{= !!${appDetail}}" text="{appDetail}" />
+
+                <Label id="appTypeLabel" visible="{= !!${appType}}" text="{i18n>TileInfoPopover.Label.AppType}" />
+                <Text id="appType" visible="{= !!${appType}}" text="{appType}" />
+
+                <Label id="tileTypeLabel" visible="{= !!${tileType}}" text="{i18n>TileInfoPopover.Label.TileType}" />
+                <Text id="tileType" visible="{= !!${tileType}}" text="{ path: 'tileType', formatter: '._formatTileType' }" />
+
+                <Label id="catalogTileIdLabel" visible="{= !!${catalogTileId}}" text="{i18n>TileInfoPopover.Label.CatalogTileId}" />
+                <Text id="catalogTileId" visible="{= !!${catalogTileId}}" text="{catalogTileId}" />
+
+                <Label id="deviceWrapperLabel" visible="{= !!${deviceDesktop} || !!${deviceTablet} || !!${devicePhone}}" text="{i18n>TileInfoPopover.Label.AvailableDevices}" />
+                <HBox id="deviceWrapper" visible="{= !!${deviceDesktop} || !!${deviceTablet} || !!${devicePhone}}" justifyContent="SpaceAround">
+                    <core:Icon id="deviceDesktop" visible="{= !!${deviceDesktop}}" src="sap-icon://laptop" decorative="false" tooltip="{i18n>Tooltip.Desktop}" />
+                    <core:Icon id="deviceTablet" visible="{= !!${deviceTablet}}" decorative="false" src="sap-icon://ipad-2" />
+                    <core:Icon id="devicePhone" visible="{= !!${devicePhone}}" decorative="false" src="sap-icon://iphone" />
+                </HBox>
+            </formLayout:content>
+        </formLayout:SimpleForm>
+    </ResponsivePopover>
+</core:FragmentDefinition>

@@ -1,0 +1,71 @@
+<core:FragmentDefinition
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:unittest="http://schemas.sap.com/sapui5/preprocessorextension/sap.fe.unittesting/1"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:mdc="sap.ui.mdc"
+	template:require="{
+				MODEL: 'sap/ui/model/odata/v4/AnnotationHelper',
+				COMMON: 'sap/fe/macros/CommonHelper',
+				FIELD: 'sap/fe/macros/field/FieldHelper',
+				ID: 'sap/fe/core/helpers/StableIdHelper'
+				}"
+>
+		<!--already has -->
+		<!--datafield-->
+		<!--property -->
+		<!--entitytype-->
+		<!--as variables-->
+		<template:with path="dataField>" helper="FIELD.getPropertyContextForQuickViewForm" var="property">
+			<template:with path="property>" helper="FIELD.getPropertyPathForQuickViewForm" var="propertyPath">
+				<template:if test="{entityType>}">
+					<template:then>
+							<template:if test="{propertyPath>@com.sap.vocabularies.Common.v1.SemanticObject}">
+								<template:then>
+									<template:with path="propertyPath>@com.sap.vocabularies.Common.v1.SemanticObject" var="mainSemanticObject">
+										<!--navigation entity + semanticObject-->
+										<template:with path="propertyPath>@" var="semanticObjectsList" helper="FIELD.getSemanticObjectsList">
+											<template:with path="propertyPath>@" var="semanticObjectsWithAnnotations" helper="FIELD.getSemanticObjectsWithAnnotations">
+												<mdc:Link
+												unittest:id="MacroQuickViewFormEntityTypeSemanticObjectsLink"
+												binding="{property>@@FIELD.getNavigationEntity}"
+												sourceControl="{= ${this>idPrefix} ? ID.generate([${this>idPrefix}, ${propertyPath@@.MODEL.value}]) : undefined }"
+												delegate="{= FIELD.computeLinkParameters('sap/fe/macros/field/QuickViewLinkDelegate', ${entityType>@@COMMON.getMetaPath}, ${semanticObjectsList>}, ${semanticObjectsWithAnnotations>}, undefined, undefined, ${mainSemanticObject>})}"
+											>
+												</mdc:Link>
+											</template:with>
+										</template:with>
+									</template:with>
+								</template:then>
+								<template:else>
+									<!--navigation entity, no semanticObject-->
+									<mdc:Link
+									unittest:id="MacroQuickViewFormNoSemanticObjectsLink"
+									binding="{property>@@FIELD.getNavigationEntity}"
+									sourceControl="{= ${this>idPrefix} ? ID.generate([${this>idPrefix}, ${propertyPath@@.MODEL.value}]) : undefined }"
+									delegate="{= FIELD.computeLinkParameters('sap/fe/macros/field/QuickViewLinkDelegate', ${entityType>@@COMMON.getMetaPath}, undefined, undefined)}"
+								>
+									</mdc:Link>
+								</template:else>
+							</template:if>
+					</template:then>
+					<template:else>
+						<!--if no navigation entity, build a popup with header, no content, with links-->
+						<!--TODO delegate with header as dataField> properties, pass semanticObjects-->
+						<template:with path="propertyPath>@com.sap.vocabularies.Common.v1.SemanticObject" var="mainSemanticObject">
+							<template:with path="propertyPath>@" var="semanticObjectsList" helper="FIELD.getSemanticObjectsList">
+								<template:with path="propertyPath>@" var="semanticObjectsWithAnnotations" helper="FIELD.getSemanticObjectsWithAnnotations">
+									<mdc:Link
+									unittest:id="MacroQuickViewFormSemanticObjectsLink"
+									sourceControl="{= ${this>idPrefix} ? ID.generate([${this>idPrefix}, ${propertyPath@@.MODEL.value}]) : undefined }"
+									delegate="{= FIELD.computeLinkParameters('sap/fe/macros/field/QuickViewLinkDelegate', undefined, ${semanticObjectsList>}, ${semanticObjectsWithAnnotations>}, ${dataField>@@COMMON.getMetaPath}, undefined, ${mainSemanticObject>})}"
+								>
+									</mdc:Link>
+								</template:with>
+							</template:with>
+						</template:with>
+					</template:else>
+				</template:if>
+			</template:with>
+		</template:with>
+</core:FragmentDefinition>

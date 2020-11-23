@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<simple-type xmlns="http://www.sap.com/sap.ui.library.xsd">
+    <name>CalendarAppointmentRoundWidth</name>
+    <derived/>
+    <documentation>Types of a calendar appointment display mode</documentation>
+    <since>1.81.0</since>
+    <developmentState state="experimental" since="1.81.0"></developmentState>
+    <enumeration>
+        <value name="HalfColumn">
+            <documentation>HalfRow display mode.</documentation>
+        </value>
+        <value name="None">
+            <documentation>None display mode.</documentation>
+        </value>
+    </enumeration>
+</simple-type>

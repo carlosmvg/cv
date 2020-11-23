@@ -1,0 +1,46 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:layout="sap.ui.layout"
+    core:require="{
+        formatMessage: 'sap/base/strings/formatMessage'
+    }">
+    <layout:DynamicSideContent
+        id="pageContent"
+        sideContentFallDown="BelowM"
+        sideContentPosition="End"
+        containerQuery="true"
+        breakpointChanged=".onBreakpointChanged"
+        showSideContent="{= ${/catalogsExpanded} &amp;&amp; ${/editMode} &amp;&amp; !${/currentBreakpointIsS}}">
+        <layout:mainContent>
+            <VBox id="vBox" renderType="Bare" fitContainer="true">
+                <OverflowToolbar id="layoutHeader" design="Transparent" visible="{/editMode}">
+                    <ToolbarSpacer />
+                    <Button
+                        id="contextSelectorButton"
+                        visible="{= ${roles>/available}.length > 0 &amp;&amp; ${/editMode} }"
+                        text="{
+                            parts:['i18n>Button.ContextSelector', 'roles>/selectedCountText'],
+                            formatter: 'formatMessage'}"
+                        press=".onOpenContextSelector">
+                        <customData><core:CustomData key="help-id" value="FLPPage-manage-PageContent-Button-OpenContextSelector" writeToDom="true" /></customData>
+                    </Button>
+                    <Button
+                        id="toggleCatalogsButton"
+                        press=".onToggleCatalogsButtonPress"
+                        visible="{/editMode}"
+                        text = "{= !${/catalogsExpanded} || ${/currentBreakpointIsS} ? ${i18n>Button.ShowCatalogs} : ${i18n>Button.HideCatalogs}}">
+                        <customData><core:CustomData key="help-id" value="FLPPage-manage-PageContent-Button-ShowCatalog" writeToDom="true" /></customData>
+                    </Button>
+                </OverflowToolbar>
+                <ScrollContainer id="scrollContainer1" horizontal="false" vertical="true" height="0px">
+                    <layoutData><FlexItemData growFactor="1" /></layoutData>
+                    <core:Fragment fragmentName="sap.ushell.applications.PageComposer.view.Page" type="XML" />
+                </ScrollContainer>
+            </VBox>
+        </layout:mainContent>
+        <layout:sideContent>
+            <core:Fragment fragmentName="sap.ushell.applications.PageComposer.view.TileSelector" type="XML" />
+        </layout:sideContent>
+    </layout:DynamicSideContent>
+</core:FragmentDefinition>

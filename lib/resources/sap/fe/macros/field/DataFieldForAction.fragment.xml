@@ -1,0 +1,35 @@
+<core:FragmentDefinition
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:unittest="http://schemas.sap.com/sapui5/preprocessorextension/sap.fe.unittesting/1"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	template:require="{
+		MODEL: 'sap/ui/model/odata/v4/AnnotationHelper',
+		COMMON: 'sap/fe/macros/CommonHelper',
+		CORE: 'sap/fe/core/AnnotationHelper',
+		FIELD: 'sap/fe/macros/field/FieldHelper'
+	}"
+>
+
+		<!-- TODO: get rid of contexts manager logic here we shall be able to check the instance annotations -->
+		<template:with path="dataField>Action" helper="COMMON.getActionContext" var="actionContext">
+		<template:with path="dataField>Action" helper="COMMON.getPathToBoundActionOverload" var="isBound">
+			<template:if
+				test="{= FIELD.isDataFieldActionButtonVisible(${this>}, ${dataField>}, ${isBound>$IsBound}, ${actionContext>@Org.OData.Core.V1.OperationAvailable}) }"
+			>
+				<Button
+					unittest:id="MacroDataFieldActionButton"
+					class="{this>class}"
+					text="{dataField>Label}"
+					press="{= FIELD.getPressEventForDataFieldActionButton(${this>}, ${dataField>}) }"
+					enabled="{= FIELD.isDataFieldActionButtonEnabled(${dataField>}, ${isBound>$IsBound},
+					${actionContext>@Org.OData.Core.V1.OperationAvailable}, ${actionContext>@Org.OData.Core.V1.OperationAvailable@@MODEL.format})
+					}"
+					visible="{= ${dataField>./@com.sap.vocabularies.UI.v1.Hidden} ? '{= !%' + %{dataField>./@com.sap.vocabularies.UI.v1.Hidden@@MODEL.value} + '}' : 'true' }"
+					type="{path: 'dataField>', formatter: 'CORE.buildButtonTypeExpressionForCriticality'}"
+				/>
+		</template:if>
+		</template:with>
+		</template:with>
+
+</core:FragmentDefinition>

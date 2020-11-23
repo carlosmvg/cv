@@ -1,0 +1,64 @@
+<core:FragmentDefinition
+	xmlns="sap.suite.ui.microchart"
+	xmlns:core="sap.ui.core"
+	xmlns:oDataV4MicroChart="sap.fe.macros.microchart"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:unittest="http://schemas.sap.com/sapui5/preprocessorextension/sap.fe.unittesting/1"
+	template:require="{
+		MODEL: 'sap/ui/model/odata/v4/AnnotationHelper',
+		MICROCHART: 'sap/fe/macros/microchart/MicroChartHelper',
+		ID: 'sap/fe/core/helpers/StableIdHelper'
+	}"
+>
+	<!-- MODEL.value is used instead MODEL.format because, MODEL.format adds type as Unit when Currency/Unit annotations exist and the control property expects decimal as type -->
+	<template:with path="chartAnnotation>Measures/0" helper="MICROCHART.getMeasureAttributeForMeasure" var="DataPoint">
+			<template:if test="{= MICROCHART.shouldMicroChartRender('Comparison', ${DataPoint>}, ${DataPoint>Value/$Path@}, ${chartAnnotation>})}">
+				<template:then>
+					<template:with path="DataPoint>Value/$Path" helper="MODEL.resolve$Path" var="Measure">
+						<template:with path="chartAnnotation>Dimensions/0/" var="Dimension">
+							<template:with path="chartAnnotation>Dimensions/0/$PropertyPath" helper="MODEL.resolve$Path" var="DimensionPath">
+								<oDataV4MicroChart:MicroChartContainer
+								unittest:id="ComparisonMicroChartContainer"
+								id="{= ${this>id} ? ID.generate([${this>id}, 'ComparisonMicroChart']) : undefined }"
+								renderLabels="{= ${this>renderLabels} !== 'false' ? true : false }"
+								chartTitle="{= ${this>title} || ${chartAnnotation>Title}}"
+								chartDescription="{= ${this>description} || ${chartAnnotation>Description}}"
+								uomPath="{= ${this>renderLabels} !== 'false' &amp;&amp; MICROCHART.getCurrencyOrUnit(${Measure>@}) }"
+								dataPointQualifiers="{= MICROCHART.getdataPointQualifiersForMicroChart(${DataPoint>./@sapui.name}) }"
+								binding="{= ${this>groupId} ? ('{path:\'\', parameters : { $$groupId: \'' + ${this>groupId} + '\'} }') : undefined }"
+								onTitlePressed="{this>onTitlePressed}"
+								navigationType="{this>navigationType}"
+								chartTitleDescribedBy="{this>chartTitleDescribedBy}"
+							>
+							<template:if test="{= ${this>renderLabels} !== 'false' ? true : false }">
+								<core:Fragment fragmentName="sap.fe.macros.microchart.fragments.MicroChartTitle" type="XML" />
+							</template:if>
+									<ComparisonMicroChart
+									unittest:id="ComparisonMicroChart"
+									data="{= MICROCHART.getAggregationForMicrochart('Data', ${collection>}, ${DataPoint>}, ${collection>@sapui.name}, ${Dimension>}, ${Measure>@}) }"
+									colorPalette="{= MICROCHART.getcolorPaletteForMicroChart(${DataPoint>}) }"
+									size="{this>size}"
+								>
+										<data>
+											<ComparisonMicroChartData
+											unittest:id="ComparisonMicroChartData"
+											value="{DataPoint>Value@@MODEL.value}"
+											title="{= ${Dimension>$PropertyPath@com.sap.vocabularies.Common.v1.Text} ? ${DimensionPath>@com.sap.vocabularies.Common.v1.Text@@MODEL.format} : ${Dimension>@@MODEL.format} }"
+											displayValue="{= MICROCHART.getDisplayValueForMicroChart(${DataPoint>}, ${DataPoint>Value/$Path@com.sap.vocabularies.Common.v1.Text}, ${DataPoint>Value/$Path@com.sap.vocabularies.Common.v1.Text/$Path/$}, ${DataPoint>Value/$Path/$}) }"
+											color="{= MICROCHART.getCriticalityBinding(${DataPoint>}) }"
+										>
+										</ComparisonMicroChartData>
+										</data>
+									</ComparisonMicroChart>
+								</oDataV4MicroChart:MicroChartContainer>
+							</template:with>
+						</template:with>
+					</template:with>
+				</template:then>
+				<template:elseif
+				test="{= MICROCHART.logWarning('Comparison', { DataPoint_Value : ${DataPoint>Value}, Dimension : ${chartAnnotation>Dimensions/0/$PropertyPath} }) }"
+			>
+				</template:elseif>
+			</template:if>
+	</template:with>
+</core:FragmentDefinition>

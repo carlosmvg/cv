@@ -1,0 +1,53 @@
+<core:FragmentDefinition
+	xmlns:core="sap.ui.core"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:unittest="http://schemas.sap.com/sapui5/preprocessorextension/sap.fe.unittesting/1"
+	xmlns="sap.m"
+	template:require="{ messageHelper: 'sap/fe/macros/CommonHelper' }"
+	core:require="{ formatMessage: 'sap/base/strings/formatMessage',
+	 				draftIndicator : 'sap/fe/macros/DraftIndicatorRuntime' }"
+>
+	<!--	{IsActiveEntity} True when there are unsaved changes by other users.
+			{HasDraftEntity} True when entity has draft state.
+	-->
+	<Popover
+		unittest:id="MacroDraftPopOverAdminDataPopover"
+		title="{= !%{IsActiveEntity} ? ${i18n>M_COMMON_DRAFT_OBJECT} : (%{HasDraftEntity} ? (%{DraftAdministrativeData/InProcessByUser} ? ${i18n>M_COMMON_DRAFT_LOCKED_OBJECT} : ${i18n>M_DRAFT_POPOVER_ADMIN_UNSAVED_OBJECT}) : (${prop>bIndicatorType} ==='IconAndText' ? ' ' : ${sap.fe.i18n>C_DRAFT_POPOVER_ADMIN_DATA_DRAFTINFO_FLAGGED_OBJECT} ) ) }"
+		showHeader="true"
+		contentWidth="15.625rem"
+		verticalScrolling="false"
+		class="sapUiContentPadding"
+	>
+		<endButton>
+			<Button icon="sap-icon://decline" press=".closeDraftAdminPopover" />
+		</endButton>
+
+		<VBox class="sapUiContentPadding">
+
+
+			<!-- Draft with no changes yet -->
+			<VBox visible="{=  draftIndicator.getVisible( ${IsActiveEntity}, %{DraftAdministrativeData/LastChangeDateTime},'NoChanges') }">
+
+				<Text
+					text="{= ${prop>bIndicatorType} ==='IconAndText'? ${i18n>M_DRAFT_POPOVER_ADMIN_GENERIC_LOCKED_OBJECT_POPOVER_TEXT}: ${sap.fe.i18n>C_DRAFT_POPOVER_ADMIN_DATA_DRAFTINFO_POPOVER_NO_DATA_TEXT} }"
+				/>
+			</VBox>
+			<!-- Draft with changes -->
+			<VBox visible="{=  draftIndicator.getVisible( ${IsActiveEntity}, %{DraftAdministrativeData/LastChangeDateTime} ,'WithChanges') }">
+				<Text
+					text="{parts:[ {path: 'i18n>M_DRAFT_POPOVER_ADMIN_LAST_CHANGE_TEXT'}, {path: 'DraftAdministrativeData/LastChangeDateTime'}], formatter: 'formatMessage' }"
+				/>
+			</VBox>
+			<!-- Active instance -->
+			<VBox visible="{=  draftIndicator.getVisible( ${IsActiveEntity}, %{DraftAdministrativeData/LastChangeDateTime},'Active') }">
+			
+				<Text text="{path: 'entitySet>$Type', formatter: 'messageHelper.getPopoverText'}" />
+				<Text
+					class="sapUiSmallMarginTop"
+					unittest:id="MacroDraftPopOverAdminDataLastChangeDateTime"
+					text="{parts:[ {path: 'i18n>M_DRAFT_POPOVER_ADMIN_LAST_CHANGE_TEXT'}, {path: 'DraftAdministrativeData/LastChangeDateTime'}], formatter: 'formatMessage' }"
+				/>
+			</VBox>
+		</VBox>
+	</Popover>
+</core:FragmentDefinition>

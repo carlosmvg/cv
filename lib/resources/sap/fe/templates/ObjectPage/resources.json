@@ -1,0 +1,203 @@
+{
+	"_version": "1.1.0",
+	"resources": [
+		{
+			"name": "AnnotationHelper-dbg.js",
+			"size": 31086,
+			"isDebug": true
+		},
+		{
+			"name": "AnnotationHelper.js",
+			"size": 11836
+		},
+		{
+			"name": "Component-dbg.js",
+			"size": 3852,
+			"isDebug": true
+		},
+		{
+			"name": "Component.js",
+			"size": 1582
+		},
+		{
+			"name": "ExtensionAPI-dbg.js",
+			"size": 2540,
+			"isDebug": true
+		},
+		{
+			"name": "ExtensionAPI.js",
+			"size": 914
+		},
+		{
+			"name": "ObjectPage.view.xml",
+			"size": 7095
+		},
+		{
+			"name": "ObjectPageController-dbg.controller.js",
+			"size": 46850,
+			"isDebug": true
+		},
+		{
+			"name": "ObjectPageController.controller.js",
+			"size": 19993
+		},
+		{
+			"name": "controls/StashableHBox-dbg.js",
+			"size": 583,
+			"isDebug": true
+		},
+		{
+			"name": "controls/StashableHBox.js",
+			"size": 366
+		},
+		{
+			"name": "controls/StashableVBox-dbg.js",
+			"size": 583,
+			"isDebug": true
+		},
+		{
+			"name": "controls/StashableVBox.js",
+			"size": 366
+		},
+		{
+			"name": "controls/SubSectionBlock-dbg.js",
+			"size": 1594,
+			"isDebug": true
+		},
+		{
+			"name": "controls/SubSectionBlock.js",
+			"size": 924
+		},
+		{
+			"name": "designtime/FlexBox-dbg.designtime.js",
+			"size": 366,
+			"isDebug": true,
+			"designtime": true
+		},
+		{
+			"name": "designtime/FlexBox.designtime.js",
+			"size": 249,
+			"designtime": true
+		},
+		{
+			"name": "designtime/StashableHBox-dbg.designtime.js",
+			"size": 912,
+			"isDebug": true,
+			"designtime": true
+		},
+		{
+			"name": "designtime/StashableHBox.designtime.js",
+			"size": 638,
+			"designtime": true
+		},
+		{
+			"name": "designtime/StashableVBox-dbg.designtime.js",
+			"size": 932,
+			"isDebug": true,
+			"designtime": true
+		},
+		{
+			"name": "designtime/StashableVBox.designtime.js",
+			"size": 658,
+			"designtime": true
+		},
+		{
+			"name": "flexibility/StashableHBox.flexibility-dbg.js",
+			"size": 247,
+			"isDebug": true
+		},
+		{
+			"name": "flexibility/StashableHBox.flexibility.js",
+			"size": 227
+		},
+		{
+			"name": "flexibility/StashableVBox.flexibility-dbg.js",
+			"size": 247,
+			"isDebug": true
+		},
+		{
+			"name": "flexibility/StashableVBox.flexibility.js",
+			"size": 227
+		},
+		{
+			"name": "manifest.json",
+			"size": 2340
+		},
+		{
+			"name": "view/fragments/Actions.fragment.xml",
+			"size": 5169
+		},
+		{
+			"name": "view/fragments/EditableHeaderContact.fragment.xml",
+			"size": 689
+		},
+		{
+			"name": "view/fragments/EditableHeaderFacet.fragment.xml",
+			"size": 3392
+		},
+		{
+			"name": "view/fragments/FooterContent.fragment.xml",
+			"size": 4984
+		},
+		{
+			"name": "view/fragments/FormActionButtons.fragment.xml",
+			"size": 1015
+		},
+		{
+			"name": "view/fragments/FormActions.fragment.xml",
+			"size": 734
+		},
+		{
+			"name": "view/fragments/HeaderContent.fragment.xml",
+			"size": 2897
+		},
+		{
+			"name": "view/fragments/HeaderDataPoint.fragment.xml",
+			"size": 931
+		},
+		{
+			"name": "view/fragments/HeaderDataPointContent.fragment.xml",
+			"size": 1678
+		},
+		{
+			"name": "view/fragments/HeaderDataPointTitle.fragment.xml",
+			"size": 2814
+		},
+		{
+			"name": "view/fragments/HeaderFacet.fragment.xml",
+			"size": 5221
+		},
+		{
+			"name": "view/fragments/HeaderFacetCustomContainer.fragment.xml",
+			"size": 2500
+		},
+		{
+			"name": "view/fragments/HeaderImage.fragment.xml",
+			"size": 787
+		},
+		{
+			"name": "view/fragments/HeaderProgressIndicator.fragment.xml",
+			"size": 1953
+		},
+		{
+			"name": "view/fragments/HeaderRatingIndicator.fragment.xml",
+			"size": 1872
+		},
+		{
+			"name": "view/fragments/ObjectPageHeaderForm.fragment.xml",
+			"size": 3355
+		},
+		{
+			"name": "view/fragments/RelatedApps.fragment.xml",
+			"size": 676
+		},
+		{
+			"name": "view/fragments/Section.fragment.xml",
+			"size": 5417
+		},
+		{
+			"name": "view/fragments/TitleAndSubtitle.fragment.xml",
+			"size": 540
+		}
+	]
+}

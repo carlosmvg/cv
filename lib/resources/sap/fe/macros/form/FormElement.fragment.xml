@@ -1,0 +1,41 @@
+<core:FragmentDefinition
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:macro="sap.fe.macros"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:unittest="http://schemas.sap.com/sapui5/preprocessorextension/sap.fe.unittesting/1"
+	template:require="{
+        FIELD: 'sap/fe/macros/field/FieldHelper',
+        MODEL: 'sap/ui/model/odata/v4/AnnotationHelper',
+        COMMON: 'sap/fe/macros/CommonHelper'
+    }"
+>
+	<template:if test="{dataField>@com.sap.vocabularies.UI.v1.DataFieldDefault}">
+		<template:then>
+			<template:with path="dataField>@com.sap.vocabularies.UI.v1.DataFieldDefault" var="dataField">
+				<!-- There is a default data field therefore we jump to it and run the same logic again -->
+				<core:Fragment fragmentName="sap.fe.macros.form.FormElement" type="XML" />
+			</template:with>
+		</template:then>
+		<template:else>
+			<f:FormElement
+				unittest:id="FormElement"
+				id="{= ${this>_flexId} + '_FormElement'}"
+				label="{= ${dataField>@com.sap.vocabularies.Common.v1.Label} || ${dataField>@@MODEL.label} || '[LABEL_MISSING: ' + ${dataField>@@FIELD.propertyName} +']'}"
+				visible="{dataField>@@COMMON.getHiddenPathExpression}"
+			>
+				<macro:Field
+					editMode="{= ${this>editMode} ? ${this>editMode} : 'Display'}"
+					createMode="{this>createMode}"
+					_flexId="{this>_flexId}"
+					entitySet="{entitySet>}"
+					dataField="{dataField>}"
+					onCallAction="{= ${this>onCallAction} ? ${this>onCallAction} : null}"
+					parentControl="Form"
+					onChange="{= ${this>onChange} }"
+				/>
+			</f:FormElement>
+		</template:else>
+	</template:if>
+</core:FragmentDefinition>

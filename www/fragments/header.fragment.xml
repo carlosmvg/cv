@@ -1,0 +1,11 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:ux="sap.uxap"
+	xmlns:core="sap.ui.core">
+	<ux:snappedHeading>
+		<HBox fitContainer="true" alignItems="Center">
+			<Avatar src="img/foto.jgp" class="sapUiTinyMarginEnd"/>
+			<Title text="Carlos Vegas" wrapping="true"/>
+		</HBox>
+	</ux:snappedHeading>
+</core:FragmentDefinition>

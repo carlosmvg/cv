@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<control xmlns="http://www.sap.com/sap.ui.library.xsd">
+    <name>plugins/DataStateIndicator</name>
+    <derived/>
+    <author>SAP SE</author>
+    <documentation>This plugin implements a message strip used to show binding-related messages.</documentation>
+    <since>1.73</since>
+    <properties>
+        <property name="filter" type="sap.ui.core/any">
+            <documentation>Defines a predicate to test each message of the data state.
+
+This callback gets called using the {@link sap.ui.core.message.Message message} and {@link sap.ui.core.Control related control} parameters.
+Returns &lt;code&gt;true&lt;/code&gt; to keep the message, &lt;code&gt;false&lt;/code&gt; otherwise.</documentation>
+        </property>
+        <property name="messageLinkText" type="sap.ui.core/string" since="1.79" visibility="hidden">
+            <documentation>Defines the text for the link in the message strip.</documentation>
+        </property>
+        <property name="messageLinkVisible" type="sap.ui.core/boolean" defaultValue="true" since="1.79" visibility="hidden">
+            <documentation>Defines the visibility of the link control in the message strip.</documentation>
+        </property>
+    </properties>
+    <events>
+        <event name="dataStateChange" allowPreventDefault="true">
+            <documentation>This event is fired when the {@link sap.ui.model.DataState data state} of the plugin parent is changed.</documentation>
+            <parameters>
+                <parameter name="dataState" type="any">
+                    <documentation>The data state object.</documentation>
+                </parameter>
+                <parameter name="filteredMessages" type="sap.ui.core/any[]">
+                    <documentation>The messages (@see sap.ui.core.message.Message) from the current &lt;code&gt;dataState&lt;/code&gt; object filtered by the given &lt;code&gt;filter&lt;/code&gt; function.</documentation>
+                </parameter>
+            </parameters>
+        </event>
+    </events>
+</control>

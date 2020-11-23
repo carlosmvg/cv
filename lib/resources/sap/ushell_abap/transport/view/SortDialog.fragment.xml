@@ -1,0 +1,11 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core">
+    <ViewSettingsDialog
+            confirm="handleSortDialogConfirm">
+        <sortItems>
+            <ViewSettingsItem text="{i18n>Message.SortDialogId}" key="id" selected="true"/>
+            <ViewSettingsItem text="{i18n>Message.SortDialogOwnerFullname}" key="ownerFullname" />
+        </sortItems>
+    </ViewSettingsDialog>
+</core:FragmentDefinition>

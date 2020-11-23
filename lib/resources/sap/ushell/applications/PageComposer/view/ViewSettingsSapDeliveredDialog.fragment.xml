@@ -1,0 +1,14 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <ViewSettingsDialog
+        id="viewSettingsDialogSapDelivered"
+        sortDescending="true"
+        confirm=".handleSapDeliveredDialogConfirm">
+        <sortItems>
+            <ViewSettingsItem id="SapDeliveredIDSort" text="{i18n>Label.PageID}" key="id" />
+            <ViewSettingsItem id="SapDeliveredDescriptionSort" text="{i18n>Column.PageDescription}" key="description" />
+            <ViewSettingsItem id="SapDeliveredTitleSort" text="{i18n>Column.PageTitle}" key="title" />
+         </sortItems>
+    </ViewSettingsDialog>
+</core:FragmentDefinition>

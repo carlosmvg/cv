@@ -1,0 +1,21 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core"
+        id="discardChanges">
+    <ResponsivePopover
+            id="discardChangesPopover"
+            placement="Top"
+            showHeader="false"
+            class="sapUiContentPadding">
+        <content>
+            <VBox>
+                <Text id="discardChangesPopoverText" text="{i18n>Message.DiscardChanges}"/>
+                <Button
+                        id="confirmDiscardChangesButton"
+                        text="{i18n>Button.DiscardChanges}"
+                        width="100%"
+                        press=".discardChangesAndCancel" />
+            </VBox>
+        </content>
+    </ResponsivePopover>
+</core:FragmentDefinition>

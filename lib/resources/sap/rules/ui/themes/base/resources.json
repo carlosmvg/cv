@@ -1,0 +1,122 @@
+{
+	"_version": "1.1.0",
+	"resources": [
+		{
+			"name": ".theming",
+			"size": 64,
+			"theme": "base"
+		},
+		{
+			"name": "AstExpression.less",
+			"size": 6519,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "DecisionTable.less",
+			"size": 1636,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "DecisionTableCell.less",
+			"size": 575,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "DecisionTableSettings.less",
+			"size": 1099,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "ExpressionAdvanced.less",
+			"size": 409,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "ExpressionBasic.less",
+			"size": 62,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "RuleBuilder.less",
+			"size": 23,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "TextRule.less",
+			"size": 746,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "css_variables.css",
+			"size": 1559,
+			"theme": "base"
+		},
+		{
+			"name": "css_variables.less",
+			"size": 240,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "css_variables.source.less",
+			"size": 81462,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "img-RTL/curlyunderline.gif",
+			"size": 809,
+			"theme": "base"
+		},
+		{
+			"name": "img/curlyunderline.gif",
+			"size": 815,
+			"theme": "base"
+		},
+		{
+			"name": "library-RTL.css",
+			"size": 8299,
+			"theme": "base"
+		},
+		{
+			"name": "library-parameters.json",
+			"size": 649,
+			"theme": "base"
+		},
+		{
+			"name": "library.css",
+			"size": 8291,
+			"theme": "base"
+		},
+		{
+			"name": "library.less",
+			"size": 12112,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "library.source.less",
+			"size": 641,
+			"designtime": true,
+			"theme": "base"
+		},
+		{
+			"name": "library_skeleton-RTL.css",
+			"size": 8207,
+			"theme": "base"
+		},
+		{
+			"name": "library_skeleton.css",
+			"size": 8199,
+			"theme": "base"
+		}
+	]
+}

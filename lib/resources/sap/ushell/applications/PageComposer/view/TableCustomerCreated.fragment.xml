@@ -1,0 +1,150 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc">
+    <Table
+        id="customerCreatedTable"
+        class="sapUiMediumMarginBeginEnd sapUiTinyMarginTopBottom sapUiForceWidthAuto"
+        busy="{/busy}"
+        items="{
+            path: 'PageRepository>/pageSet',
+            key: 'id',
+            sorter: { path: 'modifiedOn', descending: true }
+        }"
+        itemPress=".onItemPress"
+        selectionChange=".onSelectionChange"
+        updateFinished=".onTableUpdate"
+        mode="SingleSelectLeft"
+        sticky="ColumnHeaders"
+        noDataText="{i18n>Message.NoPages}"
+        autoPopinMode="true"
+        growing="true"
+        growingScrollToLoad="true">
+        <headerToolbar>
+            <OverflowToolbar id="customerCreatedOverflowToolbar">
+                <ToolbarSpacer id="customerCreatedToolbarSpacer" />
+                <SearchField
+                    id="customerCreatedSearchField"
+                    showRefreshButton="false"
+                    tooltip="{i18n>Tooltip.Search}"
+                    search=".onSearch"
+                    width="auto">
+                </SearchField>
+                <Button
+                    id="customerCreatedAddButton"
+                    text="{i18n>Button.Create}"
+                    type="Transparent"
+                    visible="{SupportedOperationModel>/createSupported}"
+                    press=".onAdd">
+                    <customData><core:CustomData key="help-id" value="FLPPage-manage-PageOverview-Button-Create" writeToDom="true" /></customData>
+                </Button>
+                <Button
+                    id="customerCreatedCopyButton"
+                    text="{i18n>Button.Copy}"
+                    type="Transparent"
+                    enabled="{buttonStates>/isDeleteAndCopyEnabledCustomerCreated}"
+                    visible="{SupportedOperationModel>/copySupported}"
+                    press=".onCopy">
+                    <customData><core:CustomData key="help-id" value="LaunchpadPage-compose-PageOverview-Button-Copy" writeToDom="true" /></customData>
+                </Button>
+                <Button
+                    id="customerCreatedDeleteButton"
+                    text="{i18n>Button.Delete}"
+                    type="Transparent"
+                    enabled="{buttonStates>/isDeleteAndCopyEnabledCustomerCreated}"
+                    visible="{SupportedOperationModel>/deleteSupported}"
+                    press=".onDelete">
+                    <customData><core:CustomData key="help-id" value="FLPPage-manage-PageOverview-Button-Delete" writeToDom="true" /></customData>
+                </Button>
+                <OverflowToolbarButton
+                    id="customerCreatedSortButton"
+                    text="{i18n>Tooltip.SortSettingsButton}"
+                    tooltip="{i18n>Tooltip.SortSettingsButton}"
+                    icon="sap-icon://sort"
+                    type="Transparent"
+                    press=".showViewSettingsCustomerCreatedDialog('sort')" />
+                <OverflowToolbarButton
+                    id="customerCreatedFilterButton"
+                    text="{i18n>Tooltip.FilterSettingsButton}"
+                    tooltip="{i18n>Tooltip.FilterSettingsButton}"
+                    icon="sap-icon://filter"
+                    type="Transparent"
+                    press=".showViewSettingsCustomerCreatedDialog('filter')" />
+                <OverflowToolbarButton
+                    id="customerCreatedGroupButton"
+                    text="{i18n>Tooltip.GroupSettingsButton}"
+                    tooltip="{i18n>Tooltip.GroupSettingsButton}"
+                    icon="sap-icon://group-2"
+                    type="Transparent"
+                    press=".showViewSettingsCustomerCreatedDialog('group')" />
+            </OverflowToolbar>
+        </headerToolbar>
+        <infoToolbar>
+            <OverflowToolbar id="customerCreatedInfoFilterBar" visible="false" active="true" press=".showViewSettingsCustomerCreatedDialog('filter')">
+                <Text id="customerCreatedInfoFilterLabel" />
+            </OverflowToolbar>
+        </infoToolbar>
+        <columns>
+            <Column id="customerCreatedColumnPageId">
+                <Label text="{i18n>Column.PageIdAndDescription}" />
+            </Column>
+            <Column id="customerCreatedColumnPageTitle" popinDisplay="Inline">
+                <Label id="customerCreatedColumnTextPageTitle" text="{i18n>Column.PageTitle}" />
+            </Column>
+            <Column id="customerCreatedColumnPageAssignmentStatus" width="15%" popinDisplay="Inline">
+                <Label id="customerCreatedColumnTextPageAssignmentStatus" text="{i18n>Column.PageAssignmentStatus}" />
+            </Column>
+            <Column id="customerCreatedColumnPageCreated" width="15%">
+                <Label text="{i18n>Column.PageCreatedByOn}" />
+            </Column>
+            <Column id="customerCreatedColumnPageChanged" width="15%">
+                <Label text="{i18n>Column.PageChangedByOn}" />
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem id="customerCreatedColumnListItemPage" type="DetailAndActive" detailPress=".onEdit">
+                <cells>
+                    <ObjectIdentifier
+                        id="customerCreatedObjectIdentifierPageId"
+                        title="{PageRepository>id}"
+                        text="{PageRepository>description}" />
+                    <Text id="customerCreatedCellTextPageTitle" text="{PageRepository>title}" />
+                    <ObjectStatus
+                        press="onErrorMessageClicked"
+                        text="{
+                            parts: ['PageRepository>numberOfRoles', 'PageRepository>numberOfSpaces'],
+                            formatter: '.formatters.assignmentStatusText'
+                        }"
+                        active="{
+                            parts: ['PageRepository>numberOfRoles', 'PageRepository>numberOfSpaces'],
+                            formatter: '.formatters.assignmentStatusActive'
+                        }"
+                        state="{
+                            parts: ['PageRepository>numberOfRoles', 'PageRepository>numberOfSpaces'],
+                            formatter: '.formatters.assignmentStatusState'
+                        }" />
+                    <VBox id="customerCreatedCellPageCreated">
+                        <layoutData><FlexItemData growFactor="1" /></layoutData>
+                        <Text id="customerCreatedCellPageCreatedTitle" text="{= ${PageRepository>createdByFullname} || ${PageRepository>createdBy}}" />
+                        <Text id="customerCreatedCellPageCreatedText"
+                              text="{
+                                  path: 'PageRepository>createdOn',
+                                  type: 'sap.ui.model.type.Date',
+                                  formatOptions: { style: 'medium' }
+                              }" />
+                    </VBox>
+                    <VBox id="customerCreatedCellPageChanged">
+                        <layoutData><FlexItemData growFactor="1" /></layoutData>
+                        <Text id="customerCreatedCellPageChangedTitle" text="{= ${PageRepository>modifiedByFullname} || ${PageRepository>modifiedBy}}" />
+                        <Text id="customerCreatedCellPageChangedText"
+                              text="{
+                                  path: 'PageRepository>modifiedOn',
+                                  type: 'sap.ui.model.type.Date',
+                                  formatOptions: { style: 'medium' }
+                              }" />
+                    </VBox>
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</core:FragmentDefinition>

@@ -1,0 +1,36 @@
+<core:FragmentDefinition
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	template:require="{
+		FIELD: 'sap/fe/macros/field/FieldHelper',
+		COMMON: 'sap/fe/macros/CommonHelper',
+		TABLE: 'sap/fe/macros/table/TableHelper'
+	}"
+>
+
+	<template:if test="{columns>}">
+	<template:repeat list="{columns>}" var="column">
+		<template:if test="{= !${column>personalizationOnly}}">
+			<template:if test="{= ${column>type} === 'Default'}">
+				<template:then>
+					<core:Fragment fragmentName="sap.fe.macros.table.CustomColumn" type="XML" />
+				</template:then>
+				<template:elseif test="{= ${column>type} === 'Annotation'}">
+					<template:with path="column>annotationPath" var="dataField">
+					<template:with path="dataField>Action" helper="COMMON.getPathToBoundActionOverload" var="isBound">
+						<template:if
+									test="{= ${dataField>@@FIELD.isNotAlwaysHidden} &amp;&amp; TABLE.filterLineItemsForColumn(${dataField>}, ${isBound>$IsBound}) }"
+								>
+							<!-- TODO: Reevaluate MDC column width -->
+							<core:Fragment fragmentName="sap.fe.macros.table.Column" type="XML" />
+						</template:if>
+					</template:with>
+					</template:with>
+				</template:elseif>
+			</template:if>
+		</template:if>
+	</template:repeat>
+	</template:if>
+
+</core:FragmentDefinition>

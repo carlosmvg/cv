@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<control xmlns="http://www.sap.com/sap.ui.library.xsd">
+    <name>semantic/SemanticToggleButton</name>
+    <derived/>
+    <author>SAP SE</author>
+    <documentation>A base class for the {@link sap.f.semantic.FavoriteAction} and {@link sap.f.semantic.FlagAction}.</documentation>
+    <since>1.46.0</since>
+    <abstract/>
+    <baseType>sap.m/semantic/SemanticToggleButton</baseType>
+</control>

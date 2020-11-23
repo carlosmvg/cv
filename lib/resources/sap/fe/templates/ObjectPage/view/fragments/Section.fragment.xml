@@ -1,0 +1,131 @@
+<core:FragmentDefinition
+	xmlns:uxap="sap.uxap"
+	xmlns:core="sap.ui.core"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:fpm="sap.fe.macros.fpm"
+	xmlns:macro="sap.fe.macros"
+	xmlns:dt="sap.ui.dt"
+	xmlns="sap.m"
+	xmlns:opcontrol="sap.fe.templates.ObjectPage.controls"
+	template:require="{
+		fpm: 'sap/fe/macros/fpm/fpm',
+		MODEL: 'sap/ui/model/odata/v4/AnnotationHelper',
+		OP: 'sap/fe/templates/ObjectPage/AnnotationHelper',
+		COMMON: 'sap/fe/macros/CommonHelper',
+		ID: 'sap/fe/core/helpers/StableIdHelper'
+	}"
+>
+	<!--
+	For HeaderFacets, we add a section to the OP which is only visible in edit mode.
+	It has one section with one subsection for all of the header facets, block for each facet.
+	-->
+	<template:with path="converterContext>headerSection" var="headerSection">
+		<template:if test="{viewData>/editableHeaderContent}">
+			<uxap:ObjectPageSection
+				dt:designtime="not-adaptable-tree"
+				title="{sap.fe.i18n>T_COMMON_OBJECT_PAGE_HEADER_SECTION}"
+				visible="{= ${ui>/editMode} === 'Editable' }"
+				titleUppercase="false"
+			>
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection>
+						<core:Fragment fragmentName="sap.fe.templates.ObjectPage.view.fragments.EditableHeaderFacet" type="XML" />
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+		</template:if>
+	</template:with>
+	<template:with path="converterContext>sections" var="sections">
+		<template:repeat list="{sections>}" var="section">
+			<uxap:ObjectPageSection
+				id="{section>id}"
+				title="{section>title}"
+				showTitle="{section>showTitle}"
+				titleUppercase="false"
+				visible="{section>visible}"
+			>
+				<uxap:subSections>
+					<template:repeat list="{section>subSections}" var="subSection">
+						<uxap:ObjectPageSubSection id="{subSection>id}" title="{subSection>title}" visible="{subSection>visible}">
+							<uxap:customData>
+								<core:CustomData key="strategyForVisibilityChange" value="lazyLoading" />
+							</uxap:customData>
+							<template:if test="{= ${subSection>type} === 'XMLFragment'}">
+								<template:then>
+									<core:Fragment fragmentName="sap.fe.templates.ObjectPage.view.fragments.FormActions" type="XML" />
+									<fpm:CustomSection
+										id="{subSection>id}"
+										entitySet="{entitySet>}"
+										section="{subSection>}"
+										editMode="{ui>/editMode}"
+										fragmentName="{subSection>fragmentName}"
+										fragmentType="XML"
+									/>
+								</template:then>
+								<template:elseif test="{= ${subSection>type} === 'Form'}">
+									<core:Fragment fragmentName="sap.fe.templates.ObjectPage.view.fragments.FormActions" type="XML" />
+									<uxap:blocks>
+										<opcontrol:SubSectionBlock>
+											<opcontrol:content>
+												<macro:Form
+													id="{= ID.generate([${subSection>formDefinition/id}, 'Content']) }"
+													facet="{subSection>annotationPath}"
+													entitySet="{entitySet>}"
+													editMode="{ui>/editMode}"
+													createMode="{localUI>/createMode}"
+													useFormContainerLabels="{= ${subSection>formDefinition/useFormContainerLabels}}"
+													partOfPreview="true"
+													onChange=".handlers.onFieldValueChange"
+													valueHelpRequestGroupId="$auto.Workers"
+												/>
+											</opcontrol:content>
+										</opcontrol:SubSectionBlock>
+									</uxap:blocks>
+									<template:if test="{subSection>formDefinition/hasFacetsNotPartOfPreview}">
+										<template:then>
+											<!-- Button "Show More / Less" is displayed for a collection facets that contains at least one reference facets with annotation "PartOfPreview === TRUE" -->
+											<uxap:moreBlocks>
+												<opcontrol:SubSectionBlock>
+													<opcontrol:content>
+														<macro:Form
+															id="{= ID.generate([${subSection>formDefinition/id}, 'MoreContent']) }"
+															facet="{subSection>annotationPath}"
+															entitySet="{entitySet>}"
+															editMode="{ui>/editMode}"
+															createMode="{localUI>/createMode}"
+															useFormContainerLabels="{= ${subSection>formDefinition/useFormContainerLabels}}"
+															partOfPreview="false"
+															onChange=".handlers.onFieldValueChange"
+															valueHelpRequestGroupId="$auto.Workers"
+														/>
+													</opcontrol:content>
+												</opcontrol:SubSectionBlock>
+											</uxap:moreBlocks>
+										</template:then>
+									</template:if>
+								</template:elseif>
+								<template:elseif test="{= ${subSection>type} === 'DataVisualization'}">
+									<uxap:blocks>
+										<opcontrol:SubSectionBlock>
+											<opcontrol:content>
+												<template:with path="subSection>presentation" var="presentationContext">
+													<core:Fragment fragmentName="sap.fe.templates.controls.ViewSwitchContainer.ViewSwitchContainer" type="XML" />
+												</template:with>
+											</opcontrol:content>
+										</opcontrol:SubSectionBlock>
+									</uxap:blocks>
+								</template:elseif>
+								<template:elseif test="{= ${subSection>type} === 'Unknown'}">
+									<Text text="{subSection>text}" />
+								</template:elseif>
+								<template:else>
+
+								</template:else>
+							</template:if>
+						</uxap:ObjectPageSubSection>
+					</template:repeat>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+		</template:repeat>
+	</template:with>
+</core:FragmentDefinition>

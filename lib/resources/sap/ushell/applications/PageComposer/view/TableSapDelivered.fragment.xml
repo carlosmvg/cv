@@ -1,0 +1,76 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Table
+        id="sapDeliveredTable"
+        class="sapUiMediumMarginBeginEnd sapUiTinyMarginTopBottom sapUiForceWidthAuto"
+        busy="{/busy}"
+        itemPress=".onItemPress"
+        selectionChange=".onSelectionChange"
+        updateFinished=".onTableUpdate"
+        mode="SingleSelectLeft"
+        sticky="ColumnHeaders"
+        noDataText="{i18n>Message.NoPages}"
+        autoPopinMode="true"
+        growing="true"
+        growingScrollToLoad="true">
+        <headerToolbar>
+            <OverflowToolbar id="sapDeliveredOverflowToolbar">
+                <ToolbarSpacer id="sapDeliveredToolbarSpacer" />
+                <SearchField
+                    id="sapDeliveredSearchField"
+                    showRefreshButton="false"
+                    tooltip="{i18n>Tooltip.Search}"
+                    search=".onSearch"
+                    width="auto">
+                </SearchField>
+                <Button
+                    id="sapDeliveredAddButton"
+                    text="{i18n>Button.Create}"
+                    type="Transparent"
+                    visible="{SupportedOperationModel>/createSupported}"
+                    press=".onAdd">
+                    <customData><core:CustomData key="help-id" value="FLPPage-manage-PageOverview-Button-Create" writeToDom="true" /></customData>
+                </Button>
+                <Button
+                    id="sapDeliveredCopyButton"
+                    text="{i18n>Button.Copy}"
+                    type="Transparent"
+                    enabled="{buttonStates>/isDeleteAndCopyEnabledSapDelivered}"
+                    visible="{SupportedOperationModel>/copySupported}"
+                    press=".onCopy">
+                    <customData><core:CustomData key="help-id" value="LaunchpadPage-compose-PageOverview-Button-Copy" writeToDom="true" /></customData>
+                </Button>
+                <Button
+                    id="sapDeliveredDeleteButton"
+                    text="{i18n>Button.Delete}"
+                    type="Transparent"
+                    enabled="{buttonStates>/isDeleteAndCopyEnabledSapDelivered}"
+                    visible="{SupportedOperationModel>/deleteSupported}"
+                    press=".onDelete">
+                    <customData><core:CustomData key="help-id" value="FLPPage-manage-PageOverview-Button-Delete" writeToDom="true" /></customData>
+                </Button>
+                <OverflowToolbarButton
+                    id="sapDeliveredSortButton"
+                    text="{i18n>Tooltip.SortSettingsButton}"
+                    tooltip="{i18n>Tooltip.SortSettingsButton}"
+                    icon="sap-icon://sort"
+                    type="Transparent"
+                    press=".showViewSettingsSapDeliveredDialog('sort')" />
+            </OverflowToolbar>
+        </headerToolbar>
+        <infoToolbar>
+            <OverflowToolbar id="sapDeliveredInfoFilterBar" visible="false" active="true" press=".showViewSettingsSapDeliveredDialog('filter')">
+                <Text id="sapDeliveredInfoFilterLabel" />
+            </OverflowToolbar>
+        </infoToolbar>
+        <columns>
+            <Column id="sapDeliveredColumnPageId">
+                <Label text="{i18n>Column.PageIdAndDescription}" />
+            </Column>
+            <Column id="sapDeliveredColumnPageTitle" popinDisplay="Inline">
+                <Label id="sapDeliveredColumnTextPageTitle" text="{i18n>Column.PageTitle}" />
+            </Column>
+        </columns>
+    </Table>
+</core:FragmentDefinition>
