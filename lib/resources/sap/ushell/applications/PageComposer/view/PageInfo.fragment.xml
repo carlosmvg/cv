@@ -1,0 +1,63 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form">
+    <f:SimpleForm
+        id="pageDetailGeneralForm"
+        editable="true"
+        layout="ColumnLayout"
+        columnsM="2"
+        columnsL="3"
+        columnsXL="4">
+        <f:content>
+            <Label id="descriptionLabel" text="{i18n>Label.Description}" required="{= ${/editMode}}" />
+            <Text id="descriptionField" text="{/page/description}" visible="{= !${/editMode}}" />
+            <Input
+                id="descriptionInput"
+                visible="{= ${/editMode}}"
+                value="{
+                    path: '/page/description',
+                    mode: 'TwoWay',
+                    constraints: { minLength: 1, maxLength: 100 }
+                }"
+                change=".onPageInfoChange"
+                placeholder="{i18n>Placeholder.Description}"/>
+            <Label id="titleLabel" text="{i18n>Label.Title}" required="{= ${/editMode}}" />
+            <Text id="titleField" text="{/page/title}" visible="{= !${/editMode}}" />
+            <Input
+                id="titleInput"
+                value="{
+                    path: '/page/title',
+                    mode: 'TwoWay',
+                    constraints: { minLength: 1, maxLength: 100 }
+                }"
+                visible="{= ${/editMode}}"
+                change=".onPageInfoChange"
+                placeholder="{i18n>Placeholder.PageTitle}" />
+            <Label id="createdByLabel" text="{i18n>Label.CreatedByFullname}" />
+            <Text id="createdByField" text="{= ${/page/createdByFullname} || ${/page/createdBy}}" />
+            <Label id="createdOnLabel" text="{i18n>Label.CreatedOn}" />
+            <Text
+                id="createdOnField"
+                text="{
+                    path: '/page/createdOn',
+                    type: 'sap.ui.model.type.Date',
+                    formatOptions: { style: 'medium' }
+                }" />
+            <Label id="changedByLabel" text="{i18n>Label.ChangedByFullname}" />
+            <Text id="changedByField" text="{= ${/page/modifiedByFullname} || ${/page/modifiedBy}}" />
+            <Label id="changedOnLabel" text="{i18n>Label.ChangedOn}" />
+            <Text
+                id="changedOnField"
+                text="{
+                    path: '/page/modifiedOn',
+                    type: 'sap.ui.model.type.Date',
+                    formatOptions: { style: 'medium' }
+                }" />
+            <Label id="pageInfoPackageLabel" text="{i18n>Label.Package}" visible="{=!!${/page/devclass}}" />
+            <Text id="pageInfoPackageText" text="{/page/devclass}" visible="{=!!${/page/devclass}}" />
+            <Label id="pageInfoWorkbenchRequestLabel" text="{i18n>Label.WorkbenchRequest}" visible="{=!!${/page/transportId}}" />
+            <Text id="pageInfoWorkbenchRequestText" text="{/page/transportId}" visible="{=!!${/page/transportId}}" />
+        </f:content>
+    </f:SimpleForm>
+</core:FragmentDefinition>

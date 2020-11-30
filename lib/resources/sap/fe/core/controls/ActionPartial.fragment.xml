@@ -1,0 +1,91 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:unittest="http://schemas.sap.com/sapui5/preprocessorextension/sap.fe.unittesting/1"
+	template:require="{
+                   macroLibrary: 'sap/fe/macros/macroLibrary',
+                MESSAGE: 'sap/base/strings/formatMessage'
+            }"
+	core:require="{MESSAGE: 'sap/base/strings/formatMessage' }"
+>
+    <Dialog
+		state="Warning"
+		showHeader="true"
+		contentWidth="20rem"
+		resizable="true"
+		verticalScrolling="true"
+		horizontalScrolling="true"
+		class="sapUiContentPadding"
+		title="{totals>/label}"
+	>
+    <!--The list of items that cannot be actioned is based on the Header Info, which is mandatory -->
+    <template:if test="{= ${entityType>@com.sap.vocabularies.UI.v1.HeaderInfo}}">
+        <template:then>
+        <template:with path="entityType>@com.sap.vocabularies.UI.v1.HeaderInfo" var="headerInfo">
+        <VBox>
+             <Text
+							text="{= MESSAGE( ${totals>/total} === 1 ? ${sap.fe.i18n>C_ACTION_PARTIAL_FRAGMENT_SAPFE_BOUND_ACTION} : ${sap.fe.i18n>C_ACTION_PARTIAL_FRAGMENT_SAPFE_BOUND_ACTION_PLURAL}, ${totals>/total} ) }"
+						/>
+        </VBox>
+            <List
+						items="{path: 'notApplicable>/', templateShareable: false}"
+						headerText="{headerInfo>TypeNamePlural}"
+						showSeparators="None"
+						unittest:id="ActionPartialHeaderInfoListHeaderText"
+					>
+                <items>
+                    <CustomListItem>
+                        <HBox justifyContent="Start">
+                             <Text
+										text="{= '{notApplicable>' + ${headerInfo>Title/Value/$Path} + '}'  }"
+										class="sapUiTinyMarginBegin sapUiTinyMarginTopBottom"
+										unittest:id="ActionPartialHeaderInfoListItemText"
+									/>
+                        </HBox>
+                    </CustomListItem>
+                </items>
+            </List>
+        </template:with>
+        </template:then>
+    <!--In case that the Header Info is not defined, use the Semantic Key as a fallback-->
+    <template:elseif test="{= !${entityType>@com.sap.vocabularies.UI.v1.HeaderInfo}}">
+        <HBox justifyContent="SpaceAround">
+            <Text
+						text="{= ${totals>/total} === 1 ? MESSAGE(${sap.fe.i18n>C_ACTION_PARTIAL_FRAGMENT_SAPFE_BOUND_ACTION_SEMANTICKEY}) :
+                MESSAGE(${sap.fe.i18n>C_ACTION_PARTIAL_FRAGMENT_SAPFE_BOUND_ACTION_SEMANTICKEY_PLURAL}, ${totals>/total})}"
+						class="sapUiTinyMarginBegin sapUiTinyMarginTopBottom"
+					/>
+        </HBox>
+         <List
+					items="{path: 'notApplicable>/', templateShareable: false}"
+					showSeparators="None"
+					unittest:id="ActionPartialSemanticKeyListHeaderText"
+				>
+                <items>
+                    <CustomListItem>
+                        <HBox justifyContent="SpaceAround">
+                            <template:repeat list="{path:'entityType>@com.sap.vocabularies.Common.v1.SemanticKey'}" var="semanticKey">
+                            <template:with path="semanticKey>$PropertyPath" var="item">
+                             <Text
+											text="{= '{notApplicable>' + ${semanticKey>$PropertyPath} + '}'  }"
+											class="sapUiTinyMarginBegin sapUiTinyMarginTopBottom"
+											unittest:id="ActionPartialSemanticKeyListItemText"
+										/>
+                            </template:with>
+                            </template:repeat>
+                        </HBox>
+                    </CustomListItem>
+                </items>
+            </List>
+        </template:elseif>
+    </template:if>
+
+    <beginButton>
+        <Button text="{sap.fe.i18n>C_ACTION_PARTIAL_FRAGMENT_SAPFE_CONTINUE_ANYWAY}" press="onContinue" type="Emphasized" />
+    </beginButton>
+    <endButton>
+        <Button text="{sap.fe.i18n>C_COMMON_SAPFE_CLOSE}" press="onClose" />
+    </endButton>
+    </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,46 @@
+<core:FragmentDefinition
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:mdcField="sap.ui.mdc.field"
+	xmlns:unittest="http://schemas.sap.com/sapui5/preprocessorextension/sap.fe.unittesting/1"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	template:require="{
+		MODEL: 'sap/ui/model/odata/v4/AnnotationHelper',
+		FIELD: 'sap/fe/macros/field/FieldHelper'
+	}"
+>
+	<template:with path="entitySet>@sapui.name" var="esName">
+		<template:if test="{=FIELD.isValueHelp(${property>@})}">
+			<!-- Value Help -->
+			<template:then>
+				<mdcField:FieldValueHelp
+					core:require="{ValueListHelper: 'sap/fe/core/helpers/ValueListHelper'}"
+					unittest:id="ValueHelpMacroFragment"
+					delegate="{= FIELD.getDelegatePropertyForFieldValueHelp(${esName>},${property>@@FIELD.propertyName},${this>conditionModel})}"
+					customData:sourcePath="/{esName>}{this>navigationPrefix}/{property>@@FIELD.propertyName}"
+					id="{= FIELD.getIDForFieldValueHelp(${this>_flexId},${this>idPrefix},${originalProperty>@@FIELD.propertyName},${property>@@FIELD.propertyName})}"
+					showConditionPanel="{= !${originalProperty>@@FIELD.isFilterRestrictedToOnlySingleOrMultiValue}}"
+					noDialog="{= ${property>@@MODEL.getValueListType} === 'Fixed'}"
+					validateInput="{= FIELD.isValidInput(${originalProperty>$Path@},${property>@})}"
+					customData:requestGroupId="{this>requestGroupId}"
+				>
+					<mdcField:FieldValueHelpMTableWrapper />
+				</mdcField:FieldValueHelp>
+			</template:then>
+			<!-- Date and DateTime Filters or the display of the Value Help is forced -->
+			<template:elseif test="{=
+								['Edm.Date','Edm.DateTime','Edm.DateTimeOffset'].indexOf(${property>$Type}) &gt; -1 || ${this>forceValueHelp}
+							}">
+				<mdcField:FieldValueHelp
+					unittest:id="ValueHelpMacroFragmentWithDateTimeFilters"
+					id="{= FIELD.getIDForFieldValueHelp(${this>_flexId},${this>idPrefix},${originalProperty>@@FIELD.propertyName},${property>@@FIELD.propertyName})}"
+					showConditionPanel="true"
+					title="{property>@com.sap.vocabularies.Common.v1.Label}"
+					customData:requestGroupId="{this>requestGroupId}"
+				>
+				</mdcField:FieldValueHelp>
+			</template:elseif>
+		</template:if>
+	</template:with>
+</core:FragmentDefinition>

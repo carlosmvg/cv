@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<simple-type xmlns="http://www.sap.com/sap.ui.library.xsd">
+    <name>FileUploaderHttpRequestMethod</name>
+    <derived/>
+    <documentation>Types of HTTP request methods.</documentation>
+    <since>1.81.0</since>
+    <enumeration>
+        <value name="Post" value="POST">
+            <documentation>HTTP request POST method.</documentation>
+        </value>
+        <value name="Put" value="PUT">
+            <documentation>HTTP request PUT method.</documentation>
+        </value>
+    </enumeration>
+</simple-type>

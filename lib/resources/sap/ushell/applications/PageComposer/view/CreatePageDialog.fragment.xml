@@ -1,0 +1,61 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+    <Dialog
+        id="createPageDialog"
+        title="{i18n>CreatePageDialog.Title}"
+        afterClose=".destroy">
+        <content>
+            <form:SimpleForm id="createPageDialogForm" editable="true" validateFieldGroup=".onValidateFieldGroup">
+                <Label id="createPageIdLabel" text="{i18n>Label.PageID}" />
+                <Input
+                    id="createPageIdInput"
+                    fieldGroupIds="pageGroup"
+                    required="true"
+                    change=".onPageIDChange"
+                    validationSuccess=".onValidationSuccess"
+                    validationError=".onValidationError"
+                    valueLiveUpdate="true"
+                    value="{ path: '/id', type: 'sap.ui.model.type.String', constraints: {
+                        minLength: 1,
+                        maxLength: 35,
+                        search: '^[A-Za-z_/]{1}[A-Za-z0-9_/]*$'
+                    } }" />
+                <Label id="createPageDescriptionLabel" text="{i18n>Label.Description}" />
+                <Input
+                    id="createPageDescriptionInput"
+                    fieldGroupIds="pageGroup"
+                    required="true"
+                    placeholder="{i18n>Placeholder.Description}"
+                    validationSuccess=".onValidationSuccess"
+                    validationError=".onValidationError"
+                    valueLiveUpdate="true"
+                    value="{ path: '/description', type: 'sap.ui.model.type.String', constraints: {
+                        minLength: 1,
+                        maxLength: 100
+                    } }" />
+                <Label id="createPageTitleLabel" text="{i18n>Label.Title}" />
+                <Input
+                    id="createPageTitleInput"
+                    fieldGroupIds="pageGroup"
+                    required="true"
+                    placeholder="{i18n>Placeholder.PageTitle}"
+                    validationSuccess=".onValidationSuccess"
+                    validationError=".onValidationError"
+                    valueLiveUpdate="true"
+                    value="{ path: '/title', type: 'sap.ui.model.type.String', constraints: {
+                        minLength: 1,
+                        maxLength: 100
+                    } }" />
+            </form:SimpleForm>
+            <core:ComponentContainer id="transportContainer" lifecycle="Application" />
+        </content>
+        <beginButton>
+            <Button id="createPageSaveButton" type="Emphasized" text="{i18n>Button.Create}" press=".onConfirm" />
+        </beginButton>
+        <endButton>
+            <Button id="createPageCancelButton" text="{i18n>Button.Cancel}" press=".onCancel" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

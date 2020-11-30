@@ -1,0 +1,142 @@
+{
+  "_version": "1.21.0",
+  "sap.app": {
+    "id": "sap.ushell",
+    "type": "library",
+    "embeds": [
+      "appRuntime/ui5/plugins/rtaAgent",
+      "appRuntime/ui5/plugins/rtaShell",
+      "applications/PageComposer",
+      "components/appfinder",
+      "components/factsheet",
+      "components/homepage",
+      "components/pages",
+      "components/shell/MeArea",
+      "components/shell/MenuBar",
+      "components/shell/Notifications",
+      "components/shell/ProductSwitch",
+      "components/shell/Search",
+      "components/shell/Settings",
+      "components/shell/UserImage",
+      "components/tiles/cdm/applauncher",
+      "components/tiles/cdm/applauncherdynamic",
+      "components/visualizationOrganizer",
+      "plugins/appwarmup",
+      "plugins/ghostapp",
+      "plugins/rta-personalize",
+      "plugins/rta",
+      "renderers/fiori2/search/container"
+    ],
+    "applicationVersion": {
+      "version": "1.82.2"
+    },
+    "title": "SAP library: sap.ushell",
+    "description": "SAP library: sap.ushell",
+    "resources": "resources.json",
+    "offline": true,
+    "openSourceComponents": [
+      {
+        "name": "touchpunch",
+        "packagedWithMySelf": true,
+        "version": "0.0.0"
+      },
+      {
+        "name": "resize_event",
+        "packagedWithMySelf": true,
+        "version": "0.0.0"
+      }
+    ]
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "supportedThemes": [
+      "base",
+      "sap_belize",
+      "sap_belize_hcb",
+      "sap_belize_hcw",
+      "sap_belize_plus",
+      "sap_bluecrystal",
+      "sap_fiori_3",
+      "sap_fiori_3_dark",
+      "sap_fiori_3_hcb",
+      "sap_fiori_3_hcw",
+      "sap_hcb"
+    ]
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.82",
+      "libs": {
+        "sap.ui.core": {
+          "minVersion": "1.82.2"
+        },
+        "sap.ui.layout": {
+          "minVersion": "1.82.2"
+        },
+        "sap.m": {
+          "minVersion": "1.82.2"
+        },
+        "sap.ui.table": {
+          "minVersion": "1.82.2",
+          "lazy": true
+        },
+        "sap.ui.integration": {
+          "minVersion": "1.82.2",
+          "lazy": true
+        },
+        "sap.ui.generic.app": {
+          "minVersion": "1.82.0",
+          "lazy": true
+        }
+      }
+    },
+    "library": {
+      "i18n": false,
+      "content": {
+        "controls": [
+          "sap.ushell.components.factsheet.controls.PictureTile",
+          "sap.ushell.components.factsheet.controls.PictureViewer",
+          "sap.ushell.components.factsheet.controls.PictureViewerItem",
+          "sap.ushell.ui.appfinder.AppBox",
+          "sap.ushell.ui.footerbar.AboutButton",
+          "sap.ushell.ui.footerbar.AddBookmarkButton",
+          "sap.ushell.ui.footerbar.ContactSupportButton",
+          "sap.ushell.ui.footerbar.EndUserFeedback",
+          "sap.ushell.ui.footerbar.JamDiscussButton",
+          "sap.ushell.ui.footerbar.JamShareButton",
+          "sap.ushell.ui.footerbar.LogoutButton",
+          "sap.ushell.ui.footerbar.SettingsButton",
+          "sap.ushell.ui.footerbar.UserPreferencesButton",
+          "sap.ushell.ui.launchpad.ActionItem",
+          "sap.ushell.ui.launchpad.AnchorItem",
+          "sap.ushell.ui.launchpad.AnchorNavigationBar",
+          "sap.ushell.ui.launchpad.DashboardGroupsContainer",
+          "sap.ushell.ui.launchpad.GroupHeaderActions",
+          "sap.ushell.ui.launchpad.GroupListItem",
+          "sap.ushell.ui.launchpad.LinkTileWrapper",
+          "sap.ushell.ui.launchpad.LoadingDialog",
+          "sap.ushell.ui.launchpad.Panel",
+          "sap.ushell.ui.launchpad.PlusTile",
+          "sap.ushell.ui.launchpad.Tile",
+          "sap.ushell.ui.launchpad.TileContainer",
+          "sap.ushell.ui.launchpad.TileState",
+          "sap.ushell.ui.tile.DynamicTile",
+          "sap.ushell.ui.tile.ImageTile",
+          "sap.ushell.ui.tile.StaticTile",
+          "sap.ushell.ui.tile.TileBase"
+        ],
+        "elements": [],
+        "types": [
+          "sap.ushell.AllMyAppsState",
+          "sap.ushell.AppTitleState",
+          "sap.ushell.components.container.ApplicationType",
+          "sap.ushell.ui.launchpad.ViewPortState",
+          "sap.ushell.ui.tile.State",
+          "sap.ushell.ui.tile.StateArrow",
+          "sap.ushell.NavigationState"
+        ],
+        "interfaces": []
+      }
+    }
+  }
+}

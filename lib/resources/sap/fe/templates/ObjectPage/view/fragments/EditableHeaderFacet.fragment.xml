@@ -1,0 +1,79 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:unittest="http://schemas.sap.com/sapui5/preprocessorextension/sap.fe.unittesting/1"
+	xmlns:macro="sap.fe.macros"
+	xmlns:core="sap.ui.core"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	template:require="{OP: 'sap/fe/templates/ObjectPage/AnnotationHelper', MODEL: 'sap/ui/model/odata/v4/AnnotationHelper',FIELD: 'sap/fe/macros/field/FieldHelper', ID: 'sap/fe/core/helpers/StableIdHelper'}"
+>
+	<HBox
+		unittest:id="FormParentTest"
+		binding="{path: ''}"
+		visible="{= OP.getVisiblityOfHeaderFacet(${entityType>@com.sap.vocabularies.UI.v1.HeaderInfo/Title/Value/$Path@},${entityType>@com.sap.vocabularies.UI.v1.HeaderInfo/Title/Value/$Path@@FIELD.fieldControl}) }"
+	>
+		<f:Form id="fe::EditableHeaderForm" editable="true" class="sapUxAPObjectPageSubSectionAlignContent">
+			<f:layout>
+				<f:ColumnLayout columnsM="2" columnsL="3" columnsXL="4" labelCellsLarge="12" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement id="fe::EditableHeaderForm::EditableHeaderTitle">
+							<f:label>
+								<Label text="{entityType>@com.sap.vocabularies.UI.v1.HeaderInfo/Title/@@MODEL.label}">
+									<layoutData>
+										<f:ColumnElementData cellsLarge="12" />
+									</layoutData>
+								</Label>
+							</f:label>
+							<f:fields>
+								<macro:Field
+									editMode="{= typeof(${entityType>@com.sap.vocabularies.UI.v1.HeaderInfo/Title/Value} ) === 'string' ? 'Display' : 'Editable'}"
+									createMode="{localUI>createMode}"
+									idPrefix="fe::EditableHeaderForm::EditableHeaderTitle"
+									parentControl="Form"
+									entitySet="{entitySet>}"
+									dataField="{entityType>@com.sap.vocabularies.UI.v1.HeaderInfo/Title}"
+								/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement id="fe::EditableHeaderForm::EditableHeaderDescription">
+							<f:label>
+								<Label text="{entityType>@com.sap.vocabularies.UI.v1.HeaderInfo/Description/@@MODEL.label}">
+									<layoutData>
+										<f:ColumnElementData cellsLarge="12" />
+									</layoutData>
+								</Label>
+							</f:label>
+							<f:fields>
+								<macro:Field
+									editMode="{= typeof(${entityType>@com.sap.vocabularies.UI.v1.HeaderInfo/Title/Value} ) === 'string' ? 'Display' : 'Editable'}"
+									createMode="{localUI>createMode}"
+									idPrefix="fe::EditableHeaderForm::EditableHeaderDescription"
+									parentControl="Form"
+									entitySet="{entitySet>}"
+									dataField="{entityType>@com.sap.vocabularies.UI.v1.HeaderInfo/Description}"
+								/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+	</HBox>
+	<template:if test="{headerSection>subSections}">
+		<template:repeat list="{path: 'headerSection>subSections', filters: {path: 'type', operator: 'EQ', value1: 'Form'}}" var="subSection">
+			<macro:Form
+				id="{= ID.generate([${subSection>formDefinition/id}, 'Content']) }"
+				facet="{subSection>annotationPath}"
+				entitySet="{entitySet>}"
+				editMode="{ui>/editMode}"
+				createMode="{localUI>/createMode}"
+				useFormContainerLabels="{= ${subSection>formDefinition/useFormContainerLabels}}"
+				partOfPreview="true"
+				onChange=".handlers.onFieldValueChange"
+			/>
+		</template:repeat>
+	</template:if>
+</core:FragmentDefinition>

@@ -1,0 +1,21 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog
+        id="editDialog"
+        title="{i18n>EditDialog.Title}"
+        type="Message"
+        state="Warning"
+        afterClose=".destroy">
+        <content>
+            <Text id="editMessage" text="{/message}" />
+            <core:ComponentContainer id="transportContainer" lifecycle="Application" />
+        </content>
+        <beginButton>
+            <Button id="editSaveButton" text="{ path: '/', formatter: '.saveOrSkipFormatter' }" press=".onConfirm" type="Emphasized" />
+        </beginButton>
+        <endButton>
+            <Button id="editCancelButton" text="{i18n>Button.Cancel}" press=".onCancel" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

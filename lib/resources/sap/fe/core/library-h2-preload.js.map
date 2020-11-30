@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"sap/fe/core/library-h2-preload.js",
+"sourceroot":".",
+"sources":["library-dbg.js","manifest.json"],
+"names":["TemplatedViewServiceFactory","ResourceModelServiceFactory","CacheHandlerServiceFactory","DraftModelService","NavigationService","RoutingServiceFactory","ShellServicesFactory","AsyncComponentServiceFactory","ServiceFactoryRegistry"],
+"mappings":";;;;;;AAuBA,gBAAa,uBACZ,CACC,mDACA,mDACA,kDACA,gDACA,gDACA,6CACA,4CACA,oDACA,6CACA,mBACA,sBACA,4BACA,oBACA,oBACD,EACA,SACCA,CAA2B,CAC3BC,CAA2B,CAC3BC,CAA0B,CAC1BC,CAAiB,CACjBC,CAAiB,CACjBC,CAAqB,CACrBC,CAAoB,CACpBC,CAA4B,CAC5BC,CAED,CAAE,CACD,aA8CA,8BACC,KAAM,cACN,aAAc,eAAgB,oBAAqB,YAAa,cAChE,MAAO,4BAA6B,iCACpC,WAAY,GACZ,SAAU,GACV,SAAU,GACV,QAAS,SACT,aAAc,IACf,GAUA,wBAAyB,CAAE,CAQ1B,QAAS,UAQT,KAAM,OAQN,MAAO,QAQP,SAAU,WAQV,OAAQ,SAQR,YAAa,cAQb,SAAU,UACX,EASA,6BAA8B,CAAE,CAQ/B,KAAM,OASN,KAAM,OASN,QAAS,SACV,EASA,qBAAsB,CAAE,CAQvB,mBAAoB,QACrB,EAEAA,CAAsB,sDAAuD,IAAIR,CAA2B,IAC5GQ,CAAsB,sDAAuD,IAAIP,CAA2B,IAC5GO,CAAsB,qDAAsD,IAAIN,CAA0B,IAC1GM,CAAsB,mDAAoD,IAAIL,CAAiB,IAC/FK,CAAsB,mDAAoD,IAAIJ,CAAiB,IAC/FI,CAAsB,gDAAiD,IAAIH,CAAqB,IAChGG,CAAsB,+CAAgD,IAAIF,CAAoB,IAC9FE,CAAsB,uDAAwD,IAAID,CAA4B,IAE9G,OAAO,YACR,CACD;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+"x_com_sap_openui5_sections":[48,1857,1911,3004]
+}

@@ -1,0 +1,35 @@
+<core:FragmentDefinition
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	template:require="{
+		FIELD: 'sap/fe/macros/field/FieldHelper'
+	}"
+>
+<!--	{IsActiveEntity} true when there are unsaved changes by other users.
+		{HasDraftEntity} true when entity has draft state.
+-->
+	<template:if test="{= ${this>DraftIndicatorType} === 'IconAndText'}">
+		<template:then>
+			<ObjectMarker
+				core:require="{DraftIndicator: 'sap/fe/macros/DraftIndicatorRuntime'}"
+				type="{= !%{IsActiveEntity} ? 'Draft' : (%{HasDraftEntity} ? (%{DraftAdministrativeData/InProcessByUser} ? 'LockedBy' : (%{DraftAdministrativeData/LastChangedByUser} ? 'UnsavedBy' : 'Unsaved')) : 'Flagged') }"
+				press="DraftIndicator.onDraftLinkPressed($event, '{entitySet>@sapui.name}','{this>indicatorType}')"
+				visibility="{= !%{HasDraftEntity} ? 'TextOnly' : 'IconAndText' }"
+				visible="{= !${IsActiveEntity} || ${HasDraftEntity}}"
+				additionalInfo="{path: 'entitySet>$Type', formatter: 'FIELD.getBindingForDraftAdminBlockInline'}"
+			/>
+	</template:then>
+	<template:else>
+		<ObjectMarker
+				core:require="{DraftIndicator: 'sap/fe/macros/DraftIndicatorRuntime'}"
+				type="{= !%{IsActiveEntity} ? 'Draft' : (%{HasDraftEntity} ? (%{DraftAdministrativeData/InProcessByUser} ? 'Locked' : 'Unsaved') : 'Flagged') }"
+				press="DraftIndicator.onDraftLinkPressed($event, '{entitySet>@sapui.name}','{this>indicatorType}')"
+				visibility="IconOnly"
+				visible="{= !(${ui>/editMode} === 'Editable') &amp;&amp; ${HasDraftEntity} }"
+				class="${this>class}"
+			/>
+	</template:else>
+</template:if>
+
+</core:FragmentDefinition>

@@ -1,0 +1,20 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core">
+    <Dialog id="transportDialog"
+            title="{i18n>TransportDialog.Title}"
+            beforeOpen=".onBeforeOpen">
+        <content>
+            <core:ComponentContainer id="transportContainer" lifecycle="Application"/>
+        </content>
+        <beginButton>
+            <Button id="transportDialogSaveButton"
+                    text="{i18n>TransportDialog.Button.Assign}"
+                    press=".onSave"
+                    type="Emphasized"/>
+        </beginButton>
+        <endButton>
+            <Button id="transportDialogCancelButton" text="{i18n>TransportDialog.Button.Cancel}" press=".onCancel"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

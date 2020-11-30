@@ -1,0 +1,52 @@
+<core:FragmentDefinition
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns="sap.m"
+	xmlns:macro="sap.fe.macros"
+	xmlns:core="sap.ui.core"
+	template:require="{
+		MODEL: 'sap/ui/model/odata/v4/AnnotationHelper',
+		COMMON: 'sap/fe/macros/CommonHelper',
+		FORM: 'sap/fe/macros/form/FormHelper',
+		ID: 'sap/fe/core/helpers/StableIdHelper'
+	}"
+>
+	<template:if test="{= FORM.getDataFieldCollectionEnabled(${facet>})}">
+	<template:with path="facet>Target/$AnnotationPath" helper="FORM.getDataFieldCollection" var="dataFieldCollection">
+		<template:if test="{= FORM.dataFieldCollectionContainsMoreThanActionOrIBN(${dataFieldCollection>})}">
+			<template:then>
+				<template:if test="{= MODEL.getNavigationPath(${facet>Target/$AnnotationPath}) }">
+					<template:then>
+					<template:with path="facet>Target/$AnnotationPath" helper="FORM.getTargetEntitySet" var="targetEntitySet">
+						<macro:FormContainer
+									id="{= ${this>id} ? ID.generate(['fe', 'FormContainer', { Facet: ${facet>} }]) : undefined }"
+									title="{= ${this>useFormContainerLabels} === 'true' &amp;&amp; ${facet>} &amp;&amp; ${facet>@@MODEL.label} ? ${facet>@@MODEL.label} : '' }"
+									entitySet="{targetEntitySet>}"
+									dataFieldCollection="{dataFieldCollection>}"
+									navigationPath="{= MODEL.getNavigationPath(${facet>Target/$AnnotationPath}) ? MODEL.getNavigationPath(${facet>Target/$AnnotationPath}) : ''}"
+									visibilityPath="{= ${facet>./@com.sap.vocabularies.UI.v1.Hidden/$Path} ? ${facet>./@com.sap.vocabularies.UI.v1.Hidden/$Path} : '' }"
+									editMode="{= ${this>editMode} || 'Display'}"
+									createMode="{this>createMode}"
+									onChange="{= ${this>onChange}}"
+									valueHelpRequestGroupId="{this>valueHelpRequestGroupId}"
+								/>
+					</template:with>
+					</template:then>
+				<template:else>
+					<macro:FormContainer
+								id="{= ${this>id} ? ID.generate(['fe', 'FormContainer', { Facet: ${facet>} }]) : undefined }"
+								title="{= ${this>useFormContainerLabels} === 'true' &amp;&amp; ${facet>} &amp;&amp; ${facet>@@MODEL.label} ? ${facet>@@MODEL.label} : '' }"
+								entitySet="{entitySet>}"
+								dataFieldCollection="{dataFieldCollection>}"
+								visibilityPath="{= ${facet>./@com.sap.vocabularies.UI.v1.Hidden/$Path} ? ${facet>./@com.sap.vocabularies.UI.v1.Hidden/$Path} : '' }"
+								editMode="{= ${this>editMode} || 'Display'}"
+								createMode="{this>createMode}"
+								onChange="{= ${this>onChange}}"
+								valueHelpRequestGroupId="{this>valueHelpRequestGroupId}"
+							/>
+				</template:else>
+				</template:if>
+			</template:then>
+		</template:if>
+	</template:with>
+	</template:if>
+</core:FragmentDefinition>

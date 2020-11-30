@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<control xmlns="http://www.sap.com/sap.ui.library.xsd">
+    <name>semantic/SemanticButton</name>
+    <derived/>
+    <author>SAP SE</author>
+    <documentation>A base class for the available semantic actions, such as {@link sap.f.semantic.AddAction AddAction},
+{@link sap.f.semantic.CloseAction CloseAction}, etc.</documentation>
+    <since>1.46.0</since>
+    <abstract/>
+    <baseType>sap.m/semantic/SemanticButton</baseType>
+</control>

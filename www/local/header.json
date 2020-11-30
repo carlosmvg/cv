@@ -1,0 +1,9 @@
+{
+	"name": "Carlos Manuel",
+	"lastname": "Vegas García",
+	"avatar": "./img/avatar.jpg",
+	"role": "Advanced App Engineering Analyst",
+	"linkedin": "https://www.linkedin.com/in/carlos-manuel-vegas-garc%C3%ADa/",
+	"linkedin_logo": "./img/linkedin_logo.png",
+	"description": "Hola, soy Carlos, actualmente trabajo como analista-desarrollador front-end en aplicaciones SAPUI5.\nTengo 6 años de experiencia en SAP y en 2020 obtuve la certificación SAP Fiori Application Developer."
+}

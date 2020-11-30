@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<simple-type xmlns="http://www.sap.com/sap.ui.library.xsd">
+    <name>BadgeState</name>
+    <derived/>
+    <documentation>Types of state of {@link sap.m.BadgeEnabler} to expose its current state.</documentation>
+    <since>1.81</since>
+    <enumeration>
+        <value name="Updated">
+            <documentation>Informing interested parties that the badge has been updated.</documentation>
+        </value>
+        <value name="Appear">
+            <documentation>Informing interested parties that the badge has appeared.</documentation>
+        </value>
+        <value name="Disappear">
+            <documentation>Informing interested parties that the badge has disappeared.</documentation>
+        </value>
+    </enumeration>
+</simple-type>

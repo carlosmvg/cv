@@ -1,0 +1,117 @@
+<mvc:View
+    controllerName="sap.ushell.applications.PageComposer.controller.PageDetail"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:mvc="sap.ui.core.mvc"
+    core:require="{
+        formatMessage: 'sap/base/strings/formatMessage'
+    }">
+    <f:DynamicPage
+        id="pageDetail"
+        showFooter="{/editMode}"
+        stickySubheaderProvider="iconTabBar"
+        fitContent="true"
+        class="sapUiNoContentPadding">
+        <f:title>
+            <f:DynamicPageTitle id="dynamicPageTitle">
+                <f:heading>
+                    <HBox>
+                        <Title id="pageId" text="{/page/id}" />
+                        <ObjectStatus
+                            active="true"
+                            id="assignmentStatus"
+                            press=".onErrorMessageClicked"
+                            visible="{= ${/page/assignmentState} !== 'Success'}"
+                            class="sapUiSmallMarginBottom sapUiSmallMarginBegin"
+                            text="{/page/assignmentCodeStatus}"
+                            state="{/page/assignmentState}" />
+                    </HBox>
+                </f:heading>
+                <f:expandedContent>
+                    <Label id="pageDescriptionExpanded" text="{/page/description}" />
+                </f:expandedContent>
+                <f:snappedContent>
+                    <Label id="pageDescriptionSnapped" text="{/page/description}" />
+                </f:snappedContent>
+                <f:actions>
+                    <core:ExtensionPoint name="translateExtensionPoint" />
+                    <Button
+                        id="buttonEdit"
+                        text="{i18n>Button.Edit}"
+                        type="Emphasized"
+                        press=".onEdit"
+                        visible="{= !${/editMode} &amp;&amp; ${SupportedOperationModel>/updateSupported}}">
+                        <customData><core:CustomData key="help-id" value="FLPPage-manage-PageDetail-Button-EditPage" writeToDom="true" /></customData>
+                    </Button>
+                    <Button
+                        id="buttonCopy"
+                        text="{i18n>Button.Copy}"
+                        type="Transparent"
+                        press=".onCopy"
+                        visible="{= !${/editMode} &amp;&amp; ${SupportedOperationModel>/copySupported}}" >
+                        <customData><core:CustomData key="help-id" value="FLPPage-manage-PageDetail-Button-CopyPage" writeToDom="true" /></customData>
+                    </Button>
+                    <Button
+                        id="buttonDelete"
+                        text="{i18n>Button.Delete}"
+                        type="Transparent"
+                        press=".onDelete"
+                        visible="{= !${/editMode} &amp;&amp; ${SupportedOperationModel>/deleteSupported}}">
+                        <customData><core:CustomData key="help-id" value="FLPPage-manage-PageDetail-Button-DeletePage" writeToDom="true" /></customData>
+                    </Button>
+                </f:actions>
+                <f:navigationActions>
+                    <Button
+                        id="buttonPreview"
+                        text="{i18n>Button.PagePreview}"
+                        type="Transparent"
+                        press=".preview">
+                        <customData><core:CustomData key="help-id" value="FLPPage-manage-PageDetail-Button-PagePreview" writeToDom="true" /></customData>
+                    </Button>
+                </f:navigationActions>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:content>
+            <IconTabBar
+                id="iconTabBar"
+                class="sapUiNoContentPadding"
+                selectedKey="iconTabBarPageContent"
+                stretchContentHeight="true"
+                select=".onTabChange"
+                expandable="false">
+                <items>
+                    <IconTabFilter id="tabGeneral" key="iconTabBarGeneral" text="{i18n>PageDetail.Tab.GeneralData}">
+                        <core:Fragment fragmentName="sap.ushell.applications.PageComposer.view.PageInfo" type="XML" />
+                    </IconTabFilter>
+                    <IconTabFilter id="tabPageContent" key="iconTabBarPageContent" text="{i18n>PageDetail.Tab.PageContent}">
+                        <core:Fragment fragmentName="sap.ushell.applications.PageComposer.view.PageContent" type="XML" />
+                    </IconTabFilter>
+                    <IconTabFilter id="tabSpaceAssignment" key="iconTabBarSpaceAssignment" text="{i18n>PageDetail.Tab.SpaceAssignment}">
+                        <core:Fragment fragmentName="sap.ushell.applications.PageComposer.view.SpaceAssignment" type="XML" />
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </f:content>
+        <f:footer>
+            <OverflowToolbar id="footerToolbar">
+                <Button
+                    id="buttonValidation"
+                    icon="sap-icon://message-popup"
+                    type="Neutral"
+                    text="{= ${/messages}.length }"
+                    tooltip="{
+                        parts: ['i18n>Button.Issues', { path: '/messages', formatter: '._formatLength' } ],
+                        formatter: 'formatMessage'
+                    }"
+                    visible="{= !!(${/messages}.length) }"
+                    press=".handleMessagePopoverPress" >
+                    <customData><core:CustomData key="help-id" value="FLPPage-manage-PageContent-Button-ErrorMessage" writeToDom="true" /></customData>
+                </Button>
+                <ToolbarSpacer id="footerToolbarSpacer" />
+                <Button id="buttonSave" type="Emphasized" text="{i18n>Button.Save}" press=".onSave" />
+                <Button id="buttonCancel" type="Transparent" text="{i18n>Button.Cancel}" press=".onCancel" />
+            </OverflowToolbar>
+        </f:footer>
+    </f:DynamicPage>
+</mvc:View>

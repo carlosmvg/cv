@@ -1,0 +1,35 @@
+<core:FragmentDefinition
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:macrodata="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	template:require="{
+		CORE: 'sap/fe/core/AnnotationHelper',
+		ID: 'sap/fe/core/helpers/StableIdHelper'
+	}"
+>
+	<template:if test="{= ${action>type} === 'Default'}">
+		<template:then>
+			<Button
+				core:require="{FPM: 'sap/fe/core/helpers/FPMHelper'}"
+				id="{= ID.generate(['fe',${action>id}])}"
+				text="{action>text}"
+				press="{= CORE.buildActionWrapper(${action>})}"
+				type="Transparent"
+				visible="{action>visible}"
+				enabled="{action>enabled}"
+			/>
+		</template:then>
+		<template:else>
+			<Button
+				id="{action>id}"
+				text="{action>text}"
+				press="{action>press}"
+				type="Transparent"
+				visible="{action>visible}"
+				enabled="{action>enabled}"
+				macrodata:IBNData="{action>customData}"
+			/>
+		</template:else>
+	</template:if>
+</core:FragmentDefinition>

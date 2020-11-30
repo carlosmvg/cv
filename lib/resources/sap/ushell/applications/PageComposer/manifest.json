@@ -1,0 +1,262 @@
+{
+    "_version": "1.21.0",
+    "sap.app": {
+        "i18n": {
+            "bundleUrl": "i18n/i18n.properties",
+            "supportedLocales": [
+                "",
+                "ar",
+                "bg",
+                "ca",
+                "cs",
+                "da",
+                "de",
+                "el",
+                "en",
+                "en_US_sappsd",
+                "en_US_saptrc",
+                "es",
+                "et",
+                "fi",
+                "fr",
+                "hi",
+                "hr",
+                "hu",
+                "it",
+                "iw",
+                "ja",
+                "kk",
+                "ko",
+                "lt",
+                "lv",
+                "ms",
+                "nl",
+                "no",
+                "pl",
+                "pt",
+                "ro",
+                "ru",
+                "sh",
+                "sk",
+                "sl",
+                "sv",
+                "th",
+                "tr",
+                "uk",
+                "vi",
+                "zh_CN",
+                "zh_TW"
+            ],
+            "fallbackLocale": "en"
+        },
+        "id": "sap.ushell.applications.PageComposer",
+        "type": "application",
+        "embeddedBy": "",
+        "title": "{{PageComposer.AppTitle}}",
+        "ach": "CA-FLP-FE-DT",
+        "dataSources": {
+            "PageRepositoryService": {
+                "uri": "/sap/opu/odata/UI2/FDM_PAGE_REPOSITORY_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/pages/metadata.xml"
+                }
+            }
+        },
+        "cdsViews": [],
+        "offline": false
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": false,
+            "phone": false
+        },
+        "fullWidth": true
+    },
+    "sap.ui5": {
+        "autoPrefixId": true,
+        "componentUsages": {
+            "transportInformation": {
+                "name": "sap.ushell_abap.workbenchTransport",
+                "lazy": true
+            }
+        },
+        "services": {
+            "ShellUIService": {
+                "factoryName": "sap.ushell.ui5service.ShellUIService"
+            }
+        },
+        "dependencies": {
+            "minUI5Version": "1.72.0",
+            "libs": {
+                "sap.f": {
+                    "lazy": false
+                },
+                "sap.m": {
+                    "lazy": false
+                },
+                "sap.ui.core": {
+                    "lazy": false
+                },
+                "sap.ui.layout": {
+                    "lazy": false
+                },
+                "sap.ushell": {
+                    "lazy": false
+                }
+            },
+            "components": {
+                "sap.ushell_abap.workbenchTransport": {
+                    "lazy": true,
+                    "manifest": true
+                }
+            }
+
+        },
+        "models": {
+            "PageRepository": {
+                "dataSource": "PageRepositoryService",
+                "preload": true,
+                "settings": {
+                    "defaultCountMode": "None",
+                    "useBatch": true,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties",
+                "settings": {
+                    "supportedLocales": [
+                        "",
+                        "ar",
+                        "bg",
+                        "ca",
+                        "cs",
+                        "da",
+                        "de",
+                        "el",
+                        "en",
+                        "en_US_sappsd",
+                        "en_US_saptrc",
+                        "es",
+                        "et",
+                        "fi",
+                        "fr",
+                        "hi",
+                        "hr",
+                        "hu",
+                        "it",
+                        "iw",
+                        "ja",
+                        "kk",
+                        "ko",
+                        "lt",
+                        "lv",
+                        "ms",
+                        "nl",
+                        "no",
+                        "pl",
+                        "pt",
+                        "ro",
+                        "ru",
+                        "sh",
+                        "sk",
+                        "sl",
+                        "sv",
+                        "th",
+                        "tr",
+                        "uk",
+                        "vi",
+                        "zh_CN",
+                        "zh_TW"
+                    ],
+                    "fallbackLocale": "en"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "sap.ushell.applications.PageComposer.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "pageComposer"
+        },
+        "handleValidation": false,
+        "config": {
+            "fullWidth": true,
+            "sapFiori2Adaptation": true,
+            "enableCreate": true,
+            "enablePreview": true,
+            "checkLanguageMismatch": true
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "sap.ushell.applications.PageComposer.view",
+                "controlId": "pageComposer",
+                "controlAggregation": "pages",
+                "async": true,
+                "fullWidth": true
+            },
+            "routes": [
+                {
+                    "pattern": "",
+                    "name": "overview",
+                    "target": "overview"
+                },
+                {
+                    "pattern": "view/{pageId}:?query:",
+                    "name": "view",
+                    "target": "view"
+                },
+                {
+                    "pattern": "error/{pageId}",
+                    "name": "error",
+                    "target": "error"
+                },
+                {
+                    "pattern": "unsupported/{pageId}",
+                    "name": "unsupported",
+                    "target": "unsupported"
+                },
+                {
+                    "pattern": "ODataError",
+                    "name": "ODataError",
+                    "target": "ODataError"
+                }
+            ],
+            "targets": {
+                "overview": {
+                    "viewId": "pageOverview",
+                    "viewName": "PageOverview"
+                },
+                "view": {
+                    "viewId": "view",
+                    "viewName": "PageDetail"
+                },
+                "error": {
+                    "viewId": "error",
+                    "viewName": "ErrorPage"
+                },
+                "unsupported": {
+                    "viewId": "unsupported",
+                    "viewName": "ErrorPage"
+                },
+                "ODataError": {
+                    "viewId": "ODataErrorPage",
+                    "viewName": "ODataErrorPage"
+                }
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        }
+    }
+}

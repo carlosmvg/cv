@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:macro="sap.fe.macros">
+	<macro:ValueHelp
+		_flexId="{= ${this>idPrefix} + '_FieldValueHelp'}"
+		entitySet="{entitySet>}"
+		property="{property>}"
+		requestGroupId="{this>valueHelpRequestGroupId}"
+	/>
+</core:FragmentDefinition>

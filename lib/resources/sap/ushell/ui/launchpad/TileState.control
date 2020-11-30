@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<control xmlns="http://www.sap.com/sap.ui.library.xsd">
+    <name>ui/launchpad/TileState</name>
+    <derived/>
+    <documentation></documentation>
+    <baseType>sap.ui.core/Control</baseType>
+    <properties>
+        <property name="state" type="sap.ui.core/string" defaultValue="Loaded" group="Misc"/>
+    </properties>
+    <events>
+        <event name="press" allowPreventDefault="false"/>
+    </events>
+</control>

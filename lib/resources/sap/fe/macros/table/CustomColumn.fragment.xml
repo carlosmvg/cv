@@ -1,0 +1,16 @@
+<core:FragmentDefinition
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:mdcTable="sap.ui.mdc.table"
+	xmlns:core="sap.ui.core"
+	xmlns:fpm="sap.fe.macros.fpm"
+	template:require="{
+		fpm: 'sap/fe/macros/fpm/fpm'
+	}"
+>
+	<mdcTable:Column dataProperties="{column>name}" width="{column>width}" header="{column>header}">
+		<!-- tbd. Note: passing in custom Data: customData:customProperties="{column>editor/properties}" -->
+		<mdcTable:template>
+			<fpm:CustomFragment id="{column>key}" fragmentName="{column>template}" />
+		</mdcTable:template>
+	</mdcTable:Column>
+</core:FragmentDefinition>

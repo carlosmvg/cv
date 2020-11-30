@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<simple-type xmlns="http://www.sap.com/sap.ui.library.xsd">
+    <name>smartform/SmartFormValidationMode</name>
+    <derived/>
+    <documentation>Enumeration of SmartForm validation mode.</documentation>
+    <since>1.81</since>
+    <enumeration>
+        <value name="Standard">
+            <documentation>Standard validation mode which handles the validation only of nested &lt;code&gt;SmartField&lt;/code&gt; with synchronous
+validation.</documentation>
+        </value>
+        <value name="Async">
+            <documentation>Async validation mode. This mode handles all types of &lt;code&gt;SmartField&lt;/code&gt; controls both with sync and
+async validation.
+
+Note: This is the recommended validation mode.</documentation>
+        </value>
+    </enumeration>
+</simple-type>

@@ -1,0 +1,231 @@
+{
+	"_version": "1.1.0",
+	"resources": [
+		{
+			"name": "ActionMode-dbg.js",
+			"module": "sap/ushell/components/pages/ActionMode.js",
+			"size": 13680,
+			"isDebug": true,
+			"required": [
+				"sap/base/Log.js",
+				"sap/m/MessageBox.js",
+				"sap/m/MessageToast.js",
+				"sap/ui/core/library.js",
+				"sap/ushell/EventHub.js",
+				"sap/ushell/resources.js"
+			]
+		},
+		{
+			"name": "ActionMode.js",
+			"module": "sap/ushell/components/pages/ActionMode.js",
+			"size": 4627,
+			"required": [
+				"sap/base/Log.js",
+				"sap/m/MessageBox.js",
+				"sap/m/MessageToast.js",
+				"sap/ui/core/library.js",
+				"sap/ushell/EventHub.js",
+				"sap/ushell/resources.js"
+			]
+		},
+		{
+			"name": "Component-dbg.js",
+			"module": "sap/ushell/components/pages/Component.js",
+			"size": 2998,
+			"isDebug": true,
+			"required": [
+				"sap/ui/core/InvisibleMessage.js",
+				"sap/ui/core/UIComponent.js",
+				"sap/ushell/components/SharedComponentUtils.js",
+				"sap/ushell/resources.js"
+			]
+		},
+		{
+			"name": "Component-h2-preload.js",
+			"module": "sap/ushell/components/pages/Component-h2-preload.js",
+			"size": 3348,
+			"merged": true,
+			"required": [
+				"sap/base/Log.js",
+				"sap/m/Bar.js",
+				"sap/m/Button.js",
+				"sap/m/GenericTile.js",
+				"sap/m/MessageBox.js",
+				"sap/m/MessagePage.js",
+				"sap/m/MessageToast.js",
+				"sap/m/NavContainer.js",
+				"sap/m/Page.js",
+				"sap/m/PageAccessibleLandmarkInfo.js",
+				"sap/m/library.js",
+				"sap/ui/core/CustomData.js",
+				"sap/ui/core/InvisibleMessage.js",
+				"sap/ui/core/UIComponent.js",
+				"sap/ui/core/dnd/DropInfo.js",
+				"sap/ui/core/library.js",
+				"sap/ui/core/mvc/Controller.js",
+				"sap/ui/core/mvc/XMLView.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/Config.js",
+				"sap/ushell/EventHub.js",
+				"sap/ushell/components/SharedComponentUtils.js",
+				"sap/ushell/resources.js",
+				"sap/ushell/ui/launchpad/Page.js",
+				"sap/ushell/ui/launchpad/Section.js",
+				"sap/ushell/utils.js"
+			],
+			"included": [
+				"sap/ushell/components/pages/Component.js",
+				"sap/ushell/components/pages/manifest.json",
+				"sap/ushell/components/pages/ActionMode.js",
+				"sap/ushell/components/pages/StateManager.js",
+				"sap/ushell/components/pages/controller/PageRuntime.controller.js",
+				"sap/ushell/components/pages/view/PageRuntime.view.xml"
+			]
+		},
+		{
+			"name": "Component-h2-preload.js.map",
+			"size": 743,
+			"isDebug": true
+		},
+		{
+			"name": "Component-preload.js",
+			"module": "sap/ushell/components/pages/Component-preload.js",
+			"size": 23893,
+			"merged": true,
+			"required": [
+				"sap/base/Log.js",
+				"sap/m/Bar.js",
+				"sap/m/Button.js",
+				"sap/m/GenericTile.js",
+				"sap/m/MessageBox.js",
+				"sap/m/MessagePage.js",
+				"sap/m/MessageToast.js",
+				"sap/m/NavContainer.js",
+				"sap/m/Page.js",
+				"sap/m/PageAccessibleLandmarkInfo.js",
+				"sap/m/library.js",
+				"sap/ui/core/CustomData.js",
+				"sap/ui/core/InvisibleMessage.js",
+				"sap/ui/core/UIComponent.js",
+				"sap/ui/core/dnd/DropInfo.js",
+				"sap/ui/core/library.js",
+				"sap/ui/core/mvc/Controller.js",
+				"sap/ui/core/mvc/XMLView.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/Config.js",
+				"sap/ushell/EventHub.js",
+				"sap/ushell/components/SharedComponentUtils.js",
+				"sap/ushell/resources.js",
+				"sap/ushell/ui/launchpad/Page.js",
+				"sap/ushell/ui/launchpad/Section.js",
+				"sap/ushell/utils.js"
+			],
+			"included": [
+				"sap/ushell/components/pages/ActionMode.js",
+				"sap/ushell/components/pages/Component.js",
+				"sap/ushell/components/pages/StateManager.js",
+				"sap/ushell/components/pages/controller/PageRuntime.controller.js",
+				"sap/ushell/components/pages/manifest.json",
+				"sap/ushell/components/pages/view/PageRuntime.view.xml"
+			]
+		},
+		{
+			"name": "Component-preload.js.map",
+			"size": 17296,
+			"isDebug": true
+		},
+		{
+			"name": "Component.js",
+			"module": "sap/ushell/components/pages/Component.js",
+			"size": 838,
+			"required": [
+				"sap/ui/core/InvisibleMessage.js",
+				"sap/ui/core/UIComponent.js",
+				"sap/ushell/components/SharedComponentUtils.js",
+				"sap/ushell/resources.js"
+			]
+		},
+		{
+			"name": "StateManager-dbg.js",
+			"module": "sap/ushell/components/pages/StateManager.js",
+			"size": 8758,
+			"isDebug": true,
+			"required": [
+				"sap/ushell/utils.js"
+			]
+		},
+		{
+			"name": "StateManager.js",
+			"module": "sap/ushell/components/pages/StateManager.js",
+			"size": 2697,
+			"required": [
+				"sap/ushell/utils.js"
+			]
+		},
+		{
+			"name": "controller/PageRuntime-dbg.controller.js",
+			"module": "sap/ushell/components/pages/controller/PageRuntime.controller.js",
+			"size": 31271,
+			"isDebug": true,
+			"required": [
+				"sap/m/GenericTile.js",
+				"sap/m/MessageToast.js",
+				"sap/m/library.js",
+				"sap/ui/core/library.js",
+				"sap/ui/core/mvc/Controller.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/Config.js",
+				"sap/ushell/EventHub.js",
+				"sap/ushell/components/pages/StateManager.js",
+				"sap/ushell/resources.js",
+				"sap/ushell/utils.js"
+			]
+		},
+		{
+			"name": "controller/PageRuntime.controller.js",
+			"module": "sap/ushell/components/pages/controller/PageRuntime.controller.js",
+			"size": 10897,
+			"required": [
+				"sap/m/GenericTile.js",
+				"sap/m/MessageToast.js",
+				"sap/m/library.js",
+				"sap/ui/core/library.js",
+				"sap/ui/core/mvc/Controller.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/Config.js",
+				"sap/ushell/EventHub.js",
+				"sap/ushell/components/pages/StateManager.js",
+				"sap/ushell/resources.js",
+				"sap/ushell/utils.js"
+			]
+		},
+		{
+			"name": "manifest.json",
+			"module": "sap/ushell/components/pages/manifest.json",
+			"size": 2188
+		},
+		{
+			"name": "resources.json",
+			"size": 4245
+		},
+		{
+			"name": "view/PageRuntime.view.xml",
+			"module": "sap/ushell/components/pages/view/PageRuntime.view.xml",
+			"size": 5571,
+			"required": [
+				"sap/m/Bar.js",
+				"sap/m/Button.js",
+				"sap/m/MessagePage.js",
+				"sap/m/NavContainer.js",
+				"sap/m/Page.js",
+				"sap/m/PageAccessibleLandmarkInfo.js",
+				"sap/ui/core/CustomData.js",
+				"sap/ui/core/dnd/DropInfo.js",
+				"sap/ui/core/mvc/XMLView.js",
+				"sap/ushell/components/pages/controller/PageRuntime.controller.js",
+				"sap/ushell/ui/launchpad/Page.js",
+				"sap/ushell/ui/launchpad/Section.js"
+			]
+		}
+	]
+}

@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap">
+	<HBox displayInline="true">
+		<uxap:ObjectPageHeaderActionButton
+			icon="sap-icon://navigation-up-arrow"
+			visible="{= ${buttonEnablement>/navUpEnabled} || ${buttonEnablement>/navDownEnabled} }"
+			enabled="{buttonEnablement>/navUpEnabled}"
+			tooltip="{sap.fe.i18n>T_PAGINATOR_CONTROL_PAGINATOR_TOOLTIP_UP}"
+			press=".handleShowPrevObject"
+			type="Transparent"
+			importance="High"
+		/>
+		<uxap:ObjectPageHeaderActionButton
+			icon="sap-icon://navigation-down-arrow"
+			visible="{= ${buttonEnablement>/navUpEnabled} || ${buttonEnablement>/navDownEnabled} }"
+			enabled="{buttonEnablement>/navDownEnabled}"
+			tooltip="{sap.fe.i18n>T_PAGINATOR_CONTROL_PAGINATOR_TOOLTIP_DOWN}"
+			press=".handleShowNextObject"
+			type="Transparent"
+			importance="High"
+		/>
+	</HBox>
+</core:FragmentDefinition>

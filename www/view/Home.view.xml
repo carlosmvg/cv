@@ -1,11 +1,10 @@
 <mvc:View
 	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:layout="sap.ui.layout"
+	xmlns:core="sap.ui.core"
 	xmlns="sap.m"
+	xmlns:ux="sap.uxap"
 	controllerName="myCV.controller.Home"
 	displayBlock="true">
-		<Page showHeader="false">
-			<content>
-				<Label text="Página principal"/>
-			</content>
-		</Page>
+	<core:Fragment fragmentName="myCV.fragments.homeUI5" type="XML" />
 </mvc:View>

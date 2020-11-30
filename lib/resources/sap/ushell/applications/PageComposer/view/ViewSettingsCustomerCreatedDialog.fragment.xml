@@ -1,0 +1,63 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <ViewSettingsDialog
+        id="viewSettingsDialogCustomerCreated"
+        sortDescending="true"
+        filterSearchOperator="AnyWordStartsWith"
+        confirm=".handleCustomerCreatedDialogConfirm"
+        cancel=".handleCustomerCreatedCancel"
+        resetFilters=".handleCustomerCreatedResetFilters">
+        <sortItems>
+            <ViewSettingsItem id="CustomerCreatedIDSort" text="{i18n>Label.PageID}" key="id" />
+            <ViewSettingsItem id="CustomerCreatedDescriptionSort" text="{i18n>Column.PageDescription}" key="description" />
+            <ViewSettingsItem id="CustomerCreatedTitleSort" text="{i18n>Column.PageTitle}" key="title" />
+            <ViewSettingsItem id="CustomerCreatedCreatedBySort" text="{i18n>Column.PageCreatedBy}" key="createdByFullname" />
+            <ViewSettingsItem id="CustomerCreatedCreatedOnSort" text="{i18n>Column.PageCreatedOn}" key="createdOn" />
+            <ViewSettingsItem id="CustomerCreatedChangedBySort" text="{i18n>Column.PageChangedBy}" key="modifiedByFullname" />
+            <ViewSettingsItem id="CustomerCreatedChangedOnSort" text="{i18n>Column.PageChangedOn}" key="modifiedOn" selected="true" />
+        </sortItems>
+        <filterItems>
+            <ViewSettingsFilterItem id="AssignedToRoleFilter" text="{i18n>Label.AssignedToRole}" key="assignedToRole" multiSelect="false">
+                <items>
+                    <ViewSettingsItem text="{i18n>Label.StatusAssigned}" key="numberOfRoles___NE___0" />
+                    <ViewSettingsItem text="{i18n>Label.StatusNotAssigned}" key="numberOfRoles___EQ___0" />
+                </items>
+            </ViewSettingsFilterItem>
+            <ViewSettingsFilterItem id="AssignedToSpaceFilter" text="{i18n>Label.AssignedToSpace}" key="assignedToSpace" multiSelect="false">
+                <items>
+                    <ViewSettingsItem text="{i18n>Label.StatusAssigned}" key="numberOfSpaces___NE___0" />
+                    <ViewSettingsItem text="{i18n>Label.StatusNotAssigned}" key="numberOfSpaces___EQ___0" />
+                </items>
+            </ViewSettingsFilterItem>
+            <ViewSettingsFilterItem id="CustomerCreatedCreatedByFilter" text="{i18n>Column.PageCreatedBy}" key="createdBy"
+                items="{PageRepository>/createdBySet}">
+                <items>
+                    <ViewSettingsItem text="{PageRepository>fullname}" key="createdBy___EQ___{PageRepository>username}" />
+                </items>
+            </ViewSettingsFilterItem>
+            <ViewSettingsCustomItem id="CustomerCreatedCreatedOnFilter" text="{i18n>Column.PageCreatedOn}" key="createdOn">
+                <customControl>
+                    <DateRangeSelection id="CustomerCreatedCreatedOnDateRangeSelection" change=".handleCustomerCreatedDateRangeSelectionChanged" />
+                </customControl>
+            </ViewSettingsCustomItem>
+            <ViewSettingsFilterItem id="CustomerCreatedChangedByFilter" text="{i18n>Column.PageChangedBy}" key="modifiedBy"
+                items="{PageRepository>/modifiedBySet}">
+                <items>
+                    <ViewSettingsItem text="{PageRepository>fullname}" key="modifiedBy___EQ___{PageRepository>username}" />
+                </items>
+            </ViewSettingsFilterItem>
+            <ViewSettingsCustomItem id="CustomerCreatedChangedOnFilter" text="{i18n>Column.PageChangedOn}" key="modifiedOn">
+                <customControl>
+                    <DateRangeSelection id="CustomerCreatedChangedOnDateRangeSelection" change=".handleCustomerCreatedDateRangeSelectionChanged" />
+                </customControl>
+            </ViewSettingsCustomItem>
+        </filterItems>
+        <groupItems>
+            <ViewSettingsItem id="CustomerCreatedCreatedByGroup" text="{i18n>Column.PageCreatedBy}" key="createdByFullname" />
+            <ViewSettingsItem id="CustomerCreatedCreatedOnGroup" text="{i18n>Column.PageCreatedOn}" key="createdOn" />
+            <ViewSettingsItem id="CustomerCreatedChangedByGroup" text="{i18n>Column.PageChangedBy}" key="modifiedByFullname" />
+            <ViewSettingsItem id="CustomerCreatedChangedOnGroup" text="{i18n>Column.PageChangedOn}" key="modifiedOn" />
+        </groupItems>
+    </ViewSettingsDialog>
+</core:FragmentDefinition>

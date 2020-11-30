@@ -1,0 +1,9 @@
+{
+"version":3,
+"file":"sap/fe/macros/library-h2-preload.js",
+"sourceroot":".",
+"sources":["library-dbg.js","manifest.json"],
+"names":["Fragment","XMLTemplateProcessor","macroLibrary","mSettings"],
+"mappings":";;;;;;AAiBA,gBAAa,yBACZ,CACC,uBACA,mCACA,6BACA,mBACA,qBACD,EACA,SAASA,CAAQ,CAAEC,CAAoB,CAAEC,CAAY,CAAE,CACtD,aAsBA,8BACC,KAAM,gBACN,aAAc,gBACd,MAAO,gCAAiC,mCAAoC,qCAC5E,WAAY,GACZ,SAAU,GACV,SAAU,GACV,QAAS,SACT,aAAc,IACf,GAWA,8BAA+B,CAAE,CAQhC,iBAAkB,mBAQlB,MAAO,OACR,EACA,4BAA6B,CAAE,CAK9B,SAAU,WAMV,OAAQ,SAMR,KAAM,MACP,EASA,gCAAiC,CAAE,CAKlC,YAAa,cAMb,SAAU,UACX,EASA,iCAAkC,CAAE,CAKnC,UAAW,YAKX,YAAa,cAKb,OAAQ,QACT,EAEAF,CAAQ,uBAAwB,CAC/B,KAAM,SAASG,CAAS,CAAE,CACzB,iBAAkB,CAAE,aACpB,qBAAsB,CAAE,KACxB,gBAAiB,CAAEA,CAAS,+BAAgC,EAAGA,CAAS,kDACxE,cAAe,CAAEF,CAAoB,eAAeE,CAAS,iBAAkB,MAChF,CACD,GAEA,OAAO,cACR,CACD;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+"x_com_sap_openui5_sections":[50,1267,1323,2378]
+}

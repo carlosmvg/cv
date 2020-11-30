@@ -1,0 +1,283 @@
+<!--
+    /**
+     * This fragment renders a DataField
+     * @param entitySet context to the EntitySet
+     * @param dataField context to the DataField
+     * @param property context to the Property Path
+	 * @param parentControl parentControl of the field
+	 * parentControl EnumValues: 'Table', 'Form'
+	 * @param wrap wrapping allowed for a field or not
+	 * wrap Boolean: true, false
+	 * Incoming from Field.fragment.xml
+ 	 * 	 @param idPrefix default 'F' Prefix for the id
+ 	 * 	 @param vhIdPrefix default 'FieldValueHelp' Prefix for the value help id
+     * @returns
+     */
+-->
+<core:FragmentDefinition
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:unittest="http://schemas.sap.com/sapui5/preprocessorextension/sap.fe.unittesting/1"
+	xmlns="sap.m"
+	xmlns:u="sap.ui.unified"
+	xmlns:core="sap.ui.core"
+	xmlns:control="sap.fe.core.controls"
+	xmlns:macroField="sap.fe.macros.field"
+	xmlns:macro="sap.fe.macros"
+	template:require="{
+							MODEL: 'sap/ui/model/odata/v4/AnnotationHelper',
+							COMMON: 'sap/fe/macros/CommonHelper',
+							FIELD: 'sap/fe/macros/field/FieldHelper',
+							ID: 'sap/fe/core/helpers/StableIdHelper'
+						 }"
+>
+	<template:with path="property>" helper="FIELD.valueHelpProperty" var="valueHelpProperty">
+		<template:if
+			test="{= ${dataField>./@sapui.name} &amp;&amp; ${dataField>./@sapui.name}.indexOf('com.sap.vocabularies.UI.v1.DataPoint') > -1 }"
+		>
+			<template:then>
+				<core:Fragment fragmentName="sap.fe.macros.field.MdcField" type="XML" />
+			</template:then>
+			<template:elseif test="{= ${annotationPath>} &amp;&amp; ${annotationPath>}.indexOf('com.sap.vocabularies.UI.v1.DataPoint') > -1 }">
+				<core:Fragment fragmentName="sap.fe.macros.field.MdcField" type="XML" />
+			</template:elseif>
+			<template:elseif test="{property>$Path@com.sap.vocabularies.UI.v1.IsImageURL}">
+				<control:FormElementWrapper>
+					<Avatar
+						id="{= ${this>_flexId} || (${this>idPrefix} ? ID.generate([${this>idPrefix}, 'Field']) : undefined) }"
+						src="{property>@@MODEL.value}"
+						displaySize="S"
+						class="sapUiSmallMarginEnd"
+						displayShape="Square"
+						visible="{= ${dataField>@@COMMON.getHiddenPathExpression}}"
+					>
+					</Avatar>
+				</control:FormElementWrapper>
+			</template:elseif>
+			<template:elseif test="{= ${property>$Path/$Type} === 'Edm.Stream'}">
+				<template:if test="{= RegExp('image/','i').test(${property>$Path@Org.OData.Core.V1.MediaType})}">
+				<template:then>
+					<control:FormElementWrapper>
+						<Avatar
+								id="{= ${this>_flexId} || (${this>idPrefix} ? ID.generate([${this>idPrefix}, 'Field']) : undefined) }"
+								src="{property>@@MODEL.value}"
+								displaySize="S"
+								class="sapUiSmallMarginEnd"
+								displayShape="Square"
+								visible="{= ${dataField>@@COMMON.getHiddenPathExpression}}"
+							>
+						</Avatar>
+					</control:FormElementWrapper>
+				</template:then>
+				<template:else>
+					<control:FormElementWrapper>
+						<HBox visible="{= ${dataField>@@COMMON.getHiddenPathExpression}}">
+							<core:Icon src="sap-icon://document" class="sapUiSmallMarginEnd" />
+							<Link text="{this.i18n>M_DATAFIELD_FRAGMENT_FIELD_PREVIEW}" target="_blank" href="{property>@@MODEL.value}" />
+						</HBox>
+					</control:FormElementWrapper>
+				</template:else>
+				</template:if>
+			</template:elseif>
+			<template:else>
+				<template:if test="{= ${this>editMode}==='Display'}">
+					<template:then>
+						<template:if test="{path: 'dataField>Criticality/$Path'}">
+							<template:then>
+								<ObjectStatus
+									core:require="{FieldRuntime: 'sap/fe/macros/field/FieldRuntime'}"
+									unittest:id="MacroDataFieldObjectStatus"
+									id="{= ${this>_flexId} || (${this>idPrefix} ? ID.generate([${this>idPrefix}, 'Field']) : undefined) }"
+									icon="{=(${dataField>CriticalityRepresentation/$EnumMember} === 'com.sap.vocabularies.UI.v1.CriticalityRepresentationType/WithoutIcon') ? '' : ${path: 'dataField>Criticality/$Path', formatter: 'FIELD.buildExpressionForCriticalityIcon'}}"
+									state="{path: 'dataField>./', formatter: 'FIELD.buildExpressionForCriticalityColor'}"
+									text="{ parts:[ {path:'property>'},{path:'property>$Path@'}, {path:'this>parentControl'}, {path:'entitySet>./@'}, {path:'property>$Path@@FIELD.buildExpressionForTextValue'}, {path:'this>valueFormat'}], formatter: 'FIELD.buildFieldBindingExpression'}"
+									visible="{= ${dataField>@@COMMON.getHiddenPathExpression}}"
+								/>
+							</template:then>
+							<template:elseif test="{property>$Path@Org.OData.Measures.V1.ISOCurrency}">
+								<template:with path="property>$Path@Org.OData.Measures.V1.ISOCurrency" var="currency">
+									<control:FormElementWrapper formDoNotAdjustWidth="true">
+										<u:Currency
+											id="{= ${this>_flexId} || (${this>idPrefix} ? ID.generate([${this>idPrefix}, 'Field']) : undefined) }"
+											value="{dataField>Value@@MODEL.value}"
+											currency="{currency>@@MODEL.value}"
+											visible="{= ${dataField>@@COMMON.getHiddenPathExpression}}"
+											useSymbol="false"
+										/>
+									</control:FormElementWrapper>
+								</template:with>
+							</template:elseif>
+							<template:elseif test="{property>$Path@com.sap.vocabularies.Communication.v1.IsEmailAddress}">
+								<Link
+									id="{= ${this>_flexId} || (${this>idPrefix} ? ID.generate([${this>idPrefix}, 'Field']) : undefined) }"
+									text="{property>@@MODEL.format}"
+									href="mailto:{property>@@MODEL.format}"
+									visible="{= ${dataField>@@COMMON.getHiddenPathExpression}}"
+								/>
+							</template:elseif>
+							<template:elseif test="{property>$Path@com.sap.vocabularies.Communication.v1.IsPhoneNumber}">
+								<Link
+									id="{= ${this>_flexId} || (${this>idPrefix} ? ID.generate([${this>idPrefix}, 'Field']) : undefined) }"
+									text="{property>@@MODEL.format}"
+									href="tel:{property>@@MODEL.format}"
+									visible="{= ${dataField>@@COMMON.getHiddenPathExpression}}"
+								/>
+							</template:elseif>
+							<template:elseif
+								test="{= ${property>@@FIELD.isLineItem} &amp;&amp; FIELD.isSemanticKey(${entitySet>./@com.sap.vocabularies.Common.v1.SemanticKey}, ${property>}) }"
+							>
+								<template:if test="{entitySet>@com.sap.vocabularies.Common.v1.DraftRoot}">
+									<template:then>
+										<control:FormElementWrapper>
+											<VBox visible="{= ${dataField>@@COMMON.getHiddenPathExpression}}">
+												<template:if test="{= ${this>semanticKeyStyle} === 'ObjectIdentifier' }">
+													<template:then>
+														<ObjectIdentifier
+															title="{= FIELD.getLabelTextForDataField(${entitySet>@}, ${property>$Path@}, ${property>$Path@@FIELD.buildExpressionForTextValue}, ${property>@@MODEL.format}, ${dataField>@sapui.name}, ${this>semanticKeyStyle}) }"
+															text="{= FIELD.getObjectIdentifierText(${property>$Path@com.sap.vocabularies.Common.v1.Text}, ${property>$Path@com.sap.vocabularies.Common.v1.Text@com.sap.vocabularies.UI.v1.TextArrangement}, ${property>@@MODEL.value}, ${dataField>@sapui.name})}"
+														/>
+													</template:then>
+													<template:else>
+												<Label
+															unittest:id="MacroDataFieldLabel"
+															text="{= FIELD.getLabelTextForDataField(${entitySet>@}, ${property>$Path@}, ${property>$Path@@FIELD.buildExpressionForTextValue}, ${property>@@MODEL.format}, ${dataField>@sapui.name}, ${this>semanticKeyStyle}) }"
+															design="Bold"
+														/>
+													</template:else>
+												</template:if>
+												<macro:DraftIndicator DraftIndicatorType="IconAndText" entitySet="{entitySet>}" />
+
+											</VBox>
+										</control:FormElementWrapper>
+									</template:then>
+									<template:else>
+										<template:if test="{= ${this>semanticKeyStyle} === 'ObjectIdentifier' }">
+											<template:then>
+												<ObjectIdentifier
+													id="{= ${this>_flexId} || (${this>idPrefix} ? ID.generate([${this>idPrefix}, 'Field']) : undefined) }"
+													visible="{= ${dataField>@@COMMON.getHiddenPathExpression}}"
+													title="{= FIELD.getLabelTextForDataField(${entitySet>@}, ${property>$Path@}, ${property>$Path@@FIELD.buildExpressionForTextValue}, ${property>@@MODEL.format}, ${dataField>@sapui.name}, ${this>semanticKeyStyle}) }"
+													text="{= FIELD.getObjectIdentifierText(${property>$Path@com.sap.vocabularies.Common.v1.Text}, ${property>$Path@com.sap.vocabularies.Common.v1.Text@com.sap.vocabularies.UI.v1.TextArrangement}, ${property>@@MODEL.value}, ${dataField>@sapui.name})}"
+												/>
+									</template:then>
+									<template:else>
+										<Label
+													unittest:id="MacroContentDisplayLabel"
+													id="{= ${this>_flexId} || (${this>idPrefix} ? ID.generate([${this>idPrefix}, 'Field']) : undefined) }"
+													visible="{= ${dataField>@@COMMON.getHiddenPathExpression}}"
+													text="{= FIELD.getLabelTextForDataField(${entitySet>@}, ${property>$Path@}, ${property>$Path@@FIELD.buildExpressionForTextValue}, ${property>@@MODEL.format}, ${dataField>@sapui.name}, ${this>semanticKeyStyle}) }"
+													design="Bold"
+												/>
+											</template:else>
+										</template:if>
+									</template:else>
+								</template:if>
+							</template:elseif>
+							<template:elseif
+								test="{= (${property>$Path/$Type} === 'Edm.String') &amp;&amp;	${property>$Path@com.sap.vocabularies.UI.v1.MultiLineText} }"
+							>
+								<template:if test="{= (${property>@@FIELD.isLineItem}) &amp;&amp; ( ${this>parentControl} === 'Table' ) }">
+									<template:then>
+										<!-- MultiLineText in table-->
+										<Text
+											id="{= ${this>_flexId} || (${this>idPrefix} ? ID.generate([${this>idPrefix}, 'Field']) : undefined) }"
+											text="{property>@@MODEL.format}"
+											width="100%"
+											maxLines="4"
+											visible="{= ${dataField>@@COMMON.getHiddenPathExpression}}"
+										/>
+									</template:then>
+									<template:else>
+										<Text
+											id="{= ${this>_flexId} || (${this>idPrefix} ? ID.generate([${this>idPrefix}, 'Field']) : undefined) }"
+											text="{property>@@MODEL.format}"
+											width="100%"
+											maxLines="{this>textLinesDisplay}"
+											visible="{= ${dataField>@@COMMON.getHiddenPathExpression}}"
+										/>
+									</template:else>
+								</template:if>
+							</template:elseif>
+							<template:elseif test="{property>@@FIELD.getNavigationEntity}">
+
+								<template:with path="property>" helper="FIELD.getNavigationEntity" var="entityType">
+									<template:if
+										test="{= ${property>$Path@com.sap.vocabularies.Common.v1.SemanticObject} || ${entityType>./@com.sap.vocabularies.UI.v1.QuickViewFacets}}"
+									>
+										<template:then>
+											<!--navigation entity + semanticObject-->
+											<!-- or navigation entity, no semanticObject, quickViewFacets-->
+											<Link
+												id="{= ${this>_flexId} || (${this>idPrefix} ? ID.generate([${this>idPrefix}, 'Field']) : undefined) }"
+												visible="{= ${dataField>@@COMMON.getHiddenPathExpression}}"
+												text="{ parts:[ {path:'property>'},{path:'property>$Path@'}, {path:'this>parentControl'}, {path:'entitySet>./@'}, {path:'property>$Path@@FIELD.buildExpressionForTextValue'}, {path:'this>valueFormat'}], formatter: 'FIELD.buildFieldBindingExpression'}"
+												wrapping="true"
+												core:require="{FieldRuntime: 'sap/fe/macros/field/FieldRuntime'}"
+												press="FieldRuntime.pressLink"
+											>
+												<dependents>
+													<macroField:QuickViewForm dataField="{dataField>}" entityType="{entityType>}" />
+												</dependents>
+											</Link>
+										</template:then>
+										<template:else>
+											<Text
+												core:require="{FieldRuntime: 'sap/fe/macros/field/FieldRuntime'}"
+												id="{= ${this>_flexId} || (${this>idPrefix} ? ID.generate([${this>idPrefix}, 'Field']) : undefined) }"
+												text="{ parts:[ {path:'property>'},{path:'property>$Path@'}, {path:'this>parentControl'}, {path:'entitySet>./@'}, {path:'property>$Path@@FIELD.buildExpressionForTextValue'}, {path:'this>valueFormat'}], formatter: 'FIELD.buildFieldBindingExpression'}"
+												visible="{= ${dataField>@@COMMON.getHiddenPathExpression}}"
+											/>
+										</template:else>
+									</template:if>
+								</template:with>
+							</template:elseif>
+							<template:elseif test="{property>$Path@com.sap.vocabularies.Common.v1.SemanticObject}">
+								<Link
+									id="{= ${this>_flexId} || (${this>idPrefix} ? ID.generate([${this>idPrefix}, 'Field']) : undefined) }"
+									visible="{= ${dataField>@@COMMON.getHiddenPathExpression}}"
+									text="{ parts:[ {path:'property>'},{path:'property>$Path@'}, {path:'this>parentControl'}, {path:'entitySet>./@'}, {path:'property>$Path@@FIELD.buildExpressionForTextValue'}, {path:'this>valueFormat'}], formatter: 'FIELD.buildFieldBindingExpression'}"
+									wrapping="true"
+									core:require="{FieldRuntime: 'sap/fe/macros/field/FieldRuntime'}"
+									press="FieldRuntime.pressLink"
+								>
+									<dependents>
+										<macroField:QuickViewForm dataField="{dataField>}" />
+									</dependents>
+								</Link>
+							</template:elseif>
+							<template:elseif test="{= ${dataField>$Type} === 'com.sap.vocabularies.UI.v1.DataFieldWithUrl'}">
+								<Link
+									id="{= ${this>_flexId} || (${this>idPrefix} ? ID.generate([${this>idPrefix}, 'Field']) : undefined) }"
+									visible="{= ${dataField>@@COMMON.getHiddenPathExpression}}"
+									text="{dataField>Value@@MODEL.value}"
+									href="{dataField>Url@@MODEL.value}"
+									wrapping="true"
+									target="_blank"
+								/>
+							</template:elseif>
+							<template:elseif test="{= typeof(${property>}) === 'string'}">
+								<!-- if a property is of type string (hard coded value), then render a Text Box-->
+								<Text
+									id="{= ${this>_flexId} || (${this>idPrefix} ? ID.generate([${this>idPrefix}, 'Field']) : undefined) }"
+									text="{property>}"
+									visible="{= ${dataField>@@COMMON.getHiddenPathExpression}}"
+								/>
+							</template:elseif>
+							<template:else>
+								<Text
+									core:require="{FieldRuntime: 'sap/fe/macros/field/FieldRuntime'}"
+									id="{= ${this>_flexId} || (${this>idPrefix} ? ID.generate([${this>idPrefix}, 'Field']) : undefined) }"
+									text="{ parts:[ {path:'property>'},{path:'property>$Path@'}, {path:'this>parentControl'}, {path:'entitySet>./@'}, {path:'property>$Path@@FIELD.buildExpressionForTextValue'}, {path:'this>valueFormat'}], formatter: 'FIELD.buildFieldBindingExpression'}"
+									visible="{= ${dataField>@@COMMON.getHiddenPathExpression}}"
+								/>
+							</template:else>
+						</template:if>
+					</template:then>
+					<template:else>
+						<core:Fragment fragmentName="sap.fe.macros.field.MdcField" type="XML" />
+					</template:else>
+				</template:if>
+			</template:else>
+		</template:if>
+
+	</template:with>
+</core:FragmentDefinition>

@@ -1,0 +1,13 @@
+<core:FragmentDefinition
+	xmlns:core="sap.ui.core"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns="sap.m"
+	template:require="{OP: 'sap/fe/templates/ObjectPage/AnnotationHelper'}"
+>
+	<template:with path="entityType>@com.sap.vocabularies.UI.v1.HeaderInfo" var="headerInfo">
+		<VBox>
+			<Title text="{= OP.buildExpressionForTitle(${headerInfo>}, ${viewData>})}" wrapping="true" />
+			<Label text="{= OP.buildExpressionForDesc(${headerInfo>})}" />
+		</VBox>
+	</template:with>
+</core:FragmentDefinition>

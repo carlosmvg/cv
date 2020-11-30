@@ -1,0 +1,21 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog
+        id="deletePageDialog"
+        title="{i18n>DeleteDialog.Title}"
+        type="Message"
+        state="Warning"
+        afterClose=".destroy">
+        <content>
+            <Text id="deleteMessage" text="{/message}" />
+            <core:ComponentContainer id="transportContainer" lifecycle="Application" />
+        </content>
+        <beginButton>
+            <Button id="deleteButton" text="{i18n>DeleteDialog.ConfirmButton}" press=".onConfirm" type="Emphasized" />
+        </beginButton>
+        <endButton>
+            <Button id="cancelButton" text="{i18n>Button.Cancel}" press=".onCancel" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

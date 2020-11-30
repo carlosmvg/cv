@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<simple-type xmlns="http://www.sap.com/sap.ui.library.xsd">
+    <name>CalendarAppointmentHeight</name>
+    <derived/>
+    <documentation>Types of a calendar appointment display mode</documentation>
+    <since>1.80.0</since>
+    <enumeration>
+        <value name="HalfSize">
+            <documentation>HalfSize display mode.</documentation>
+        </value>
+        <value name="Regular">
+            <documentation>Regular display mode.</documentation>
+        </value>
+        <value name="Large">
+            <documentation>Large display mode.</documentation>
+        </value>
+        <value name="Automatic">
+            <documentation>Automatic display mode.</documentation>
+        </value>
+    </enumeration>
+</simple-type>

@@ -1,0 +1,35 @@
+{
+	"_version": "1.1.0",
+	"resources": [
+		{
+			"name": "Component-dbg.js",
+			"size": 1537,
+			"isDebug": true
+		},
+		{
+			"name": "Component.js",
+			"size": 695
+		},
+		{
+			"name": "Table-dbg.controller.js",
+			"size": 9501,
+			"isDebug": true
+		},
+		{
+			"name": "Table.controller.js",
+			"size": 3442
+		},
+		{
+			"name": "Table.fragment.xml",
+			"size": 1123
+		},
+		{
+			"name": "TableDashBoardLayout.fragment.xml",
+			"size": 1843
+		},
+		{
+			"name": "TableEasyScanLayout.fragment.xml",
+			"size": 6342
+		}
+	]
+}

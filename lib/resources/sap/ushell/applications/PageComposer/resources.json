@@ -1,0 +1,1718 @@
+{
+	"_version": "1.1.0",
+	"resources": [
+		{
+			"name": "Component-dbg.js",
+			"module": "sap/ushell/applications/PageComposer/Component.js",
+			"size": 8505,
+			"isDebug": true,
+			"required": [
+				"sap/ui/core/InvisibleMessage.js",
+				"sap/ui/core/UIComponent.js",
+				"sap/ui/core/routing/History.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/applications/PageComposer/controller/ErrorDialog.js",
+				"sap/ushell/applications/PageComposer/util/PagePersistence.js",
+				"sap/ushell/utils.js"
+			]
+		},
+		{
+			"name": "Component-h2-preload.js",
+			"module": "sap/ushell/applications/PageComposer/Component-h2-preload.js",
+			"size": 20389,
+			"merged": true,
+			"required": [
+				"sap/base/Log.js",
+				"sap/base/strings/formatMessage.js",
+				"sap/f/DynamicPage.js",
+				"sap/f/DynamicPageTitle.js",
+				"sap/m/Bar.js",
+				"sap/m/Button.js",
+				"sap/m/ButtonType.js",
+				"sap/m/Column.js",
+				"sap/m/ColumnListItem.js",
+				"sap/m/CustomListItem.js",
+				"sap/m/DateRangeSelection.js",
+				"sap/m/Dialog.js",
+				"sap/m/FlexItemData.js",
+				"sap/m/GenericTileScope.js",
+				"sap/m/GroupHeaderListItem.js",
+				"sap/m/HBox.js",
+				"sap/m/IconTabBar.js",
+				"sap/m/IconTabFilter.js",
+				"sap/m/Input.js",
+				"sap/m/Label.js",
+				"sap/m/Link.js",
+				"sap/m/List.js",
+				"sap/m/ListType.js",
+				"sap/m/Menu.js",
+				"sap/m/MenuButton.js",
+				"sap/m/MenuItem.js",
+				"sap/m/MessageBox.js",
+				"sap/m/MessageItem.js",
+				"sap/m/MessagePage.js",
+				"sap/m/MessagePopover.js",
+				"sap/m/MessageStrip.js",
+				"sap/m/MessageToast.js",
+				"sap/m/NavContainer.js",
+				"sap/m/ObjectIdentifier.js",
+				"sap/m/ObjectStatus.js",
+				"sap/m/OverflowToolbar.js",
+				"sap/m/OverflowToolbarButton.js",
+				"sap/m/Page.js",
+				"sap/m/ResponsivePopover.js",
+				"sap/m/ScrollContainer.js",
+				"sap/m/SearchField.js",
+				"sap/m/SegmentedButton.js",
+				"sap/m/SegmentedButtonItem.js",
+				"sap/m/SelectDialog.js",
+				"sap/m/StandardListItem.js",
+				"sap/m/Table.js",
+				"sap/m/Text.js",
+				"sap/m/Title.js",
+				"sap/m/Toolbar.js",
+				"sap/m/ToolbarSpacer.js",
+				"sap/m/VBox.js",
+				"sap/m/ViewSettingsCustomItem.js",
+				"sap/m/ViewSettingsCustomTab.js",
+				"sap/m/ViewSettingsDialog.js",
+				"sap/m/ViewSettingsFilterItem.js",
+				"sap/m/ViewSettingsItem.js",
+				"sap/m/library.js",
+				"sap/ui/core/BusyIndicator.js",
+				"sap/ui/core/ComponentContainer.js",
+				"sap/ui/core/CustomData.js",
+				"sap/ui/core/ExtensionPoint.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ui/core/Icon.js",
+				"sap/ui/core/InvisibleMessage.js",
+				"sap/ui/core/MessageType.js",
+				"sap/ui/core/UIComponent.js",
+				"sap/ui/core/dnd/DragInfo.js",
+				"sap/ui/core/dnd/DropInfo.js",
+				"sap/ui/core/format/DateFormat.js",
+				"sap/ui/core/library.js",
+				"sap/ui/core/mvc/Controller.js",
+				"sap/ui/core/mvc/XMLView.js",
+				"sap/ui/core/routing/History.js",
+				"sap/ui/layout/DynamicSideContent.js",
+				"sap/ui/layout/form/SimpleForm.js",
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js",
+				"sap/ui/model/Sorter.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/Config.js",
+				"sap/ushell/library.js",
+				"sap/ushell/resources.js",
+				"sap/ushell/services/Container.js",
+				"sap/ushell/ui/CustomGroupHeaderListItem.js",
+				"sap/ushell/ui/launchpad/Page.js",
+				"sap/ushell/ui/launchpad/Section.js",
+				"sap/ushell/utils.js",
+				"sap/ushell/utils/clone.js"
+			],
+			"included": [
+				"sap/ushell/applications/PageComposer/Component.js",
+				"sap/ushell/applications/PageComposer/manifest.json",
+				"sap/ushell/applications/PageComposer/controller/App.controller.js",
+				"sap/ushell/applications/PageComposer/controller/BaseController.js",
+				"sap/ushell/applications/PageComposer/controller/BaseDialog.controller.js",
+				"sap/ushell/applications/PageComposer/controller/CatalogSelector.controller.js",
+				"sap/ushell/applications/PageComposer/controller/ConfirmChangesDialog.controller.js",
+				"sap/ushell/applications/PageComposer/controller/ContextSelector.controller.js",
+				"sap/ushell/applications/PageComposer/controller/CopyPageDialog.controller.js",
+				"sap/ushell/applications/PageComposer/controller/CreatePageDialog.controller.js",
+				"sap/ushell/applications/PageComposer/controller/DeleteDialog.controller.js",
+				"sap/ushell/applications/PageComposer/controller/EditDialog.controller.js",
+				"sap/ushell/applications/PageComposer/controller/ErrorDialog.js",
+				"sap/ushell/applications/PageComposer/controller/ErrorPage.controller.js",
+				"sap/ushell/applications/PageComposer/controller/Page.js",
+				"sap/ushell/applications/PageComposer/controller/PageDetail.controller.js",
+				"sap/ushell/applications/PageComposer/controller/PageOverview.controller.js",
+				"sap/ushell/applications/PageComposer/controller/PagePreviewDialog.controller.js",
+				"sap/ushell/applications/PageComposer/controller/TileSelector.js",
+				"sap/ushell/applications/PageComposer/controller/ViewSettingsCustomerCreatedDialog.controller.js",
+				"sap/ushell/applications/PageComposer/controller/ViewSettingsSapDeliveredDialog.controller.js",
+				"sap/ushell/applications/PageComposer/controller/ViewSettingsSpaceAssignmentDialog.controller.js",
+				"sap/ushell/applications/PageComposer/controller/ViewSettingsTileSelector.controller.js",
+				"sap/ushell/applications/PageComposer/i18n/i18n.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_ar.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_bg.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_ca.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_cs.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_da.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_de.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_el.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_en.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_en_US_sappsd.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_en_US_saptrc.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_es.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_et.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_fi.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_fr.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_hi.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_hr.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_hu.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_it.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_iw.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_ja.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_kk.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_ko.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_lt.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_lv.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_ms.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_nl.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_no.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_pl.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_pt.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_ro.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_ru.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_sh.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_sk.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_sl.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_sv.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_th.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_tr.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_uk.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_vi.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_zh_CN.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_zh_TW.properties",
+				"sap/ushell/applications/PageComposer/util/FilterFactory.js",
+				"sap/ushell/applications/PageComposer/util/PagePersistence.js",
+				"sap/ushell/applications/PageComposer/util/Transport.js",
+				"sap/ushell/applications/PageComposer/view/App.view.xml",
+				"sap/ushell/applications/PageComposer/view/CatalogSelector.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/ConfirmChangesDialog.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/ContextSelector.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/CopyPageDialog.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/CreatePageDialog.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/DeleteDialog.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/DiscardChangesPopover.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/EditDialog.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/ErrorDialog.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/ErrorPage.view.xml",
+				"sap/ushell/applications/PageComposer/view/ODataErrorPage.view.xml",
+				"sap/ushell/applications/PageComposer/view/Page.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/PageContent.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/PageDetail.view.xml",
+				"sap/ushell/applications/PageComposer/view/PageInfo.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/PageOverview.view.xml",
+				"sap/ushell/applications/PageComposer/view/PagePreviewDialog.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/SpaceAssignment.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/TableCustomerCreated.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/TableSapDelivered.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/TileInfoPopover.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/TileSelector.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/ViewSettingsCustomerCreatedDialog.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/ViewSettingsSapDeliveredDialog.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/ViewSettingsSpaceAssignmentDialog.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/ViewSettingsTileSelector.fragment.xml"
+			]
+		},
+		{
+			"name": "Component-h2-preload.js.map",
+			"size": 2465,
+			"isDebug": true
+		},
+		{
+			"name": "Component-preload.js",
+			"module": "sap/ushell/applications/PageComposer/Component-preload.js",
+			"size": 710792,
+			"merged": true,
+			"required": [
+				"sap/base/Log.js",
+				"sap/base/strings/formatMessage.js",
+				"sap/f/DynamicPage.js",
+				"sap/f/DynamicPageTitle.js",
+				"sap/m/Bar.js",
+				"sap/m/Button.js",
+				"sap/m/ButtonType.js",
+				"sap/m/Column.js",
+				"sap/m/ColumnListItem.js",
+				"sap/m/CustomListItem.js",
+				"sap/m/DateRangeSelection.js",
+				"sap/m/Dialog.js",
+				"sap/m/FlexItemData.js",
+				"sap/m/GenericTileScope.js",
+				"sap/m/GroupHeaderListItem.js",
+				"sap/m/HBox.js",
+				"sap/m/IconTabBar.js",
+				"sap/m/IconTabFilter.js",
+				"sap/m/Input.js",
+				"sap/m/Label.js",
+				"sap/m/Link.js",
+				"sap/m/List.js",
+				"sap/m/ListType.js",
+				"sap/m/Menu.js",
+				"sap/m/MenuButton.js",
+				"sap/m/MenuItem.js",
+				"sap/m/MessageBox.js",
+				"sap/m/MessageItem.js",
+				"sap/m/MessagePage.js",
+				"sap/m/MessagePopover.js",
+				"sap/m/MessageStrip.js",
+				"sap/m/MessageToast.js",
+				"sap/m/NavContainer.js",
+				"sap/m/ObjectIdentifier.js",
+				"sap/m/ObjectStatus.js",
+				"sap/m/OverflowToolbar.js",
+				"sap/m/OverflowToolbarButton.js",
+				"sap/m/Page.js",
+				"sap/m/ResponsivePopover.js",
+				"sap/m/ScrollContainer.js",
+				"sap/m/SearchField.js",
+				"sap/m/SegmentedButton.js",
+				"sap/m/SegmentedButtonItem.js",
+				"sap/m/SelectDialog.js",
+				"sap/m/StandardListItem.js",
+				"sap/m/Table.js",
+				"sap/m/Text.js",
+				"sap/m/Title.js",
+				"sap/m/Toolbar.js",
+				"sap/m/ToolbarSpacer.js",
+				"sap/m/VBox.js",
+				"sap/m/ViewSettingsCustomItem.js",
+				"sap/m/ViewSettingsCustomTab.js",
+				"sap/m/ViewSettingsDialog.js",
+				"sap/m/ViewSettingsFilterItem.js",
+				"sap/m/ViewSettingsItem.js",
+				"sap/m/library.js",
+				"sap/ui/core/BusyIndicator.js",
+				"sap/ui/core/ComponentContainer.js",
+				"sap/ui/core/CustomData.js",
+				"sap/ui/core/ExtensionPoint.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ui/core/Icon.js",
+				"sap/ui/core/InvisibleMessage.js",
+				"sap/ui/core/MessageType.js",
+				"sap/ui/core/UIComponent.js",
+				"sap/ui/core/dnd/DragInfo.js",
+				"sap/ui/core/dnd/DropInfo.js",
+				"sap/ui/core/format/DateFormat.js",
+				"sap/ui/core/library.js",
+				"sap/ui/core/mvc/Controller.js",
+				"sap/ui/core/mvc/XMLView.js",
+				"sap/ui/core/routing/History.js",
+				"sap/ui/layout/DynamicSideContent.js",
+				"sap/ui/layout/form/SimpleForm.js",
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js",
+				"sap/ui/model/Sorter.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/Config.js",
+				"sap/ushell/library.js",
+				"sap/ushell/resources.js",
+				"sap/ushell/services/Container.js",
+				"sap/ushell/ui/CustomGroupHeaderListItem.js",
+				"sap/ushell/ui/launchpad/Page.js",
+				"sap/ushell/ui/launchpad/Section.js",
+				"sap/ushell/utils.js",
+				"sap/ushell/utils/clone.js"
+			],
+			"included": [
+				"sap/ushell/applications/PageComposer/Component.js",
+				"sap/ushell/applications/PageComposer/controller/App.controller.js",
+				"sap/ushell/applications/PageComposer/controller/BaseController.js",
+				"sap/ushell/applications/PageComposer/controller/BaseDialog.controller.js",
+				"sap/ushell/applications/PageComposer/controller/CatalogSelector.controller.js",
+				"sap/ushell/applications/PageComposer/controller/ConfirmChangesDialog.controller.js",
+				"sap/ushell/applications/PageComposer/controller/ContextSelector.controller.js",
+				"sap/ushell/applications/PageComposer/controller/CopyPageDialog.controller.js",
+				"sap/ushell/applications/PageComposer/controller/CreatePageDialog.controller.js",
+				"sap/ushell/applications/PageComposer/controller/DeleteDialog.controller.js",
+				"sap/ushell/applications/PageComposer/controller/EditDialog.controller.js",
+				"sap/ushell/applications/PageComposer/controller/ErrorDialog.js",
+				"sap/ushell/applications/PageComposer/controller/ErrorPage.controller.js",
+				"sap/ushell/applications/PageComposer/controller/Page.js",
+				"sap/ushell/applications/PageComposer/controller/PageDetail.controller.js",
+				"sap/ushell/applications/PageComposer/controller/PageOverview.controller.js",
+				"sap/ushell/applications/PageComposer/controller/PagePreviewDialog.controller.js",
+				"sap/ushell/applications/PageComposer/controller/TileSelector.js",
+				"sap/ushell/applications/PageComposer/controller/ViewSettingsCustomerCreatedDialog.controller.js",
+				"sap/ushell/applications/PageComposer/controller/ViewSettingsSapDeliveredDialog.controller.js",
+				"sap/ushell/applications/PageComposer/controller/ViewSettingsSpaceAssignmentDialog.controller.js",
+				"sap/ushell/applications/PageComposer/controller/ViewSettingsTileSelector.controller.js",
+				"sap/ushell/applications/PageComposer/i18n/i18n.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_ar.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_bg.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_ca.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_cs.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_da.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_de.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_el.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_en.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_en_US_sappsd.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_en_US_saptrc.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_es.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_et.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_fi.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_fr.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_hi.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_hr.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_hu.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_it.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_iw.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_ja.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_kk.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_ko.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_lt.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_lv.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_ms.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_nl.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_no.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_pl.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_pt.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_ro.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_ru.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_sh.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_sk.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_sl.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_sv.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_th.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_tr.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_uk.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_vi.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_zh_CN.properties",
+				"sap/ushell/applications/PageComposer/i18n/i18n_zh_TW.properties",
+				"sap/ushell/applications/PageComposer/manifest.json",
+				"sap/ushell/applications/PageComposer/util/FilterFactory.js",
+				"sap/ushell/applications/PageComposer/util/PagePersistence.js",
+				"sap/ushell/applications/PageComposer/util/Transport.js",
+				"sap/ushell/applications/PageComposer/view/App.view.xml",
+				"sap/ushell/applications/PageComposer/view/CatalogSelector.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/ConfirmChangesDialog.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/ContextSelector.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/CopyPageDialog.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/CreatePageDialog.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/DeleteDialog.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/DiscardChangesPopover.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/EditDialog.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/ErrorDialog.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/ErrorPage.view.xml",
+				"sap/ushell/applications/PageComposer/view/ODataErrorPage.view.xml",
+				"sap/ushell/applications/PageComposer/view/Page.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/PageContent.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/PageDetail.view.xml",
+				"sap/ushell/applications/PageComposer/view/PageInfo.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/PageOverview.view.xml",
+				"sap/ushell/applications/PageComposer/view/PagePreviewDialog.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/SpaceAssignment.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/TableCustomerCreated.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/TableSapDelivered.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/TileInfoPopover.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/TileSelector.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/ViewSettingsCustomerCreatedDialog.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/ViewSettingsSapDeliveredDialog.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/ViewSettingsSpaceAssignmentDialog.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/ViewSettingsTileSelector.fragment.xml"
+			]
+		},
+		{
+			"name": "Component-preload.js.map",
+			"size": 84244,
+			"isDebug": true
+		},
+		{
+			"name": "Component.js",
+			"module": "sap/ushell/applications/PageComposer/Component.js",
+			"size": 3452,
+			"required": [
+				"sap/ui/core/InvisibleMessage.js",
+				"sap/ui/core/UIComponent.js",
+				"sap/ui/core/routing/History.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/applications/PageComposer/controller/ErrorDialog.js",
+				"sap/ushell/applications/PageComposer/util/PagePersistence.js",
+				"sap/ushell/utils.js"
+			]
+		},
+		{
+			"name": "controller/App-dbg.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/App.controller.js",
+			"size": 240,
+			"isDebug": true,
+			"required": [
+				"sap/ushell/applications/PageComposer/controller/BaseController.js"
+			]
+		},
+		{
+			"name": "controller/App.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/App.controller.js",
+			"size": 193,
+			"required": [
+				"sap/ushell/applications/PageComposer/controller/BaseController.js"
+			]
+		},
+		{
+			"name": "controller/BaseController-dbg.js",
+			"module": "sap/ushell/applications/PageComposer/controller/BaseController.js",
+			"size": 29605,
+			"isDebug": true,
+			"required": [
+				"sap/base/Log.js",
+				"sap/m/MessageBox.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ui/core/UIComponent.js",
+				"sap/ui/core/mvc/Controller.js",
+				"sap/ui/core/routing/History.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/applications/PageComposer/util/Transport.js"
+			]
+		},
+		{
+			"name": "controller/BaseController.js",
+			"module": "sap/ushell/applications/PageComposer/controller/BaseController.js",
+			"size": 10384,
+			"required": [
+				"sap/base/Log.js",
+				"sap/m/MessageBox.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ui/core/UIComponent.js",
+				"sap/ui/core/mvc/Controller.js",
+				"sap/ui/core/routing/History.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/applications/PageComposer/util/Transport.js"
+			]
+		},
+		{
+			"name": "controller/BaseDialog-dbg.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/BaseDialog.controller.js",
+			"size": 11299,
+			"isDebug": true,
+			"required": [
+				"sap/ui/core/Fragment.js",
+				"sap/ui/core/library.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/applications/PageComposer/controller/BaseController.js"
+			]
+		},
+		{
+			"name": "controller/BaseDialog.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/BaseDialog.controller.js",
+			"size": 3208,
+			"required": [
+				"sap/ui/core/Fragment.js",
+				"sap/ui/core/library.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/applications/PageComposer/controller/BaseController.js"
+			]
+		},
+		{
+			"name": "controller/CatalogSelector-dbg.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/CatalogSelector.controller.js",
+			"size": 3301,
+			"isDebug": true,
+			"required": [
+				"sap/ui/core/Fragment.js",
+				"sap/ui/core/mvc/Controller.js",
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js"
+			]
+		},
+		{
+			"name": "controller/CatalogSelector.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/CatalogSelector.controller.js",
+			"size": 1080,
+			"required": [
+				"sap/ui/core/Fragment.js",
+				"sap/ui/core/mvc/Controller.js",
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js"
+			]
+		},
+		{
+			"name": "controller/ConfirmChangesDialog-dbg.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/ConfirmChangesDialog.controller.js",
+			"size": 4863,
+			"isDebug": true,
+			"required": [
+				"sap/m/MessageToast.js",
+				"sap/ushell/applications/PageComposer/controller/BaseDialog.controller.js"
+			]
+		},
+		{
+			"name": "controller/ConfirmChangesDialog.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/ConfirmChangesDialog.controller.js",
+			"size": 1723,
+			"required": [
+				"sap/m/MessageToast.js",
+				"sap/ushell/applications/PageComposer/controller/BaseDialog.controller.js"
+			]
+		},
+		{
+			"name": "controller/ContextSelector-dbg.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/ContextSelector.controller.js",
+			"size": 4822,
+			"isDebug": true,
+			"required": [
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js",
+				"sap/ushell/applications/PageComposer/controller/BaseDialog.controller.js"
+			]
+		},
+		{
+			"name": "controller/ContextSelector.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/ContextSelector.controller.js",
+			"size": 1812,
+			"required": [
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js",
+				"sap/ushell/applications/PageComposer/controller/BaseDialog.controller.js"
+			]
+		},
+		{
+			"name": "controller/CopyPageDialog-dbg.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/CopyPageDialog.controller.js",
+			"size": 584,
+			"isDebug": true,
+			"required": [
+				"sap/ushell/applications/PageComposer/controller/BaseDialog.controller.js"
+			]
+		},
+		{
+			"name": "controller/CopyPageDialog.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/CopyPageDialog.controller.js",
+			"size": 393,
+			"required": [
+				"sap/ushell/applications/PageComposer/controller/BaseDialog.controller.js"
+			]
+		},
+		{
+			"name": "controller/CreatePageDialog-dbg.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/CreatePageDialog.controller.js",
+			"size": 590,
+			"isDebug": true,
+			"required": [
+				"sap/ushell/applications/PageComposer/controller/BaseDialog.controller.js"
+			]
+		},
+		{
+			"name": "controller/CreatePageDialog.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/CreatePageDialog.controller.js",
+			"size": 399,
+			"required": [
+				"sap/ushell/applications/PageComposer/controller/BaseDialog.controller.js"
+			]
+		},
+		{
+			"name": "controller/DeleteDialog-dbg.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/DeleteDialog.controller.js",
+			"size": 593,
+			"isDebug": true,
+			"required": [
+				"sap/ushell/applications/PageComposer/controller/BaseDialog.controller.js"
+			]
+		},
+		{
+			"name": "controller/DeleteDialog.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/DeleteDialog.controller.js",
+			"size": 402,
+			"required": [
+				"sap/ushell/applications/PageComposer/controller/BaseDialog.controller.js"
+			]
+		},
+		{
+			"name": "controller/EditDialog-dbg.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/EditDialog.controller.js",
+			"size": 1284,
+			"isDebug": true,
+			"required": [
+				"sap/ushell/applications/PageComposer/controller/BaseDialog.controller.js"
+			]
+		},
+		{
+			"name": "controller/EditDialog.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/EditDialog.controller.js",
+			"size": 650,
+			"required": [
+				"sap/ushell/applications/PageComposer/controller/BaseDialog.controller.js"
+			]
+		},
+		{
+			"name": "controller/ErrorDialog-dbg.js",
+			"module": "sap/ushell/applications/PageComposer/controller/ErrorDialog.js",
+			"size": 3992,
+			"isDebug": true,
+			"required": [
+				"sap/m/MessageToast.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ui/model/json/JSONModel.js"
+			]
+		},
+		{
+			"name": "controller/ErrorDialog.js",
+			"module": "sap/ushell/applications/PageComposer/controller/ErrorDialog.js",
+			"size": 1534,
+			"required": [
+				"sap/m/MessageToast.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ui/model/json/JSONModel.js"
+			]
+		},
+		{
+			"name": "controller/ErrorPage-dbg.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/ErrorPage.controller.js",
+			"size": 1731,
+			"isDebug": true,
+			"required": [
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/applications/PageComposer/controller/BaseController.js"
+			]
+		},
+		{
+			"name": "controller/ErrorPage.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/ErrorPage.controller.js",
+			"size": 1009,
+			"required": [
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/applications/PageComposer/controller/BaseController.js"
+			]
+		},
+		{
+			"name": "controller/Page-dbg.js",
+			"module": "sap/ushell/applications/PageComposer/controller/Page.js",
+			"size": 21843,
+			"isDebug": true,
+			"required": [
+				"sap/m/GenericTileScope.js",
+				"sap/ui/core/MessageType.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/Config.js",
+				"sap/ushell/library.js",
+				"sap/ushell/utils/clone.js"
+			],
+			"condRequired": [
+				"sap/m/MessageBox.js"
+			]
+		},
+		{
+			"name": "controller/Page.js",
+			"module": "sap/ushell/applications/PageComposer/controller/Page.js",
+			"size": 6748,
+			"required": [
+				"sap/m/GenericTileScope.js",
+				"sap/ui/core/MessageType.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/Config.js",
+				"sap/ushell/library.js",
+				"sap/ushell/utils/clone.js"
+			],
+			"condRequired": [
+				"sap/m/MessageBox.js"
+			]
+		},
+		{
+			"name": "controller/PageDetail-dbg.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/PageDetail.controller.js",
+			"size": 54717,
+			"isDebug": true,
+			"required": [
+				"sap/base/Log.js",
+				"sap/m/ButtonType.js",
+				"sap/m/MessageBox.js",
+				"sap/m/MessageItem.js",
+				"sap/m/MessagePopover.js",
+				"sap/m/MessageToast.js",
+				"sap/ui/core/BusyIndicator.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ui/core/MessageType.js",
+				"sap/ui/core/library.js",
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/applications/PageComposer/controller/BaseController.js",
+				"sap/ushell/applications/PageComposer/controller/ConfirmChangesDialog.controller.js",
+				"sap/ushell/applications/PageComposer/controller/Page.js",
+				"sap/ushell/applications/PageComposer/controller/TileSelector.js",
+				"sap/ushell/resources.js",
+				"sap/ushell/services/Container.js",
+				"sap/ushell/utils.js"
+			]
+		},
+		{
+			"name": "controller/PageDetail.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/PageDetail.controller.js",
+			"size": 19754,
+			"required": [
+				"sap/base/Log.js",
+				"sap/m/ButtonType.js",
+				"sap/m/MessageBox.js",
+				"sap/m/MessageItem.js",
+				"sap/m/MessagePopover.js",
+				"sap/m/MessageToast.js",
+				"sap/ui/core/BusyIndicator.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ui/core/MessageType.js",
+				"sap/ui/core/library.js",
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/applications/PageComposer/controller/BaseController.js",
+				"sap/ushell/applications/PageComposer/controller/ConfirmChangesDialog.controller.js",
+				"sap/ushell/applications/PageComposer/controller/Page.js",
+				"sap/ushell/applications/PageComposer/controller/TileSelector.js",
+				"sap/ushell/resources.js",
+				"sap/ushell/services/Container.js",
+				"sap/ushell/utils.js"
+			]
+		},
+		{
+			"name": "controller/PageOverview-dbg.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/PageOverview.controller.js",
+			"size": 20626,
+			"isDebug": true,
+			"required": [
+				"sap/m/ColumnListItem.js",
+				"sap/m/ListType.js",
+				"sap/m/MessageToast.js",
+				"sap/m/ObjectIdentifier.js",
+				"sap/m/Text.js",
+				"sap/ui/core/BusyIndicator.js",
+				"sap/ui/model/Sorter.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/applications/PageComposer/controller/BaseController.js",
+				"sap/ushell/applications/PageComposer/util/FilterFactory.js",
+				"sap/ushell/utils.js"
+			]
+		},
+		{
+			"name": "controller/PageOverview.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/PageOverview.controller.js",
+			"size": 8145,
+			"required": [
+				"sap/m/ColumnListItem.js",
+				"sap/m/ListType.js",
+				"sap/m/MessageToast.js",
+				"sap/m/ObjectIdentifier.js",
+				"sap/m/Text.js",
+				"sap/ui/core/BusyIndicator.js",
+				"sap/ui/model/Sorter.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/applications/PageComposer/controller/BaseController.js",
+				"sap/ushell/applications/PageComposer/util/FilterFactory.js",
+				"sap/ushell/utils.js"
+			]
+		},
+		{
+			"name": "controller/PagePreviewDialog-dbg.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/PagePreviewDialog.controller.js",
+			"size": 7677,
+			"isDebug": true,
+			"required": [
+				"sap/ui/core/Fragment.js",
+				"sap/ui/core/mvc/Controller.js",
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/Config.js"
+			]
+		},
+		{
+			"name": "controller/PagePreviewDialog.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/PagePreviewDialog.controller.js",
+			"size": 2569,
+			"required": [
+				"sap/ui/core/Fragment.js",
+				"sap/ui/core/mvc/Controller.js",
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/Config.js"
+			]
+		},
+		{
+			"name": "controller/TileSelector-dbg.js",
+			"module": "sap/ushell/applications/PageComposer/controller/TileSelector.js",
+			"size": 27415,
+			"isDebug": true,
+			"required": [
+				"sap/m/Button.js",
+				"sap/m/List.js",
+				"sap/m/ResponsivePopover.js",
+				"sap/m/StandardListItem.js",
+				"sap/m/library.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js",
+				"sap/ui/model/Sorter.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/services/Container.js",
+				"sap/ushell/utils/clone.js"
+			],
+			"condRequired": [
+				"sap/ushell/applications/PageComposer/controller/CatalogSelector.controller.js",
+				"sap/ushell/applications/PageComposer/controller/ViewSettingsTileSelector.controller.js"
+			]
+		},
+		{
+			"name": "controller/TileSelector.js",
+			"module": "sap/ushell/applications/PageComposer/controller/TileSelector.js",
+			"size": 7111,
+			"required": [
+				"sap/m/Button.js",
+				"sap/m/List.js",
+				"sap/m/ResponsivePopover.js",
+				"sap/m/StandardListItem.js",
+				"sap/m/library.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js",
+				"sap/ui/model/Sorter.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/services/Container.js",
+				"sap/ushell/utils/clone.js"
+			],
+			"condRequired": [
+				"sap/ushell/applications/PageComposer/controller/CatalogSelector.controller.js",
+				"sap/ushell/applications/PageComposer/controller/ViewSettingsTileSelector.controller.js"
+			]
+		},
+		{
+			"name": "controller/ViewSettingsCustomerCreatedDialog-dbg.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/ViewSettingsCustomerCreatedDialog.controller.js",
+			"size": 9352,
+			"isDebug": true,
+			"required": [
+				"sap/ui/core/format/DateFormat.js",
+				"sap/ui/core/mvc/Controller.js",
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js",
+				"sap/ui/model/Sorter.js"
+			]
+		},
+		{
+			"name": "controller/ViewSettingsCustomerCreatedDialog.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/ViewSettingsCustomerCreatedDialog.controller.js",
+			"size": 3576,
+			"required": [
+				"sap/ui/core/format/DateFormat.js",
+				"sap/ui/core/mvc/Controller.js",
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js",
+				"sap/ui/model/Sorter.js"
+			]
+		},
+		{
+			"name": "controller/ViewSettingsSapDeliveredDialog-dbg.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/ViewSettingsSapDeliveredDialog.controller.js",
+			"size": 7094,
+			"isDebug": true,
+			"required": [
+				"sap/ui/core/format/DateFormat.js",
+				"sap/ui/core/mvc/Controller.js",
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js",
+				"sap/ui/model/Sorter.js"
+			]
+		},
+		{
+			"name": "controller/ViewSettingsSapDeliveredDialog.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/ViewSettingsSapDeliveredDialog.controller.js",
+			"size": 2425,
+			"required": [
+				"sap/ui/core/format/DateFormat.js",
+				"sap/ui/core/mvc/Controller.js",
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js",
+				"sap/ui/model/Sorter.js"
+			]
+		},
+		{
+			"name": "controller/ViewSettingsSpaceAssignmentDialog-dbg.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/ViewSettingsSpaceAssignmentDialog.controller.js",
+			"size": 1193,
+			"isDebug": true,
+			"required": [
+				"sap/ui/core/mvc/Controller.js",
+				"sap/ui/model/Sorter.js"
+			]
+		},
+		{
+			"name": "controller/ViewSettingsSpaceAssignmentDialog.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/ViewSettingsSpaceAssignmentDialog.controller.js",
+			"size": 564,
+			"required": [
+				"sap/ui/core/mvc/Controller.js",
+				"sap/ui/model/Sorter.js"
+			]
+		},
+		{
+			"name": "controller/ViewSettingsTileSelector-dbg.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/ViewSettingsTileSelector.controller.js",
+			"size": 2013,
+			"isDebug": true,
+			"required": [
+				"sap/ui/core/Fragment.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/applications/PageComposer/controller/BaseController.js"
+			]
+		},
+		{
+			"name": "controller/ViewSettingsTileSelector.controller.js",
+			"module": "sap/ushell/applications/PageComposer/controller/ViewSettingsTileSelector.controller.js",
+			"size": 894,
+			"required": [
+				"sap/ui/core/Fragment.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ushell/applications/PageComposer/controller/BaseController.js"
+			]
+		},
+		{
+			"name": "i18n/i18n.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n.properties",
+			"size": 15923,
+			"locale": "",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_ar.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_ar.properties",
+			"size": 34988,
+			"locale": "ar",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_bg.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_bg.properties",
+			"size": 46759,
+			"locale": "bg",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_ca.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_ca.properties",
+			"size": 17602,
+			"locale": "ca",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_cs.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_cs.properties",
+			"size": 18470,
+			"locale": "cs",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_da.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_da.properties",
+			"size": 16142,
+			"locale": "da",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_de.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_de.properties",
+			"size": 17161,
+			"locale": "de",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_el.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_el.properties",
+			"size": 47389,
+			"locale": "el",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_en.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_en.properties",
+			"size": 15573,
+			"locale": "en",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_en_US_sappsd.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_en_US_sappsd.properties",
+			"size": 52193,
+			"locale": "en_US_sappsd",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_en_US_saptrc.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_en_US_saptrc.properties",
+			"size": 20184,
+			"locale": "en_US_saptrc",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_es.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_es.properties",
+			"size": 17727,
+			"locale": "es",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_et.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_et.properties",
+			"size": 15924,
+			"locale": "et",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_fi.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_fi.properties",
+			"size": 16942,
+			"locale": "fi",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_fr.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_fr.properties",
+			"size": 17751,
+			"locale": "fr",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_hi.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_hi.properties",
+			"size": 41695,
+			"locale": "hi",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_hr.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_hr.properties",
+			"size": 16768,
+			"locale": "hr",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_hu.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_hu.properties",
+			"size": 18867,
+			"locale": "hu",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_it.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_it.properties",
+			"size": 16704,
+			"locale": "it",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_iw.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_iw.properties",
+			"size": 32633,
+			"locale": "iw",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_ja.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_ja.properties",
+			"size": 27504,
+			"locale": "ja",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_kk.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_kk.properties",
+			"size": 41536,
+			"locale": "kk",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_ko.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_ko.properties",
+			"size": 23600,
+			"locale": "ko",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_lt.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_lt.properties",
+			"size": 18172,
+			"locale": "lt",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_lv.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_lv.properties",
+			"size": 18738,
+			"locale": "lv",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_ms.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_ms.properties",
+			"size": 15902,
+			"locale": "ms",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_nl.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_nl.properties",
+			"size": 16344,
+			"locale": "nl",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_no.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_no.properties",
+			"size": 15771,
+			"locale": "no",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_pl.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_pl.properties",
+			"size": 17609,
+			"locale": "pl",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_pt.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_pt.properties",
+			"size": 18393,
+			"locale": "pt",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_ro.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_ro.properties",
+			"size": 17928,
+			"locale": "ro",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_ru.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_ru.properties",
+			"size": 42781,
+			"locale": "ru",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_sh.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_sh.properties",
+			"size": 16636,
+			"locale": "sh",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_sk.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_sk.properties",
+			"size": 18621,
+			"locale": "sk",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_sl.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_sl.properties",
+			"size": 16283,
+			"locale": "sl",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_sv.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_sv.properties",
+			"size": 16306,
+			"locale": "sv",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_th.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_th.properties",
+			"size": 40331,
+			"locale": "th",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_tr.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_tr.properties",
+			"size": 18848,
+			"locale": "tr",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_uk.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_uk.properties",
+			"size": 43083,
+			"locale": "uk",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_vi.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_vi.properties",
+			"size": 25243,
+			"locale": "vi",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_zh_CN.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_zh_CN.properties",
+			"size": 20083,
+			"locale": "zh_CN",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_zh_TW.properties",
+			"module": "sap/ushell/applications/PageComposer/i18n/i18n_zh_TW.properties",
+			"size": 19782,
+			"locale": "zh_TW",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "manifest.json",
+			"module": "sap/ushell/applications/PageComposer/manifest.json",
+			"size": 7568
+		},
+		{
+			"name": "resources.json",
+			"size": 44041
+		},
+		{
+			"name": "util/FilterFactory-dbg.js",
+			"module": "sap/ushell/applications/PageComposer/util/FilterFactory.js",
+			"size": 2944,
+			"isDebug": true,
+			"required": [
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js",
+				"sap/ushell/utils/clone.js"
+			]
+		},
+		{
+			"name": "util/FilterFactory.js",
+			"module": "sap/ushell/applications/PageComposer/util/FilterFactory.js",
+			"size": 710,
+			"required": [
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js",
+				"sap/ushell/utils/clone.js"
+			]
+		},
+		{
+			"name": "util/PagePersistence-dbg.js",
+			"module": "sap/ushell/applications/PageComposer/util/PagePersistence.js",
+			"size": 20921,
+			"isDebug": true,
+			"required": [
+				"sap/ui/core/MessageType.js",
+				"sap/ushell/utils/clone.js"
+			]
+		},
+		{
+			"name": "util/PagePersistence.js",
+			"module": "sap/ushell/applications/PageComposer/util/PagePersistence.js",
+			"size": 6830,
+			"required": [
+				"sap/ui/core/MessageType.js",
+				"sap/ushell/utils/clone.js"
+			]
+		},
+		{
+			"name": "util/Transport-dbg.js",
+			"module": "sap/ushell/applications/PageComposer/util/Transport.js",
+			"size": 2054,
+			"isDebug": true
+		},
+		{
+			"name": "util/Transport.js",
+			"module": "sap/ushell/applications/PageComposer/util/Transport.js",
+			"size": 577
+		},
+		{
+			"name": "view/App.view.xml",
+			"module": "sap/ushell/applications/PageComposer/view/App.view.xml",
+			"size": 289,
+			"required": [
+				"sap/m/NavContainer.js",
+				"sap/ui/core/mvc/XMLView.js",
+				"sap/ushell/applications/PageComposer/controller/App.controller.js"
+			]
+		},
+		{
+			"name": "view/CatalogSelector.fragment.xml",
+			"module": "sap/ushell/applications/PageComposer/view/CatalogSelector.fragment.xml",
+			"size": 633,
+			"required": [
+				"sap/m/SelectDialog.js",
+				"sap/m/StandardListItem.js",
+				"sap/ui/core/Fragment.js"
+			]
+		},
+		{
+			"name": "view/ConfirmChangesDialog.fragment.xml",
+			"module": "sap/ushell/applications/PageComposer/view/ConfirmChangesDialog.fragment.xml",
+			"size": 1408,
+			"required": [
+				"sap/m/Button.js",
+				"sap/m/Dialog.js",
+				"sap/m/Text.js",
+				"sap/m/VBox.js",
+				"sap/ui/core/Fragment.js"
+			]
+		},
+		{
+			"name": "view/ContextSelector.fragment.xml",
+			"module": "sap/ushell/applications/PageComposer/view/ContextSelector.fragment.xml",
+			"size": 1778,
+			"required": [
+				"sap/m/Button.js",
+				"sap/m/Dialog.js",
+				"sap/m/Label.js",
+				"sap/m/List.js",
+				"sap/m/OverflowToolbar.js",
+				"sap/m/SearchField.js",
+				"sap/m/StandardListItem.js",
+				"sap/m/Toolbar.js",
+				"sap/ui/core/Fragment.js"
+			]
+		},
+		{
+			"name": "view/CopyPageDialog.fragment.xml",
+			"module": "sap/ushell/applications/PageComposer/view/CopyPageDialog.fragment.xml",
+			"size": 3146,
+			"required": [
+				"sap/base/strings/formatMessage.js",
+				"sap/m/Button.js",
+				"sap/m/Dialog.js",
+				"sap/m/Input.js",
+				"sap/m/Label.js",
+				"sap/m/Text.js",
+				"sap/ui/core/ComponentContainer.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ui/layout/form/SimpleForm.js"
+			]
+		},
+		{
+			"name": "view/CreatePageDialog.fragment.xml",
+			"module": "sap/ushell/applications/PageComposer/view/CreatePageDialog.fragment.xml",
+			"size": 2857,
+			"required": [
+				"sap/m/Button.js",
+				"sap/m/Dialog.js",
+				"sap/m/Input.js",
+				"sap/m/Label.js",
+				"sap/ui/core/ComponentContainer.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ui/layout/form/SimpleForm.js"
+			]
+		},
+		{
+			"name": "view/DeleteDialog.fragment.xml",
+			"module": "sap/ushell/applications/PageComposer/view/DeleteDialog.fragment.xml",
+			"size": 751,
+			"required": [
+				"sap/m/Button.js",
+				"sap/m/Dialog.js",
+				"sap/m/Text.js",
+				"sap/ui/core/ComponentContainer.js",
+				"sap/ui/core/Fragment.js"
+			]
+		},
+		{
+			"name": "view/DiscardChangesPopover.fragment.xml",
+			"module": "sap/ushell/applications/PageComposer/view/DiscardChangesPopover.fragment.xml",
+			"size": 729,
+			"required": [
+				"sap/m/Button.js",
+				"sap/m/ResponsivePopover.js",
+				"sap/m/Text.js",
+				"sap/m/VBox.js",
+				"sap/ui/core/Fragment.js"
+			]
+		},
+		{
+			"name": "view/EditDialog.fragment.xml",
+			"module": "sap/ushell/applications/PageComposer/view/EditDialog.fragment.xml",
+			"size": 762,
+			"required": [
+				"sap/m/Button.js",
+				"sap/m/Dialog.js",
+				"sap/m/Text.js",
+				"sap/ui/core/ComponentContainer.js",
+				"sap/ui/core/Fragment.js"
+			]
+		},
+		{
+			"name": "view/ErrorDialog.fragment.xml",
+			"module": "sap/ushell/applications/PageComposer/view/ErrorDialog.fragment.xml",
+			"size": 1619,
+			"required": [
+				"sap/m/Button.js",
+				"sap/m/Dialog.js",
+				"sap/m/Link.js",
+				"sap/m/Text.js",
+				"sap/m/VBox.js",
+				"sap/ui/core/Fragment.js"
+			]
+		},
+		{
+			"name": "view/ErrorPage.view.xml",
+			"module": "sap/ushell/applications/PageComposer/view/ErrorPage.view.xml",
+			"size": 489,
+			"required": [
+				"sap/m/Link.js",
+				"sap/m/MessagePage.js",
+				"sap/ui/core/mvc/XMLView.js",
+				"sap/ushell/applications/PageComposer/controller/ErrorPage.controller.js"
+			]
+		},
+		{
+			"name": "view/ODataErrorPage.view.xml",
+			"module": "sap/ushell/applications/PageComposer/view/ODataErrorPage.view.xml",
+			"size": 348,
+			"required": [
+				"sap/m/MessagePage.js",
+				"sap/ui/core/mvc/XMLView.js"
+			]
+		},
+		{
+			"name": "view/Page.fragment.xml",
+			"module": "sap/ushell/applications/PageComposer/view/Page.fragment.xml",
+			"size": 1520,
+			"required": [
+				"sap/ui/core/Fragment.js",
+				"sap/ui/core/dnd/DropInfo.js",
+				"sap/ushell/ui/launchpad/Page.js",
+				"sap/ushell/ui/launchpad/Section.js"
+			]
+		},
+		{
+			"name": "view/PageContent.fragment.xml",
+			"module": "sap/ushell/applications/PageComposer/view/PageContent.fragment.xml",
+			"size": 2503,
+			"required": [
+				"sap/base/strings/formatMessage.js",
+				"sap/m/Button.js",
+				"sap/m/FlexItemData.js",
+				"sap/m/OverflowToolbar.js",
+				"sap/m/ScrollContainer.js",
+				"sap/m/ToolbarSpacer.js",
+				"sap/m/VBox.js",
+				"sap/ui/core/CustomData.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ui/layout/DynamicSideContent.js",
+				"sap/ushell/applications/PageComposer/view/Page.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/TileSelector.fragment.xml"
+			]
+		},
+		{
+			"name": "view/PageDetail.view.xml",
+			"module": "sap/ushell/applications/PageComposer/view/PageDetail.view.xml",
+			"size": 6017,
+			"required": [
+				"sap/f/DynamicPage.js",
+				"sap/f/DynamicPageTitle.js",
+				"sap/m/Button.js",
+				"sap/m/HBox.js",
+				"sap/m/IconTabBar.js",
+				"sap/m/IconTabFilter.js",
+				"sap/m/Label.js",
+				"sap/m/ObjectStatus.js",
+				"sap/m/OverflowToolbar.js",
+				"sap/m/Title.js",
+				"sap/m/ToolbarSpacer.js",
+				"sap/ui/core/CustomData.js",
+				"sap/ui/core/ExtensionPoint.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ui/core/mvc/XMLView.js",
+				"sap/ushell/applications/PageComposer/controller/PageDetail.controller.js",
+				"sap/ushell/applications/PageComposer/view/PageContent.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/PageInfo.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/SpaceAssignment.fragment.xml"
+			]
+		},
+		{
+			"name": "view/PageInfo.fragment.xml",
+			"module": "sap/ushell/applications/PageComposer/view/PageInfo.fragment.xml",
+			"size": 3004,
+			"required": [
+				"sap/m/Input.js",
+				"sap/m/Label.js",
+				"sap/m/Text.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ui/layout/form/SimpleForm.js"
+			]
+		},
+		{
+			"name": "view/PageOverview.view.xml",
+			"module": "sap/ushell/applications/PageComposer/view/PageOverview.view.xml",
+			"size": 1199,
+			"required": [
+				"sap/m/IconTabBar.js",
+				"sap/m/IconTabFilter.js",
+				"sap/m/Page.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ui/core/mvc/XMLView.js",
+				"sap/ushell/applications/PageComposer/controller/PageOverview.controller.js",
+				"sap/ushell/applications/PageComposer/view/TableCustomerCreated.fragment.xml",
+				"sap/ushell/applications/PageComposer/view/TableSapDelivered.fragment.xml"
+			]
+		},
+		{
+			"name": "view/PagePreviewDialog.fragment.xml",
+			"module": "sap/ushell/applications/PageComposer/view/PagePreviewDialog.fragment.xml",
+			"size": 2531,
+			"required": [
+				"sap/base/strings/formatMessage.js",
+				"sap/m/Bar.js",
+				"sap/m/Button.js",
+				"sap/m/Dialog.js",
+				"sap/m/Title.js",
+				"sap/ui/core/CustomData.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ushell/applications/PageComposer/controller/Page.js",
+				"sap/ushell/ui/launchpad/Page.js",
+				"sap/ushell/ui/launchpad/Section.js"
+			]
+		},
+		{
+			"name": "view/SpaceAssignment.fragment.xml",
+			"module": "sap/ushell/applications/PageComposer/view/SpaceAssignment.fragment.xml",
+			"size": 4063,
+			"required": [
+				"sap/base/strings/formatMessage.js",
+				"sap/m/Button.js",
+				"sap/m/Column.js",
+				"sap/m/ColumnListItem.js",
+				"sap/m/Label.js",
+				"sap/m/ObjectIdentifier.js",
+				"sap/m/OverflowToolbar.js",
+				"sap/m/OverflowToolbarButton.js",
+				"sap/m/SearchField.js",
+				"sap/m/Table.js",
+				"sap/m/Text.js",
+				"sap/m/Title.js",
+				"sap/m/ToolbarSpacer.js",
+				"sap/ui/core/Fragment.js"
+			]
+		},
+		{
+			"name": "view/TableCustomerCreated.fragment.xml",
+			"module": "sap/ushell/applications/PageComposer/view/TableCustomerCreated.fragment.xml",
+			"size": 7826,
+			"required": [
+				"sap/m/Button.js",
+				"sap/m/Column.js",
+				"sap/m/ColumnListItem.js",
+				"sap/m/FlexItemData.js",
+				"sap/m/Label.js",
+				"sap/m/ObjectIdentifier.js",
+				"sap/m/ObjectStatus.js",
+				"sap/m/OverflowToolbar.js",
+				"sap/m/OverflowToolbarButton.js",
+				"sap/m/SearchField.js",
+				"sap/m/Table.js",
+				"sap/m/Text.js",
+				"sap/m/ToolbarSpacer.js",
+				"sap/m/VBox.js",
+				"sap/ui/core/CustomData.js",
+				"sap/ui/core/Fragment.js"
+			]
+		},
+		{
+			"name": "view/TableSapDelivered.fragment.xml",
+			"module": "sap/ushell/applications/PageComposer/view/TableSapDelivered.fragment.xml",
+			"size": 3575,
+			"required": [
+				"sap/m/Button.js",
+				"sap/m/Column.js",
+				"sap/m/Label.js",
+				"sap/m/OverflowToolbar.js",
+				"sap/m/OverflowToolbarButton.js",
+				"sap/m/SearchField.js",
+				"sap/m/Table.js",
+				"sap/m/Text.js",
+				"sap/m/ToolbarSpacer.js",
+				"sap/ui/core/CustomData.js",
+				"sap/ui/core/Fragment.js"
+			]
+		},
+		{
+			"name": "view/TileInfoPopover.fragment.xml",
+			"module": "sap/ushell/applications/PageComposer/view/TileInfoPopover.fragment.xml",
+			"size": 5229,
+			"required": [
+				"sap/m/GenericTileScope.js",
+				"sap/m/HBox.js",
+				"sap/m/Label.js",
+				"sap/m/MessageStrip.js",
+				"sap/m/ResponsivePopover.js",
+				"sap/m/SegmentedButton.js",
+				"sap/m/SegmentedButtonItem.js",
+				"sap/m/Text.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ui/core/Icon.js",
+				"sap/ui/layout/form/SimpleForm.js",
+				"sap/ushell/library.js"
+			]
+		},
+		{
+			"name": "view/TileSelector.fragment.xml",
+			"module": "sap/ushell/applications/PageComposer/view/TileSelector.fragment.xml",
+			"size": 8716,
+			"required": [
+				"sap/m/Button.js",
+				"sap/m/CustomListItem.js",
+				"sap/m/FlexItemData.js",
+				"sap/m/HBox.js",
+				"sap/m/IconTabBar.js",
+				"sap/m/IconTabFilter.js",
+				"sap/m/Label.js",
+				"sap/m/List.js",
+				"sap/m/Menu.js",
+				"sap/m/MenuButton.js",
+				"sap/m/MenuItem.js",
+				"sap/m/OverflowToolbar.js",
+				"sap/m/OverflowToolbarButton.js",
+				"sap/m/ScrollContainer.js",
+				"sap/m/SearchField.js",
+				"sap/m/Text.js",
+				"sap/m/Title.js",
+				"sap/m/Toolbar.js",
+				"sap/m/ToolbarSpacer.js",
+				"sap/m/VBox.js",
+				"sap/ui/core/CustomData.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ui/core/dnd/DragInfo.js",
+				"sap/ushell/ui/CustomGroupHeaderListItem.js"
+			]
+		},
+		{
+			"name": "view/ViewSettingsCustomerCreatedDialog.fragment.xml",
+			"module": "sap/ushell/applications/PageComposer/view/ViewSettingsCustomerCreatedDialog.fragment.xml",
+			"size": 4305,
+			"required": [
+				"sap/m/DateRangeSelection.js",
+				"sap/m/ViewSettingsCustomItem.js",
+				"sap/m/ViewSettingsDialog.js",
+				"sap/m/ViewSettingsFilterItem.js",
+				"sap/m/ViewSettingsItem.js",
+				"sap/ui/core/Fragment.js"
+			]
+		},
+		{
+			"name": "view/ViewSettingsSapDeliveredDialog.fragment.xml",
+			"module": "sap/ushell/applications/PageComposer/view/ViewSettingsSapDeliveredDialog.fragment.xml",
+			"size": 635,
+			"required": [
+				"sap/m/ViewSettingsDialog.js",
+				"sap/m/ViewSettingsItem.js",
+				"sap/ui/core/Fragment.js"
+			]
+		},
+		{
+			"name": "view/ViewSettingsSpaceAssignmentDialog.fragment.xml",
+			"module": "sap/ushell/applications/PageComposer/view/ViewSettingsSpaceAssignmentDialog.fragment.xml",
+			"size": 638,
+			"required": [
+				"sap/m/ViewSettingsDialog.js",
+				"sap/m/ViewSettingsItem.js",
+				"sap/ui/core/Fragment.js"
+			]
+		},
+		{
+			"name": "view/ViewSettingsTileSelector.fragment.xml",
+			"module": "sap/ushell/applications/PageComposer/view/ViewSettingsTileSelector.fragment.xml",
+			"size": 1872,
+			"required": [
+				"sap/m/GroupHeaderListItem.js",
+				"sap/m/List.js",
+				"sap/m/StandardListItem.js",
+				"sap/m/ViewSettingsCustomTab.js",
+				"sap/m/ViewSettingsDialog.js",
+				"sap/ui/core/Fragment.js"
+			]
+		}
+	]
+}

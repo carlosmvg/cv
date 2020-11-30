@@ -1,0 +1,145 @@
+<!--
+/**
+ * OData v4 Chart
+ * @param [id] ID of the chart
+ * @param [collection] entity to which the chart is bound
+ * @param [presentation] UI.PresentationVariant or UI.Chart
+ * @param [data] binding of the chart
+ * @param [chartType] chart type
+ * @param [height] height of the chart
+ * @param [width] width of the chart
+ * @param [selectionMode] Specifies the selection mode of the chart
+ * @param [p13nMode] Personalization settings
+ * @param [filter] Association to the filterbar
+ * @param [noDataText] text to be provided when no data is available
+ * @param [chartDelegate] delegate of the chart
+ * @param [vizProperties] additional viz properties to be set on the chart
+ */
+-->
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1"
+	xmlns:unittest="http://schemas.sap.com/sapui5/preprocessorextension/sap.fe.unittesting/1"
+	xmlns:mdc="sap.ui.mdc"
+	xmlns:core="sap.ui.core"
+	xmlns:chart="sap.ui.mdc.chart"
+	xmlns:macrodata="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	template:require="{
+							HELPER: 'sap/fe/macros/chart/ChartHelper',
+							COMMON: 'sap/fe/macros/CommonHelper',
+							MODEL: 'sap/ui/model/odata/v4/AnnotationHelper',
+							ID: 'sap/fe/core/helpers/StableIdHelper'
+						}"
+>
+	<!-- TODO: add operation available path to $select -->
+	<template:with path="collection>" helper="COMMON.getTargetCollection" var="targetCollection">
+		<template:with path="presentation>" helper="COMMON.createPresentationPathContext" var="presentationPath">
+			<template:with path="presentation>" helper="HELPER.getUiChart" var="chart">
+					<mdc:Chart
+					unittest:id="ChartMacroFragment"
+					id="{this>id}"
+					data="{= '{path: \'' + (${collection>$kind} === 'EntitySet' ? '/' : '') + ${collection>@sapui.name} + '\', parameters:{$$groupId:\'$auto.Workers\'}}'}"
+					chartType="{= ${this>chartType} || HELPER.formatChartType(${chart>ChartType})}"
+					sortConditions="{= COMMON.getSortConditions(${presentation>}, ${presentationPath>})}"
+					header="{= ${this>header} || ${chart>Title} }"
+					height="{this>height}"
+					width="{this>width}"
+					selectionMode="{this>selectionMode}"
+					vizProperties="{this>vizProperties}"
+					p13nMode="{this>p13nMode}"
+					filter="{this>filter}"
+					noDataText="{this>noDataText}"
+					delegate="{= ${this>chartDelegate} || '{name:\'sap/fe/macros/ChartDelegate\', payload: {collectionName: \'' + ${targetCollection>$@sapui.name} + '\'}}'}"
+					selectionDetailsActionPressed="HELPER.onSelectionDetailsActionPressed"
+					dataPointsSelected="{this>dataPointsSelected}"
+					macrodata:targetCollectionName="{= '/' + ${targetCollection>$@sapui.name} }"
+					macrodata:selectedContextsModel="{this>selectedContextsModel}"
+					macrodata:operationAvailableMap="{= COMMON.stringifyCustomData(${chart>@@HELPER.getOperationAvailableMap})}"
+					macrodata:multiSelectDisabledActions="{= '' + ${chart>@@HELPER.getMultiSelectDisabledActions} + ''}"
+				>
+						<mdc:items>
+							<template:if test="{= ${chart>Dimensions} }">
+								<template:with path="chart>" helper="HELPER.formatDimensions" var="dimensions">
+									<template:repeat list="{dimensions>}" var="dimension">
+										<chart:DimensionItem
+										id="{= ID.generate([${this>id}, ${dimension>key}]) }"
+										key="{dimension>key}"
+										textProperty="{dimension>textPath}"
+										label="{dimension>label}"
+										role="{dimension>role}"
+										criticality="{dimension>criticality}"
+									/>
+									</template:repeat>
+								</template:with>
+							</template:if>
+							<template:with path="chart>" helper="HELPER.formatMeasures" var="measures">
+								<template:repeat list="{measures>}" var="measure">
+									<chart:MeasureItem
+									id="{= ID.generate([${this>id}, ${measure>key}]) }"
+									key="{measure>key}"
+									propertyPath="{measure>propertyPath}"
+									label="{measure>label}"
+									role="{measure>role}"
+									aggregationMethod="{measure>aggregationMethod}"
+									dataPoint="{measure>dataPoint}"
+								/>
+								</template:repeat>
+							</template:with>
+						</mdc:items>
+			<template:if test="{this>actions}">
+				<mdc:actions>
+					<template:repeat list="{actions>}" var="action">
+						<template:with path="action>annotationPath" var="dataField">
+							<template:if test="{= ${action>type} === 'ForNavigation'}">
+								<template:then>
+									<template:if test="{= ${this>id} &amp;&amp; ${this>selectedContextsModel}}">
+										<Button
+													unittest:id="DataFieldForIntentBasedNavigationButtonAction"
+													text="{dataField>Label}"
+													press="{= HELPER.getPressEventForDataFieldForIntentBasedNavigationButton(${this>onDataFieldForIBN},${this>id},${this>selectedContextsModel},${dataField>}) }"
+													enabled="{= HELPER.isDataFieldForIntentBasedNavigationButtonEnabled(${dataField>RequiresContext},${this>selectedContextsModel},${this>id})}"
+													visible="{= ${dataField>./@com.sap.vocabularies.UI.v1.Hidden} ? (${dataField>./@com.sap.vocabularies.UI.v1.Hidden/$Path} ? ${dataField>./@com.sap.vocabularies.UI.v1.Hidden/$Path@@HELPER.getHiddenPathExpressionForTableActionsAndIBN} : !${dataField>./@com.sap.vocabularies.UI.v1.Hidden}) : true}"
+												/>
+									</template:if>
+								</template:then>
+								<template:elseif test="{= ${action>type} === 'ForAction'}">
+									<template:if test="{= ${this>onCallAction} &amp;&amp; ${this>selectedContextsModel} &amp;&amp; (${this>id})}">
+										<template:with path="dataField>Action" helper="COMMON.getActionContext" var="actionContext">
+											<template:with path="dataField>Action" helper="COMMON.getPathToBoundActionOverload" var="isBound">
+												<template:if test="{= ${isBound>$IsBound} !== true || ${actionContext>@Org.OData.Core.V1.OperationAvailable} !== false }">
+													<Button
+																unittest:id="DataFieldForActionButtonAction"
+																id="{= ID.generate([${this>id}, ${dataField>}])}"
+																text="{dataField>Label}"
+																press="{= HELPER.getPressEventForDataFieldForActionButton(${this>onCallAction},${this>selectedContextsModel},${this>id},${dataField>},${chart>@@HELPER.getOperationAvailableMap})}"
+																enabled="{= HELPER.isDataFieldForActionButtonEnabled(${isBound>$IsBound},${this>selectedContextsModel},${this>id},${dataField>Action},${this>collection},${chart>@@HELPER.getOperationAvailableMap}, ${action>enableOnSelect}) }"
+																visible="{= ${dataField>./@com.sap.vocabularies.UI.v1.Hidden} ? (${dataField>./@com.sap.vocabularies.UI.v1.Hidden/$Path} ? ${dataField>./@com.sap.vocabularies.UI.v1.Hidden/$Path@@HELPER.getHiddenPathExpressionForTableActionsAndIBN} : !${dataField>./@com.sap.vocabularies.UI.v1.Hidden}) : true}"
+															>
+													</Button>
+												</template:if>
+											</template:with>
+										</template:with>
+									</template:if>
+								</template:elseif>
+							</template:if>
+					    </template:with>
+					</template:repeat>
+				</mdc:actions>
+			</template:if>
+							<!-- <mdc:selectionDetailsActions>
+								<chart:SelectionDetailsActions>
+									<chart:detailsItemActions>
+									<template:repeat list="{path: 'actions>',
+										filters: [{
+										test: 'HELPER.getActionType'
+										}]}" var="action">
+											<core:Item key="{action>Label}" text="{action>Label}" />
+										</template:repeat>
+									</chart:detailsItemActions>
+								</chart:SelectionDetailsActions>
+							</mdc:selectionDetailsActions> -->
+					</mdc:Chart>
+					</template:with>
+			</template:with>
+		</template:with>
+</core:FragmentDefinition>

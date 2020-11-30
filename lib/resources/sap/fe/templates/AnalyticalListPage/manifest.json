@@ -1,0 +1,26 @@
+{
+	"_version": "1.14.0",
+	"sap.app": {
+		"id": "sap.fe.templates.AnalyticalListPage",
+		"type": "component",
+		"applicationVersion": {
+			"version": "1.82.1"
+		},
+		"title": "Analytical List Page",
+		"tags": {
+			"keywords": ["Analytical List Page"]
+		},
+		"ach": "CA-UI5-FE",
+		"offline": false,
+		"resources": "resources.json"
+	},
+	"sap.ui5": {
+		"services": {
+			"templatedViewService": {
+				"settings": {
+					"converterType": "AnalyticalListPage"
+				}
+			}
+		}
+	}
+}
