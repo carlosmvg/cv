@@ -1,0 +1,29 @@
+<core:FragmentDefinition
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:layout="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:ux="sap.uxap">
+	<ux:ObjectPageLayout height="100%">
+		<ux:headerContent>
+			<HBox class="header" width="100%">
+				<VBox>
+					<Avatar src="{/avatar}" displaySize="XL"/>
+				</VBox>
+				<HBox class="sapUiSmallMarginTop">
+					<VBox class="sapUiSmallMarginBegin">
+						<Title text="{/name} {/lastname}"/>
+						<Label text="{/role}"/>
+						<HBox>
+							<Image src="{/linkedin_logo}" height="12px"/>
+							<link class="sapUiTinyMarginBegin" text="{i18n>home.header.linkedin}" href="{/linkedin}" target="_blank"/>
+						</HBox>
+					</VBox>
+					<VBox class="sapUiMediumMarginBegin" justifyContent="Center">
+						<Label text="{/description}"  wrapping="true"/>
+					</VBox>
+				</HBox>
+			</HBox>
+		</ux:headerContent>
+	</ux:ObjectPageLayout>
+</core:FragmentDefinition>

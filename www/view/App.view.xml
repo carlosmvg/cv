@@ -7,7 +7,6 @@
 			<pages>
 				<Page showHeader="false">
 					<content>
-						<Label text="hola mundo"/>
 					</content>
 				</Page>
 			</pages>

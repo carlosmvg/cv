@@ -4,8 +4,13 @@ sap.ui.define([
 	"use strict";
 
 	return Controller.extend("myCV.controller.Home", {
+
+		/**
+		 * Initializes the model
+		 */
 		onInit: function() {
-			console.log("onInit Home");
+			this.setModel("/local/header.json");
 		}
+
 	});
 });
